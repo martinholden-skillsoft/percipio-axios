@@ -1,0 +1,522 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Percipio Axios Client lib/percipio-axios-client.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    API Documentation
+                </a>
+                
+                 
+                    
+                        <a
+                            class="link user-link "
+                            href="https://github.com//martinholden-skillsoft/percipio-axios"
+                        >
+                            Github
+                        </a>
+                    
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"></div><div class="category"><h2>Axios Extras</h2><h3>Global</h3><ul><li><a href="global.html#timingAdapter">timingAdapter</a></li></ul></div><div class="category"><h2>Errors</h2><h3>Classes</h3><ul><li><a href="PercipioAxiosClientError.html">PercipioAxiosClientError</a></li><li><a href="PropertyInvalidError.html">PropertyInvalidError</a></li><li><a href="PropertyRequiredError.html">PropertyRequiredError</a></li></ul><h3>Global</h3><ul><li><a href="global.html#isPercipioAxiosClientError">isPercipioAxiosClientError</a></li></ul></div><div class="category"><h2>Percipio Client</h2><h3>Classes</h3><ul><li><a href="PercipioAxiosClient.html">PercipioAxiosClient</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>lib/percipio-axios-client.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const { Agent: HttpAgent } = require('http');
+const { Agent: HttpsAgent } = require('https');
+const axios = require('axios');
+const { v4: uuidv4, validate: uuidValidate } = require('uuid');
+const jwtdecode = require('jwt-decode');
+const validUrl = require('valid-url');
+const _ = require('lodash');
+
+const httpAgent = new HttpAgent({ keepAlive: true });
+const httpsAgent = new HttpsAgent({ keepAlive: true });
+
+const errors = require('../errors');
+const axiosExtras = require('./axiosextras');
+
+/**
+ * An Axios Client that provides a consistent approach for making Percipio API requests.
+ * @category Percipio Client
+ */
+class PercipioAxiosClient {
+  /**
+   * Creates an instance of PercipioAxiosClient.
+   * @param {Object} configuration - The configuration
+   * @param {String} configuration.baseUrl - The base URL for the API
+   * @param {String} configuration.orgId - The organization ID
+   * @param {String} configuration.bearer - The bearer token
+   * @param {Object} [configuration.instance] - The Axios instance to use,
+   *                                     defaults to axios with timingAdapter
+   * @param {Object} [configuration.resourcePlaceholders={orgId: config.OrgId}]
+   *                  - Used to replace placeholders in the resource path.
+   * @throws {PropertyRequiredError} baseUrl is a required configuration property
+   * @throws {PropertyInvalidError} baseUrl is invalid, it must be a valid https URL
+   * @throws {PropertyRequiredError} orgId is a required configuration property
+   * @throws {PropertyInvalidError} orgId is invalid, it must be a uuid
+   * @throws {PropertyRequiredError} bearer is a required configuration property
+   * @throws {PropertyInvalidError} bearer is invalid, it must be a JWT
+   * @throws {PropertyInvalidError} instance is invalid, it must be an instance of Axios
+   * @memberof PercipioAxiosClient
+   */
+  constructor(configuration = {}) {
+    this.configuration = _.merge({ resourcePlaceholders: {} }, _.cloneDeep(configuration));
+
+    if (!('baseUrl' in this.configuration)) {
+      throw new errors.PropertyRequiredError('baseUrl is a required configuration property');
+    }
+
+    if (!validUrl.isHttpsUri(this.configuration.baseUrl)) {
+      throw new errors.PropertyInvalidError('baseUrl is invalid, it must be a valid https URL');
+    }
+
+    if (!('orgId' in this.configuration)) {
+      throw new errors.PropertyRequiredError('orgId is a required configuration property');
+    }
+
+    if (!uuidValidate(this.configuration.orgId)) {
+      throw new errors.PropertyInvalidError('orgId is invalid, it must be a uuid');
+    }
+
+    if (!('bearer' in this.configuration)) {
+      throw new errors.PropertyRequiredError('bearer is a required configuration property');
+    }
+
+    try {
+      jwtdecode(this.configuration.bearer);
+    } catch (error) {
+      throw new errors.PropertyInvalidError('bearer is invalid, it must be a JWT', error);
+    }
+
+    this.configuration = _.merge(this.configuration, {
+      resourcePlaceholders: { orgId: this.configuration.orgId },
+    });
+
+    this.id = uuidv4();
+
+    this.defaultHeaders = {
+      'content-type': 'application/json',
+      authorization: `Bearer ${this.configuration.bearer}`,
+    };
+
+    const axiosInstanceConfig = {
+      httpAgent,
+      httpsAgent,
+      adapter: axiosExtras.timingAdapter,
+    };
+
+    this.instance = this.configuration.instance || axios.create(axiosInstanceConfig);
+
+    const check =
+      typeof this.instance.create === 'function' &amp;&amp;
+      typeof this.instance.request === 'function' &amp;&amp;
+      typeof this.instance.interceptors === 'object';
+
+    if (!check) {
+      throw new errors.PropertyInvalidError('instance is invalid, it must be an instance of Axios');
+    }
+  }
+
+  /**
+   * Builds the path for the resource, replacing any placeholders
+   * with the values from configuration.resourcePlaceholders.
+   *
+   * @param {String} resource - The resource path template
+   * @return {String}
+   * @throws {PropertyRequiredError} {placeHolder} is a required
+   *                                 configuration.resourcePlaceholders property
+   * @memberof PercipioAxiosClient
+   */
+  buildPath(resource) {
+    return resource.replace(/{([-_a-zA-Z0-9[\]]+)}/g, (original, placeHolder) => {
+      if (placeHolder in this.configuration.resourcePlaceholders) {
+        return this.configuration.resourcePlaceholders[placeHolder];
+      }
+
+      throw new errors.PropertyRequiredError(
+        `${placeHolder} is a required configuration.resourcePlaceholders property`
+      );
+    });
+  }
+
+  /**
+   * Builds the headers for the request, combining the default headers with the extra headers.
+   *
+   * @param {Object} extraHeaders - The extra headers to send with the request, as key/value pairs.
+   * @return {Object}
+   * @memberof PercipioAxiosClient
+   */
+  buildHeaders(extraHeaders) {
+    return _.merge({}, this.defaultHeaders, extraHeaders);
+  }
+
+  /**
+   * Sends the request to the API.
+   *
+   * @param {Object} config
+   * @param {String} config.method - The HTTP method.
+   * @param {String} config.resource - The resource path to send the request to.
+   * @param {Object} [config.query={}] - The query paramerters to send with the request.
+   * @param {Object} [config.body={}] - The body to send with the request.
+   * @param {Object} [config.extraHeaders={}] - The extra headers to send with the request.
+   * @param {*} [config.rest] - Any other valid Axios arguments to pass to the request.
+   * @return {Promise}
+   * @throws {PropertyRequiredError} method is a required configuration property
+   * @throws {PropertyRequiredError} resource is a required configuration property
+   * @memberof PercipioAxiosClient
+   */
+  sendRequest(config) {
+    const { method, resource, query, body, extraHeaders, ...rest } = config;
+
+    return new Promise((resolve, reject) => {
+      if (!method) {
+        reject(new errors.PropertyRequiredError('method is a required configuration property'));
+      }
+
+      if (!resource) {
+        reject(new errors.PropertyRequiredError('resource is a required configuration property'));
+      }
+
+      const url = this.buildPath(resource);
+      const headers = this.buildHeaders(extraHeaders);
+
+      let params = query || {};
+      params = _.omitBy(params, _.isNil);
+
+      let data = body || {};
+      data = _.omitBy(data, _.isNil);
+
+      const requestConfig = {
+        baseURL: this.configuration.baseUrl,
+        url,
+        headers,
+        method,
+        ...rest,
+      };
+
+      if (!_.isEmpty(data)) {
+        requestConfig.data = data;
+      }
+
+      if (!_.isEmpty(params)) {
+        requestConfig.params = params;
+      }
+
+      this.instance
+        .request(requestConfig)
+        .then((response) => {
+          resolve(response);
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
+  }
+
+  /**
+   * Sends a delete request to the API.
+   *
+   * @param {Object} config
+   * @param {String} config.resource - The resource path to send the request to.
+   * @param {Object} [config.query={}] - The query paramerters to send with the request.
+   * @param {Object} [config.body={}] - The body to send with the request.
+   * @param {Object} [config.extraHeaders={}] - The extra headers to send with the request.
+   * @param {*} [config.rest] - Any other valid Axios arguments to pass to the request.
+   * @return {Promise}
+   * @throws {PropertyInvalidError} method cannot be overridden
+   * @memberof PercipioAxiosClient
+   */
+  delete({ resource, query, body, extraHeaders, ...rest }) {
+    return new Promise((resolve, reject) => {
+      const method = 'delete';
+      if (rest.method &amp;&amp; rest.method !== method) {
+        reject(new errors.PropertyInvalidError('method cannot be overridden'));
+      }
+
+      this.sendRequest({ method, resource, query, body, extraHeaders, ...rest })
+        .then((response) => {
+          resolve(response);
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
+  }
+
+  /**
+   * Sends a get request to the API.
+   *
+   * @param {Object} config
+   * @param {String} config.resource - The resource path to send the request to.
+   * @param {Object} [config.query={}] - The query paramerters to send with the request.
+   * @param {Object} [config.body={}] - The body to send with the request.
+   * @param {Object} [config.extraHeaders={}] - The extra headers to send with the request.
+   * @param {*} [config.rest] - Any other valid Axios arguments to pass to the request.
+   * @throws {PropertyInvalidError} method cannot be overridden
+   * @return {Promise}
+   * @memberof PercipioAxiosClient
+   */
+  get({ resource, query, body, extraHeaders, ...rest }) {
+    return new Promise((resolve, reject) => {
+      const method = 'get';
+      if (rest.method &amp;&amp; rest.method !== method) {
+        reject(new errors.PropertyInvalidError('method cannot be overridden'));
+      }
+
+      this.sendRequest({ method, resource, query, body, extraHeaders, ...rest })
+        .then((response) => {
+          resolve(response);
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
+  }
+
+  /**
+   * Sends a head request to the API.
+   *
+   * @param {Object} config
+   * @param {String} config.resource - The resource path to send the request to.
+   * @param {Object} [config.query={}] - The query paramerters to send with the request.
+   * @param {Object} [config.body={}] - The body to send with the request.
+   * @param {Object} [config.extraHeaders={}] - The extra headers to send with the request.
+   * @param {*} [config.rest] - Any other valid Axios arguments to pass to the request.
+   * @throws {PropertyInvalidError} method cannot be overridden
+   * @return {Promise}
+   * @memberof PercipioAxiosClient
+   */
+  head({ resource, query, body, extraHeaders, ...rest }) {
+    return new Promise((resolve, reject) => {
+      const method = 'head';
+      if (rest.method &amp;&amp; rest.method !== method) {
+        reject(new errors.PropertyInvalidError('method cannot be overridden'));
+      }
+
+      this.sendRequest({ method, resource, query, body, extraHeaders, ...rest })
+        .then((response) => {
+          resolve(response);
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
+  }
+
+  /**
+   * Sends an options request to the API.
+   *
+   * @param {Object} config
+   * @param {String} config.resource - The resource path to send the request to.
+   * @param {Object} [config.query={}] - The query paramerters to send with the request.
+   * @param {Object} [config.body={}] - The body to send with the request.
+   * @param {Object} [config.extraHeaders={}] - The extra headers to send with the request.
+   * @param {*} [config.rest] - Any other valid Axios arguments to pass to the request.
+   * @throws {PropertyInvalidError} method cannot be overridden
+   * @return {Promise}
+   * @memberof PercipioAxiosClient
+   */
+  options({ resource, query, body, extraHeaders, ...rest }) {
+    return new Promise((resolve, reject) => {
+      const method = 'options';
+      if (rest.method &amp;&amp; rest.method !== method) {
+        reject(new errors.PropertyInvalidError('method cannot be overridden'));
+      }
+
+      this.sendRequest({ method, resource, query, body, extraHeaders, ...rest })
+        .then((response) => {
+          resolve(response);
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
+  }
+
+  /**
+   * Sends a patch request to the API.
+   *
+   * @param {Object} config
+   * @param {String} config.resource - The resource path to send the request to.
+   * @param {Object} [config.query={}] - The query paramerters to send with the request.
+   * @param {Object} [config.body={}] - The body to send with the request.
+   * @param {Object} [config.extraHeaders={}] - The extra headers to send with the request.
+   * @param {*} [config.rest] - Any other valid Axios arguments to pass to the request.
+   * @throws {PropertyInvalidError} method cannot be overridden
+   * @return {Promise}
+   * @memberof PercipioAxiosClient
+   */
+  patch({ resource, query, body, extraHeaders, ...rest }) {
+    return new Promise((resolve, reject) => {
+      const method = 'patch';
+      if (rest.method &amp;&amp; rest.method !== method) {
+        reject(new errors.PropertyInvalidError('method cannot be overridden'));
+      }
+
+      this.sendRequest({ method, resource, query, body, extraHeaders, ...rest })
+        .then((response) => {
+          resolve(response);
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
+  }
+
+  /**
+   * Sends a post request to the API.
+   *
+   * @param {Object} config
+   * @param {String} config.resource - The resource path to send the request to.
+   * @param {Object} [config.query={}] - The query paramerters to send with the request.
+   * @param {Object} [config.body={}] - The body to send with the request.
+   * @param {Object} [config.extraHeaders={}] - The extra headers to send with the request.
+   * @param {*} [config.rest] - Any other valid Axios arguments to pass to the request.
+   * @throws {PropertyInvalidError} method cannot be overridden
+   * @return {Promise}
+   * @memberof PercipioAxiosClient
+   */
+  post({ resource, query, body, extraHeaders, ...rest }) {
+    return new Promise((resolve, reject) => {
+      const method = 'post';
+      if (rest.method &amp;&amp; rest.method !== method) {
+        reject(new errors.PropertyInvalidError('method cannot be overridden'));
+      }
+
+      this.sendRequest({ method, resource, query, body, extraHeaders, ...rest })
+        .then((response) => {
+          resolve(response);
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
+  }
+
+  /**
+   * Sends a put request to the API.
+   *
+   * @param {Object} config
+   * @param {String} config.resource - The resource path to send the request to.
+   * @param {Object} [config.query={}] - The query paramerters to send with the request.
+   * @param {Object} [config.body={}] - The body to send with the request.
+   * @param {Object} [config.extraHeaders={}] - The extra headers to send with the request.
+   * @param {*} [config.rest] - Any other valid Axios arguments to pass to the request.
+   * @throws {PropertyInvalidError} method cannot be overridden
+   * @return {Promise}
+   * @memberof PercipioAxiosClient
+   */
+  put({ resource, query, body, extraHeaders, ...rest }) {
+    return new Promise((resolve, reject) => {
+      const method = 'put';
+      if (rest.method &amp;&amp; rest.method !== method) {
+        reject(new errors.PropertyInvalidError('method cannot be overridden'));
+      }
+
+      this.sendRequest({ method, resource, query, body, extraHeaders, ...rest })
+        .then((response) => {
+          resolve(response);
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
+  }
+}
+
+module.exports = {
+  PercipioAxiosClient,
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>
