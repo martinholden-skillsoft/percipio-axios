@@ -4,12 +4,10 @@ const {
   PropertyInvalidError,
   PercipioAxiosClientError,
 } = require('./errors');
-const { isPercipioAxiosClientError } = require('./lib/utils/isPercipioAxiosClientError');
 
 module.exports = {
   PercipioAxiosClient,
   PropertyRequiredError,
   PropertyInvalidError,
   PercipioAxiosClientError,
-  isPercipioAxiosClientError,
 };
