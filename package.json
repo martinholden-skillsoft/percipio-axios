@@ -1,6 +1,6 @@
 {
   "name": "percipio-axios",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Axios-based client for the Percipio API",
   "repository": {
     "type": "git",
