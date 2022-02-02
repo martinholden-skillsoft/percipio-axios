@@ -8,26 +8,38 @@
     "includePattern": ".+\\.js(doc|x)?$",
     "excludePattern": "(node_modules/|docs)"
   },
-  "plugins": ["plugins/markdown", "node_modules/better-docs/category"],
-  "opts": {
-    "template": "./node_modules/better-docs/",
-    "encoding": "utf8",
-    "destination": "docs/",
-    "recurse": true,
-    "verbose": true
-  },
+  "plugins": ["plugins/markdown"],
   "templates": {
     "cleverLinks": false,
     "monospaceLinks": false,
-    "better-docs": {
-      "title": "Percipio Axios Client",
-      "hideGenerator": true,
-      "navLinks": [
-        {
-          "label": "Github",
-          "href": "https://github.com//martinholden-skillsoft/percipio-axios"
-        }
-      ]
+    "default": {
+      "includeDate": false
     }
+  },
+  "opts": {
+    "template": "node_modules/docdash",
+    "encoding": "utf8",
+    "destination": "docs",
+    "recurse": true,
+    "private": true,
+    "verbose": true,
+    "readme": "README.md"
+  },
+  "docdash": {
+    "static": true,
+    "sort": true,
+    "search": true,
+    "collapse": true,
+    "typedefs": true,
+    "removeQuotes": "none",
+    "menu": {
+      "Github repo": {
+        "href": "https://github.com/martinholden-skillsoft/percipio-axios.git",
+        "target": "_blank",
+        "class": "menu-item",
+        "id": "repository"
+      }
+    },
+    "scripts": []
   }
 }
