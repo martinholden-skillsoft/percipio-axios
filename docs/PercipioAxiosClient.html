@@ -1,91 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Percipio Axios Client PercipioAxiosClient</title>
-
-  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script src="./build/entry.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
-  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
-  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
-  <link type="text/css" rel="stylesheet" href="">
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-
-  
+    
+    <meta charset="utf-8">
+    <title>PercipioAxiosClient - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+<body>
 
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
 
+<label for="nav-trigger" class="overlay"></label>
 
-<body class="layout small-header">
-    <div id="stickyNavbarOverlay"></div>
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/martinholden-skillsoft/percipio-axios.git" target="_blank" class="menu-item" id="repository" >Github repo</a></h2><h3>Classes</h3><ul><li><a href="PercipioAxiosClient.html">PercipioAxiosClient</a><ul class='methods'><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#.isPercipioAxiosClientError">isPercipioAxiosClientError</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#buildHeaders">buildHeaders</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#buildPath">buildPath</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#delete">delete</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#get">get</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#head">head</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#options">options</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#patch">patch</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#post">post</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#put">put</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#sendRequest">sendRequest</a></li></ul></li><li><a href="PercipioAxiosClientError.html">PercipioAxiosClientError</a></li><li><a href="PropertyInvalidError.html">PropertyInvalidError</a></li><li><a href="PropertyRequiredError.html">PropertyRequiredError</a></li></ul><h3>Global</h3><ul><li><a href="global.html#timingAdapter">timingAdapter</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">PercipioAxiosClient</h1>
     
 
-<div class="top-nav">
-    <div class="inner">
-        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </a>
-        <div class="logo">
-            
-            
-        </div>
-        <div class="menu">
-            
-            <div class="navigation">
-                <a
-                    href="index.html"
-                    class="link"
-                >
-                    API Documentation
-                </a>
-                
-                 
-                    
-                        <a
-                            class="link user-link "
-                            href="https://github.com//martinholden-skillsoft/percipio-axios"
-                        >
-                            Github
-                        </a>
-                    
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-    <div id="main">
-        <div
-            class="sidebar "
-            id="sidebarNav"
-        >
-            
-            <nav>
-                
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"></div><div class="category"><h2>Axios Extras</h2><h3>Global</h3><ul><li><a href="global.html#timingAdapter">timingAdapter</a></li></ul></div><div class="category"><h2>Errors</h2><h3>Classes</h3><ul><li><a href="PercipioAxiosClientError.html">PercipioAxiosClientError</a></li><li><a href="PropertyInvalidError.html">PropertyInvalidError</a></li><li><a href="PropertyRequiredError.html">PropertyRequiredError</a></li></ul></div><div class="category"><h2>Percipio Client</h2><h3>Classes</h3><ul><li><a href="PercipioAxiosClient.html">PercipioAxiosClient</a></li></ul></div>
-                
-            </nav>
-        </div>
-        <div class="core" id="main-content-wrapper">
-            <div class="content">
-                <header class="page-title">
-                    <p>Class</p>
-                    <h1>PercipioAxiosClient</h1>
-                </header>
-                
+    
 
 
 
@@ -94,44 +46,81 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>PercipioAxiosClient<span class="signature">(configuration)</span><span class="type-signature"></span></h2>
+        <h2>
+        PercipioAxiosClient
+        </h2>
         
-            <div class="class-description"><p>An Axios Client that provides a consistent approach for making Percipio API requests.</p></div>
+            <div class="class-description usertext"><p>An Axios Client that provides a consistent approach for making Percipio API requests.</p></div>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class='vertical-section'>
-                <div class="members">
-                    <div class="member">
-                        <div class=name>
-                            <span class="tag">Constructor</span>
-                        </div>
-                        
-
-
-    
-    <h4 class="name" id="PercipioAxiosClient">
-        <a class="href-link" href="#PercipioAxiosClient">#</a>
-        
-        <span class="code-name">
             
-                new PercipioAxiosClient<span class="signature">(configuration)</span><span class="type-signature"></span>
-            
-        </span>
-    </h4>
+
+    
+    <h2>Constructor</h2>
+    
+
+    <h4 class="name" id="PercipioAxiosClient"><span class="type-signature"></span>new PercipioAxiosClient<span class="signature">(configuration)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line19">line 19</a>
+    </li></ul></dd>
     
 
     
+
     
-    <div class="description">
-        <p>Creates an instance of PercipioAxiosClient.</p>
-    </div>
+
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Creates an instance of PercipioAxiosClient.</p>
+</div>
+
+
 
 
 
@@ -143,436 +132,479 @@
 
     <h5>Parameters:</h5>
     
-<div class="table-container">
-    <table class="params table">
-        <thead>
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
-            <th>Name</th>
+                <td class="name"><code>configuration</code></td>
             
 
-            <th>Type</th>
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
 
             
-            <th>Attributes</th>
+            </td>
+
             
 
             
-            <th>Default</th>
-            
 
-            <th class="last">Description</th>
-        </tr>
-        </thead>
+            <td class="description last"><p>The configuration</p>
+                <h6>Properties</h6>
+                
 
-        <tbody>
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
         
 
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
             
-<tr class="deep-level-0">
-  
-      <td class="name"><code>configuration</code></td>
-  
+                <td class="name"><code>baseUrl</code></td>
+            
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
 
 
-  
-  </td>
+            
+            </td>
 
-  
-      <td class="attributes">
-      
+            
+                <td class="attributes">
+                
 
-      
+                
 
-      
-      </td>
-  
+                
+                </td>
+            
 
-  
-      <td class="default">
-      
-      </td>
-  
+            
+                <td class="default">
+                
+                </td>
+            
 
-  <td class="description last"><p>The configuration</p></td>
-</tr>
+            <td class="description last"><p>The base URL for the API</p></td>
+        </tr>
 
-  
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>baseUrl</code></td>
-  
 
-  <td class="type">
-  
-      
-<code class="param-type">String</code>
+        <tr>
+            
+                <td class="name"><code>orgId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
 
 
-  
-  </td>
+            
+            </td>
 
-  
-      <td class="attributes">
-      
+            
+                <td class="attributes">
+                
 
-      
+                
 
-      
-      </td>
-  
+                
+                </td>
+            
 
-  
-      <td class="default">
-      
-      </td>
-  
+            
+                <td class="default">
+                
+                </td>
+            
 
-  <td class="description last"><p>The base URL for the API</p></td>
-</tr>
+            <td class="description last"><p>The organization ID</p></td>
+        </tr>
 
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>orgId</code></td>
-  
 
-  <td class="type">
-  
-      
-<code class="param-type">String</code>
+        <tr>
+            
+                <td class="name"><code>bearer</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
 
 
-  
-  </td>
+            
+            </td>
 
-  
-      <td class="attributes">
-      
+            
+                <td class="attributes">
+                
 
-      
+                
 
-      
-      </td>
-  
+                
+                </td>
+            
 
-  
-      <td class="default">
-      
-      </td>
-  
+            
+                <td class="default">
+                
+                </td>
+            
 
-  <td class="description last"><p>The organization ID</p></td>
-</tr>
+            <td class="description last"><p>The bearer token</p></td>
+        </tr>
 
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>bearer</code></td>
-  
 
-  <td class="type">
-  
-      
-<code class="param-type">String</code>
+        <tr>
+            
+                <td class="name"><code>instance</code></td>
+            
 
-
-  
-  </td>
-
-  
-      <td class="attributes">
-      
-
-      
-
-      
-      </td>
-  
-
-  
-      <td class="default">
-      
-      </td>
-  
-
-  <td class="description last"><p>The bearer token</p></td>
-</tr>
-
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>instance</code></td>
-  
-
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
 
 
-  
-  </td>
+            
+            </td>
 
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
-      
+                
 
-      
-      </td>
-  
+                
+                </td>
+            
 
-  
-      <td class="default">
-      
-      </td>
-  
+            
+                <td class="default">
+                
+                </td>
+            
 
-  <td class="description last"><p>The Axios instance to use,
+            <td class="description last"><p>The Axios instance to use,
 defaults to axios with timingAdapter</p></td>
-</tr>
+        </tr>
 
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>resourcePlaceholders</code></td>
-  
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+        <tr>
+            
+                <td class="name"><code>resourcePlaceholders</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
 
 
-  
-  </td>
+            
+            </td>
 
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
-      
+                
 
-      
-      </td>
-  
+                
+                </td>
+            
 
-  
-      <td class="default">
-      
-          {orgId: config.OrgId}
-      
-      </td>
-  
+            
+                <td class="default">
+                
+                    <code>{orgId: config.OrgId}</code>
+                
+                </td>
+            
 
-  <td class="description last"><ul>
+            <td class="description last"><ul>
 <li>Used to replace placeholders in the resource path.</li>
 </ul></td>
-</tr>
-
-  
-
-
-        
-        </tbody>
-    </table>
-</div>
-
-
-
-
-
-<dl class="details">
+        </tr>
 
     
+    </tbody>
+</table>
+
+            </td>
+        </tr>
 
     
+    </tbody>
+</table>
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
-    
 
-    
 
-    
 
-    
-        <p class="tag-source">
-            <a href="lib_percipio-axios-client.js.html" class="button">View Source</a>
-            <span>
-                <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line19">line 19</a>
-            </span>
-        </p>
-    
+
+<h5>Throws:</h5>
+<ul>
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc usertext">
+        <p>baseUrl is a required configuration property</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl class="param-type">
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type"><a href="PropertyRequiredError.html">PropertyRequiredError</a></span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
 </dl>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Throws:</label></div>
-        <div class="column is-10">
-            
-                    
-<div class="columns">
+</li>
     
-    <div class='param-desc column is-7'><p>baseUrl is a required configuration property</p></div>
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-<code class="param-type"><a href="PropertyRequiredError.html">PropertyRequiredError</a></code>
+        <li>
 
-
-    </div>
-    
-</div>
-
-                
-                    
-<div class="columns">
-    
-    <div class='param-desc column is-7'><p>baseUrl is invalid, it must be a valid https URL</p></div>
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-<code class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></code>
-
-
-    </div>
-    
-</div>
-
-                
-                    
-<div class="columns">
-    
-    <div class='param-desc column is-7'><p>orgId is a required configuration property</p></div>
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-<code class="param-type"><a href="PropertyRequiredError.html">PropertyRequiredError</a></code>
-
-
-    </div>
-    
-</div>
-
-                
-                    
-<div class="columns">
-    
-    <div class='param-desc column is-7'><p>orgId is invalid, it must be a uuid</p></div>
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-<code class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></code>
-
-
-    </div>
-    
-</div>
-
-                
-                    
-<div class="columns">
-    
-    <div class='param-desc column is-7'><p>bearer is a required configuration property</p></div>
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-<code class="param-type"><a href="PropertyRequiredError.html">PropertyRequiredError</a></code>
-
-
-    </div>
-    
-</div>
-
-                
-                    
-<div class="columns">
-    
-    <div class='param-desc column is-7'><p>bearer is invalid, it must be a JWT</p></div>
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-<code class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></code>
-
-
-    </div>
-    
-</div>
-
-                
-                    
-<div class="columns">
-    
-    <div class='param-desc column is-7'><p>instance is invalid, it must be an instance of Axios</p></div>
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-<code class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></code>
-
-
-    </div>
-    
-</div>
-
-                
+<dl>
+    <dt>
+        <div class="param-desc usertext">
+        <p>baseUrl is invalid, it must be a valid https URL</p>
         </div>
-    </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl class="param-type">
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc usertext">
+        <p>orgId is a required configuration property</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl class="param-type">
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type"><a href="PropertyRequiredError.html">PropertyRequiredError</a></span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc usertext">
+        <p>orgId is invalid, it must be a uuid</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl class="param-type">
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc usertext">
+        <p>bearer is a required configuration property</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl class="param-type">
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type"><a href="PropertyRequiredError.html">PropertyRequiredError</a></span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc usertext">
+        <p>bearer is invalid, it must be a JWT</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl class="param-type">
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc usertext">
+        <p>instance is invalid, it must be an instance of Axios</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl class="param-type">
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    </ul>
 
 
 
 
 
-
-
-                    </div>
-                </div>
-            </div>
         
+        </div>
     
-    </div>
-    
+
     
 
     
@@ -585,45 +617,79 @@ defaults to axios with timingAdapter</p></td>
             <dd></dd>
         </dl>
     
+    
+    
+
+     
 
     
 
     
 
     
+        <h3 class="subsection-title">Methods</h3>
 
-    
-
-    
-        <div class='vertical-section'>
-            <h1>Methods</h1>
-            <div class="members">
-            
-                <div class="member">
-
-
-    
-    <h4 class="name" id=".isPercipioAxiosClientError">
-        <a class="href-link" href="#.isPercipioAxiosClientError">#</a>
         
             
-                <span class='tag'>static</span>
-            
-        
-        <span class="code-name">
-            
-                isPercipioAxiosClientError<span class="signature">(obj)</span><span class="type-signature"> &rarr; {Boolean}</span>
-            
-        </span>
-    </h4>
+
+    
+
+    <h4 class="name" id=".isPercipioAxiosClientError"><span class="type-signature">(static) </span>isPercipioAxiosClientError<span class="signature">(obj)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line105">line 105</a>
+    </li></ul></dd>
     
 
     
+
     
-    <div class="description">
-        <p>Check if the passed object is a PercipioAxiosClientError.</p>
-    </div>
+
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Check if the passed object is a PercipioAxiosClientError.</p>
+</div>
+
+
 
 
 
@@ -635,55 +701,96 @@ defaults to axios with timingAdapter</p></td>
 
     <h5>Parameters:</h5>
     
-<div class="table-container">
-    <table class="params table">
-        <thead>
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
-            <th>Name</th>
+                <td class="name"><code>obj</code></td>
             
 
-            <th>Type</th>
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
 
             
 
             
 
-            <th class="last">Description</th>
+            <td class="description last"></td>
         </tr>
-        </thead>
 
-        <tbody>
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
         
 
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
             
-<tr class="deep-level-0">
-  
-      <td class="name"><code>obj</code></td>
-  
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+    
 
+    <h4 class="name" id="buildHeaders"><span class="type-signature"></span>buildHeaders<span class="signature">(extraHeaders)</span><span class="type-signature"> &rarr; {Object}</span></h4>
 
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"></td>
-</tr>
-
-
-        
-        </tbody>
-    </table>
-</div>
-
+    
 
 
 
@@ -691,7 +798,10 @@ defaults to axios with timingAdapter</p></td>
 <dl class="details">
 
     
-
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line138">line 138</a>
+    </li></ul></dd>
     
 
     
@@ -713,19 +823,15 @@ defaults to axios with timingAdapter</p></td>
     
 
     
-    
 
     
 
     
 
     
-        <p class="tag-source">
-            <a href="lib_percipio-axios-client.js.html" class="button">View Source</a>
-            <span>
-                <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line105">line 105</a>
-            </span>
-        </p>
+
+    
+
     
 </dl>
 
@@ -733,68 +839,11 @@ defaults to axios with timingAdapter</p></td>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Returns:</label></div>
-        <div class="column is-10">
-            
-                    
-
-<div class="columns">
-    
-    
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-        
-<code class="param-type">Boolean</code>
-
-
-    </div>
-    
+<div class="description usertext">
+    <p>Builds the headers for the request, combining the default headers with the extra headers.</p>
 </div>
 
-                
-        </div>
-    </div>
 
-
-
-
-</div>
-            
-                <div class="member">
-
-
-    
-    <h4 class="name" id="buildHeaders">
-        <a class="href-link" href="#buildHeaders">#</a>
-        
-        <span class="code-name">
-            
-                buildHeaders<span class="signature">(extraHeaders)</span><span class="type-signature"> &rarr; {Object}</span>
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        <p>Builds the headers for the request, combining the default headers with the extra headers.</p>
-    </div>
-    
 
 
 
@@ -806,55 +855,96 @@ defaults to axios with timingAdapter</p></td>
 
     <h5>Parameters:</h5>
     
-<div class="table-container">
-    <table class="params table">
-        <thead>
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
-            <th>Name</th>
+                <td class="name"><code>extraHeaders</code></td>
             
 
-            <th>Type</th>
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
 
             
 
             
 
-            <th class="last">Description</th>
+            <td class="description last"><p>The extra headers to send with the request, as key/value pairs.</p></td>
         </tr>
-        </thead>
 
-        <tbody>
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
         
 
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
             
-<tr class="deep-level-0">
-  
-      <td class="name"><code>extraHeaders</code></td>
-  
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+    
 
+    <h4 class="name" id="buildPath"><span class="type-signature"></span>buildPath<span class="signature">(resource)</span><span class="type-signature"> &rarr; {String}</span></h4>
 
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>The extra headers to send with the request, as key/value pairs.</p></td>
-</tr>
-
-
-        
-        </tbody>
-    </table>
-</div>
-
+    
 
 
 
@@ -862,7 +952,10 @@ defaults to axios with timingAdapter</p></td>
 <dl class="details">
 
     
-
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line119">line 119</a>
+    </li></ul></dd>
     
 
     
@@ -884,19 +977,15 @@ defaults to axios with timingAdapter</p></td>
     
 
     
-    
 
     
 
     
 
     
-        <p class="tag-source">
-            <a href="lib_percipio-axios-client.js.html" class="button">View Source</a>
-            <span>
-                <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line138">line 138</a>
-            </span>
-        </p>
+
+    
+
     
 </dl>
 
@@ -904,69 +993,12 @@ defaults to axios with timingAdapter</p></td>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Returns:</label></div>
-        <div class="column is-10">
-            
-                    
-
-<div class="columns">
-    
-    
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-        
-<code class="param-type">Object</code>
-
-
-    </div>
-    
-</div>
-
-                
-        </div>
-    </div>
-
-
-
-
-</div>
-            
-                <div class="member">
-
-
-    
-    <h4 class="name" id="buildPath">
-        <a class="href-link" href="#buildPath">#</a>
-        
-        <span class="code-name">
-            
-                buildPath<span class="signature">(resource)</span><span class="type-signature"> &rarr; {String}</span>
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        <p>Builds the path for the resource, replacing any placeholders
+<div class="description usertext">
+    <p>Builds the path for the resource, replacing any placeholders
 with the values from configuration.resourcePlaceholders.</p>
-    </div>
-    
+</div>
+
+
 
 
 
@@ -978,55 +1010,126 @@ with the values from configuration.resourcePlaceholders.</p>
 
     <h5>Parameters:</h5>
     
-<div class="table-container">
-    <table class="params table">
-        <thead>
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
-            <th>Name</th>
+                <td class="name"><code>resource</code></td>
             
 
-            <th>Type</th>
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
 
             
 
             
 
-            <th class="last">Description</th>
+            <td class="description last"><p>The resource path template</p></td>
         </tr>
-        </thead>
 
-        <tbody>
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
         
 
+<dl>
+    <dt>
+        <div class="param-desc usertext">
+        <p>{placeHolder} is a required
+configuration.resourcePlaceholders property</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl class="param-type">
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type"><a href="PropertyRequiredError.html">PropertyRequiredError</a></span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">String</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
             
-<tr class="deep-level-0">
-  
-      <td class="name"><code>resource</code></td>
-  
 
-  <td class="type">
-  
-      
-<code class="param-type">String</code>
+    
 
+    <h4 class="name" id="delete"><span class="type-signature"></span>delete<span class="signature">(config)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
 
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>The resource path template</p></td>
-</tr>
-
-
-        
-        </tbody>
-    </table>
-</div>
-
+    
 
 
 
@@ -1034,7 +1137,10 @@ with the values from configuration.resourcePlaceholders.</p>
 <dl class="details">
 
     
-
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line224">line 224</a>
+    </li></ul></dd>
     
 
     
@@ -1056,19 +1162,15 @@ with the values from configuration.resourcePlaceholders.</p>
     
 
     
-    
 
     
 
     
 
     
-        <p class="tag-source">
-            <a href="lib_percipio-axios-client.js.html" class="button">View Source</a>
-            <span>
-                <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line119">line 119</a>
-            </span>
-        </p>
+
+    
+
     
 </dl>
 
@@ -1076,90 +1178,11 @@ with the values from configuration.resourcePlaceholders.</p>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Throws:</label></div>
-        <div class="column is-10">
-            
-                    
-<div class="columns">
-    
-    <div class='param-desc column is-7'><p>{placeHolder} is a required
-configuration.resourcePlaceholders property</p></div>
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-<code class="param-type"><a href="PropertyRequiredError.html">PropertyRequiredError</a></code>
-
-
-    </div>
-    
+<div class="description usertext">
+    <p>Sends a delete request to the API.</p>
 </div>
 
-                
-        </div>
-    </div>
 
-
-
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Returns:</label></div>
-        <div class="column is-10">
-            
-                    
-
-<div class="columns">
-    
-    
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-        
-<code class="param-type">String</code>
-
-
-    </div>
-    
-</div>
-
-                
-        </div>
-    </div>
-
-
-
-
-</div>
-            
-                <div class="member">
-
-
-    
-    <h4 class="name" id="delete">
-        <a class="href-link" href="#delete">#</a>
-        
-        <span class="code-name">
-            
-                delete<span class="signature">(config)</span><span class="type-signature"> &rarr; {Promise}</span>
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        <p>Sends a delete request to the API.</p>
-    </div>
-    
 
 
 
@@ -1171,263 +1194,344 @@ configuration.resourcePlaceholders property</p></div>
 
     <h5>Parameters:</h5>
     
-<div class="table-container">
-    <table class="params table">
-        <thead>
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
-            <th>Name</th>
+                <td class="name"><code>config</code></td>
             
 
-            <th>Type</th>
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
 
             
-            <th>Attributes</th>
+            </td>
+
             
 
             
-            <th>Default</th>
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>resource</code></td>
             
 
-            <th class="last">Description</th>
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>The resource path to send the request to.</p></td>
         </tr>
-        </thead>
 
-        <tbody>
-        
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
 
             
-<tr class="deep-level-0">
-  
-      <td class="name"><code>config</code></td>
-  
+            </td>
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
 
-  
-  </td>
+                
+                </td>
+            
 
-  
-      <td class="attributes">
-      
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
 
-      
+            <td class="description last"><p>The query paramerters to send with the request.</p></td>
+        </tr>
 
-      
-      </td>
-  
-
-  
-      <td class="default">
-      
-      </td>
-  
-
-  <td class="description last"></td>
-</tr>
-
-  
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>resource</code></td>
-  
 
-  <td class="type">
-  
-      
-<code class="param-type">String</code>
+        <tr>
+            
+                <td class="name"><code>body</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
 
 
-  
-  </td>
+            
+            </td>
 
-  
-      <td class="attributes">
-      
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
-      
+                
 
-      
-      </td>
-  
+                
+                </td>
+            
 
-  
-      <td class="default">
-      
-      </td>
-  
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
 
-  <td class="description last"><p>The resource path to send the request to.</p></td>
-</tr>
+            <td class="description last"><p>The body to send with the request.</p></td>
+        </tr>
 
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>query</code></td>
-  
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+        <tr>
+            
+                <td class="name"><code>extraHeaders</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
 
 
-  
-  </td>
+            
+            </td>
 
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
-      
+                
 
-      
-      </td>
-  
+                
+                </td>
+            
 
-  
-      <td class="default">
-      
-          {}
-      
-      </td>
-  
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
 
-  <td class="description last"><p>The query paramerters to send with the request.</p></td>
-</tr>
+            <td class="description last"><p>The extra headers to send with the request.</p></td>
+        </tr>
 
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>body</code></td>
-  
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+        <tr>
+            
+                <td class="name"><code>rest</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
 
 
-  
-  </td>
+            
+            </td>
 
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
-      
+                
 
-      
-      </td>
-  
+                
+                </td>
+            
 
-  
-      <td class="default">
-      
-          {}
-      
-      </td>
-  
+            
+                <td class="default">
+                
+                </td>
+            
 
-  <td class="description last"><p>The body to send with the request.</p></td>
-</tr>
+            <td class="description last"><p>Any other valid Axios arguments to pass to the request.</p></td>
+        </tr>
 
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>extraHeaders</code></td>
-  
+    </tbody>
+</table>
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+            </td>
+        </tr>
 
-
-  
-  </td>
-
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
-
-      
-
-      
-      </td>
-  
-
-  
-      <td class="default">
-      
-          {}
-      
-      </td>
-  
-
-  <td class="description last"><p>The extra headers to send with the request.</p></td>
-</tr>
-
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>rest</code></td>
-  
-
-  <td class="type">
-  
-      
-<code class="param-type">*</code>
+    </tbody>
+</table>
 
 
-  
-  </td>
 
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
 
-      
 
-      
-      </td>
-  
 
-  
-      <td class="default">
-      
-      </td>
-  
 
-  <td class="description last"><p>Any other valid Axios arguments to pass to the request.</p></td>
-</tr>
 
-  
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc usertext">
+        <p>method cannot be overridden</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl class="param-type">
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
+
 
 
         
-        </tbody>
-    </table>
-</div>
+            
 
+    
+
+    <h4 class="name" id="get"><span class="type-signature"></span>get<span class="signature">(config)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+
+    
 
 
 
@@ -1435,7 +1539,10 @@ configuration.resourcePlaceholders property</p></div>
 <dl class="details">
 
     
-
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line254">line 254</a>
+    </li></ul></dd>
     
 
     
@@ -1457,19 +1564,15 @@ configuration.resourcePlaceholders property</p></div>
     
 
     
-    
 
     
 
     
 
     
-        <p class="tag-source">
-            <a href="lib_percipio-axios-client.js.html" class="button">View Source</a>
-            <span>
-                <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line218">line 218</a>
-            </span>
-        </p>
+
+    
+
     
 </dl>
 
@@ -1477,89 +1580,11 @@ configuration.resourcePlaceholders property</p></div>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Throws:</label></div>
-        <div class="column is-10">
-            
-                    
-<div class="columns">
-    
-    <div class='param-desc column is-7'><p>method cannot be overridden</p></div>
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-<code class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></code>
-
-
-    </div>
-    
+<div class="description usertext">
+    <p>Sends a get request to the API.</p>
 </div>
 
-                
-        </div>
-    </div>
 
-
-
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Returns:</label></div>
-        <div class="column is-10">
-            
-                    
-
-<div class="columns">
-    
-    
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-        
-<code class="param-type">Promise</code>
-
-
-    </div>
-    
-</div>
-
-                
-        </div>
-    </div>
-
-
-
-
-</div>
-            
-                <div class="member">
-
-
-    
-    <h4 class="name" id="get">
-        <a class="href-link" href="#get">#</a>
-        
-        <span class="code-name">
-            
-                get<span class="signature">(config)</span><span class="type-signature"> &rarr; {Promise}</span>
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        <p>Sends a get request to the API.</p>
-    </div>
-    
 
 
 
@@ -1571,263 +1596,344 @@ configuration.resourcePlaceholders property</p></div>
 
     <h5>Parameters:</h5>
     
-<div class="table-container">
-    <table class="params table">
-        <thead>
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
-            <th>Name</th>
+                <td class="name"><code>config</code></td>
             
 
-            <th>Type</th>
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
 
             
-            <th>Attributes</th>
+            </td>
+
             
 
             
-            <th>Default</th>
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>resource</code></td>
             
 
-            <th class="last">Description</th>
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>The resource path to send the request to.</p></td>
         </tr>
-        </thead>
 
-        <tbody>
-        
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
 
             
-<tr class="deep-level-0">
-  
-      <td class="name"><code>config</code></td>
-  
+            </td>
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
 
-  
-  </td>
+                
+                </td>
+            
 
-  
-      <td class="attributes">
-      
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
 
-      
+            <td class="description last"><p>The query paramerters to send with the request.</p></td>
+        </tr>
 
-      
-      </td>
-  
-
-  
-      <td class="default">
-      
-      </td>
-  
-
-  <td class="description last"></td>
-</tr>
-
-  
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>resource</code></td>
-  
 
-  <td class="type">
-  
-      
-<code class="param-type">String</code>
+        <tr>
+            
+                <td class="name"><code>body</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
 
 
-  
-  </td>
+            
+            </td>
 
-  
-      <td class="attributes">
-      
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
-      
+                
 
-      
-      </td>
-  
+                
+                </td>
+            
 
-  
-      <td class="default">
-      
-      </td>
-  
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
 
-  <td class="description last"><p>The resource path to send the request to.</p></td>
-</tr>
+            <td class="description last"><p>The body to send with the request.</p></td>
+        </tr>
 
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>query</code></td>
-  
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+        <tr>
+            
+                <td class="name"><code>extraHeaders</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
 
 
-  
-  </td>
+            
+            </td>
 
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
-      
+                
 
-      
-      </td>
-  
+                
+                </td>
+            
 
-  
-      <td class="default">
-      
-          {}
-      
-      </td>
-  
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
 
-  <td class="description last"><p>The query paramerters to send with the request.</p></td>
-</tr>
+            <td class="description last"><p>The extra headers to send with the request.</p></td>
+        </tr>
 
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>body</code></td>
-  
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+        <tr>
+            
+                <td class="name"><code>rest</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
 
 
-  
-  </td>
+            
+            </td>
 
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
-      
+                
 
-      
-      </td>
-  
+                
+                </td>
+            
 
-  
-      <td class="default">
-      
-          {}
-      
-      </td>
-  
+            
+                <td class="default">
+                
+                </td>
+            
 
-  <td class="description last"><p>The body to send with the request.</p></td>
-</tr>
+            <td class="description last"><p>Any other valid Axios arguments to pass to the request.</p></td>
+        </tr>
 
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>extraHeaders</code></td>
-  
+    </tbody>
+</table>
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+            </td>
+        </tr>
 
-
-  
-  </td>
-
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
-
-      
-
-      
-      </td>
-  
-
-  
-      <td class="default">
-      
-          {}
-      
-      </td>
-  
-
-  <td class="description last"><p>The extra headers to send with the request.</p></td>
-</tr>
-
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>rest</code></td>
-  
-
-  <td class="type">
-  
-      
-<code class="param-type">*</code>
+    </tbody>
+</table>
 
 
-  
-  </td>
 
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
 
-      
 
-      
-      </td>
-  
 
-  
-      <td class="default">
-      
-      </td>
-  
 
-  <td class="description last"><p>Any other valid Axios arguments to pass to the request.</p></td>
-</tr>
 
-  
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc usertext">
+        <p>method cannot be overridden</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl class="param-type">
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
+
 
 
         
-        </tbody>
-    </table>
-</div>
+            
 
+    
+
+    <h4 class="name" id="head"><span class="type-signature"></span>head<span class="signature">(config)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+
+    
 
 
 
@@ -1835,7 +1941,10 @@ configuration.resourcePlaceholders property</p></div>
 <dl class="details">
 
     
-
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line284">line 284</a>
+    </li></ul></dd>
     
 
     
@@ -1857,19 +1966,15 @@ configuration.resourcePlaceholders property</p></div>
     
 
     
-    
 
     
 
     
 
     
-        <p class="tag-source">
-            <a href="lib_percipio-axios-client.js.html" class="button">View Source</a>
-            <span>
-                <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line248">line 248</a>
-            </span>
-        </p>
+
+    
+
     
 </dl>
 
@@ -1877,89 +1982,11 @@ configuration.resourcePlaceholders property</p></div>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Throws:</label></div>
-        <div class="column is-10">
-            
-                    
-<div class="columns">
-    
-    <div class='param-desc column is-7'><p>method cannot be overridden</p></div>
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-<code class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></code>
-
-
-    </div>
-    
+<div class="description usertext">
+    <p>Sends a head request to the API.</p>
 </div>
 
-                
-        </div>
-    </div>
 
-
-
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Returns:</label></div>
-        <div class="column is-10">
-            
-                    
-
-<div class="columns">
-    
-    
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-        
-<code class="param-type">Promise</code>
-
-
-    </div>
-    
-</div>
-
-                
-        </div>
-    </div>
-
-
-
-
-</div>
-            
-                <div class="member">
-
-
-    
-    <h4 class="name" id="head">
-        <a class="href-link" href="#head">#</a>
-        
-        <span class="code-name">
-            
-                head<span class="signature">(config)</span><span class="type-signature"> &rarr; {Promise}</span>
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        <p>Sends a head request to the API.</p>
-    </div>
-    
 
 
 
@@ -1971,263 +1998,344 @@ configuration.resourcePlaceholders property</p></div>
 
     <h5>Parameters:</h5>
     
-<div class="table-container">
-    <table class="params table">
-        <thead>
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
-            <th>Name</th>
+                <td class="name"><code>config</code></td>
             
 
-            <th>Type</th>
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
 
             
-            <th>Attributes</th>
+            </td>
+
             
 
             
-            <th>Default</th>
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>resource</code></td>
             
 
-            <th class="last">Description</th>
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>The resource path to send the request to.</p></td>
         </tr>
-        </thead>
 
-        <tbody>
-        
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
 
             
-<tr class="deep-level-0">
-  
-      <td class="name"><code>config</code></td>
-  
+            </td>
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
 
-  
-  </td>
+                
+                </td>
+            
 
-  
-      <td class="attributes">
-      
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
 
-      
+            <td class="description last"><p>The query paramerters to send with the request.</p></td>
+        </tr>
 
-      
-      </td>
-  
-
-  
-      <td class="default">
-      
-      </td>
-  
-
-  <td class="description last"></td>
-</tr>
-
-  
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>resource</code></td>
-  
 
-  <td class="type">
-  
-      
-<code class="param-type">String</code>
+        <tr>
+            
+                <td class="name"><code>body</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
 
 
-  
-  </td>
+            
+            </td>
 
-  
-      <td class="attributes">
-      
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
-      
+                
 
-      
-      </td>
-  
+                
+                </td>
+            
 
-  
-      <td class="default">
-      
-      </td>
-  
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
 
-  <td class="description last"><p>The resource path to send the request to.</p></td>
-</tr>
+            <td class="description last"><p>The body to send with the request.</p></td>
+        </tr>
 
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>query</code></td>
-  
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+        <tr>
+            
+                <td class="name"><code>extraHeaders</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
 
 
-  
-  </td>
+            
+            </td>
 
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
-      
+                
 
-      
-      </td>
-  
+                
+                </td>
+            
 
-  
-      <td class="default">
-      
-          {}
-      
-      </td>
-  
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
 
-  <td class="description last"><p>The query paramerters to send with the request.</p></td>
-</tr>
+            <td class="description last"><p>The extra headers to send with the request.</p></td>
+        </tr>
 
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>body</code></td>
-  
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+        <tr>
+            
+                <td class="name"><code>rest</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
 
 
-  
-  </td>
+            
+            </td>
 
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
-      
+                
 
-      
-      </td>
-  
+                
+                </td>
+            
 
-  
-      <td class="default">
-      
-          {}
-      
-      </td>
-  
+            
+                <td class="default">
+                
+                </td>
+            
 
-  <td class="description last"><p>The body to send with the request.</p></td>
-</tr>
+            <td class="description last"><p>Any other valid Axios arguments to pass to the request.</p></td>
+        </tr>
 
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>extraHeaders</code></td>
-  
+    </tbody>
+</table>
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+            </td>
+        </tr>
 
-
-  
-  </td>
-
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
-
-      
-
-      
-      </td>
-  
-
-  
-      <td class="default">
-      
-          {}
-      
-      </td>
-  
-
-  <td class="description last"><p>The extra headers to send with the request.</p></td>
-</tr>
-
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>rest</code></td>
-  
-
-  <td class="type">
-  
-      
-<code class="param-type">*</code>
+    </tbody>
+</table>
 
 
-  
-  </td>
 
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
 
-      
 
-      
-      </td>
-  
 
-  
-      <td class="default">
-      
-      </td>
-  
 
-  <td class="description last"><p>Any other valid Axios arguments to pass to the request.</p></td>
-</tr>
 
-  
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc usertext">
+        <p>method cannot be overridden</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl class="param-type">
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
+
 
 
         
-        </tbody>
-    </table>
-</div>
+            
 
+    
+
+    <h4 class="name" id="options"><span class="type-signature"></span>options<span class="signature">(config)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+
+    
 
 
 
@@ -2235,7 +2343,10 @@ configuration.resourcePlaceholders property</p></div>
 <dl class="details">
 
     
-
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line314">line 314</a>
+    </li></ul></dd>
     
 
     
@@ -2257,19 +2368,15 @@ configuration.resourcePlaceholders property</p></div>
     
 
     
-    
 
     
 
     
 
     
-        <p class="tag-source">
-            <a href="lib_percipio-axios-client.js.html" class="button">View Source</a>
-            <span>
-                <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line278">line 278</a>
-            </span>
-        </p>
+
+    
+
     
 </dl>
 
@@ -2277,89 +2384,11 @@ configuration.resourcePlaceholders property</p></div>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Throws:</label></div>
-        <div class="column is-10">
-            
-                    
-<div class="columns">
-    
-    <div class='param-desc column is-7'><p>method cannot be overridden</p></div>
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-<code class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></code>
-
-
-    </div>
-    
+<div class="description usertext">
+    <p>Sends an options request to the API.</p>
 </div>
 
-                
-        </div>
-    </div>
 
-
-
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Returns:</label></div>
-        <div class="column is-10">
-            
-                    
-
-<div class="columns">
-    
-    
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-        
-<code class="param-type">Promise</code>
-
-
-    </div>
-    
-</div>
-
-                
-        </div>
-    </div>
-
-
-
-
-</div>
-            
-                <div class="member">
-
-
-    
-    <h4 class="name" id="options">
-        <a class="href-link" href="#options">#</a>
-        
-        <span class="code-name">
-            
-                options<span class="signature">(config)</span><span class="type-signature"> &rarr; {Promise}</span>
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        <p>Sends an options request to the API.</p>
-    </div>
-    
 
 
 
@@ -2371,263 +2400,344 @@ configuration.resourcePlaceholders property</p></div>
 
     <h5>Parameters:</h5>
     
-<div class="table-container">
-    <table class="params table">
-        <thead>
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
-            <th>Name</th>
+                <td class="name"><code>config</code></td>
             
 
-            <th>Type</th>
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
 
             
-            <th>Attributes</th>
+            </td>
+
             
 
             
-            <th>Default</th>
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>resource</code></td>
             
 
-            <th class="last">Description</th>
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>The resource path to send the request to.</p></td>
         </tr>
-        </thead>
 
-        <tbody>
-        
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
 
             
-<tr class="deep-level-0">
-  
-      <td class="name"><code>config</code></td>
-  
+            </td>
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
 
-  
-  </td>
+                
+                </td>
+            
 
-  
-      <td class="attributes">
-      
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
 
-      
+            <td class="description last"><p>The query paramerters to send with the request.</p></td>
+        </tr>
 
-      
-      </td>
-  
-
-  
-      <td class="default">
-      
-      </td>
-  
-
-  <td class="description last"></td>
-</tr>
-
-  
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>resource</code></td>
-  
 
-  <td class="type">
-  
-      
-<code class="param-type">String</code>
+        <tr>
+            
+                <td class="name"><code>body</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
 
 
-  
-  </td>
+            
+            </td>
 
-  
-      <td class="attributes">
-      
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
-      
+                
 
-      
-      </td>
-  
+                
+                </td>
+            
 
-  
-      <td class="default">
-      
-      </td>
-  
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
 
-  <td class="description last"><p>The resource path to send the request to.</p></td>
-</tr>
+            <td class="description last"><p>The body to send with the request.</p></td>
+        </tr>
 
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>query</code></td>
-  
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+        <tr>
+            
+                <td class="name"><code>extraHeaders</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
 
 
-  
-  </td>
+            
+            </td>
 
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
-      
+                
 
-      
-      </td>
-  
+                
+                </td>
+            
 
-  
-      <td class="default">
-      
-          {}
-      
-      </td>
-  
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
 
-  <td class="description last"><p>The query paramerters to send with the request.</p></td>
-</tr>
+            <td class="description last"><p>The extra headers to send with the request.</p></td>
+        </tr>
 
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>body</code></td>
-  
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+        <tr>
+            
+                <td class="name"><code>rest</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
 
 
-  
-  </td>
+            
+            </td>
 
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
-      
+                
 
-      
-      </td>
-  
+                
+                </td>
+            
 
-  
-      <td class="default">
-      
-          {}
-      
-      </td>
-  
+            
+                <td class="default">
+                
+                </td>
+            
 
-  <td class="description last"><p>The body to send with the request.</p></td>
-</tr>
+            <td class="description last"><p>Any other valid Axios arguments to pass to the request.</p></td>
+        </tr>
 
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>extraHeaders</code></td>
-  
+    </tbody>
+</table>
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+            </td>
+        </tr>
 
-
-  
-  </td>
-
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
-
-      
-
-      
-      </td>
-  
-
-  
-      <td class="default">
-      
-          {}
-      
-      </td>
-  
-
-  <td class="description last"><p>The extra headers to send with the request.</p></td>
-</tr>
-
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>rest</code></td>
-  
-
-  <td class="type">
-  
-      
-<code class="param-type">*</code>
+    </tbody>
+</table>
 
 
-  
-  </td>
 
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
 
-      
 
-      
-      </td>
-  
 
-  
-      <td class="default">
-      
-      </td>
-  
 
-  <td class="description last"><p>Any other valid Axios arguments to pass to the request.</p></td>
-</tr>
 
-  
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc usertext">
+        <p>method cannot be overridden</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl class="param-type">
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
+
 
 
         
-        </tbody>
-    </table>
-</div>
+            
 
+    
+
+    <h4 class="name" id="patch"><span class="type-signature"></span>patch<span class="signature">(config)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+
+    
 
 
 
@@ -2635,7 +2745,10 @@ configuration.resourcePlaceholders property</p></div>
 <dl class="details">
 
     
-
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line344">line 344</a>
+    </li></ul></dd>
     
 
     
@@ -2657,19 +2770,15 @@ configuration.resourcePlaceholders property</p></div>
     
 
     
-    
 
     
 
     
 
     
-        <p class="tag-source">
-            <a href="lib_percipio-axios-client.js.html" class="button">View Source</a>
-            <span>
-                <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line308">line 308</a>
-            </span>
-        </p>
+
+    
+
     
 </dl>
 
@@ -2677,89 +2786,11 @@ configuration.resourcePlaceholders property</p></div>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Throws:</label></div>
-        <div class="column is-10">
-            
-                    
-<div class="columns">
-    
-    <div class='param-desc column is-7'><p>method cannot be overridden</p></div>
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-<code class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></code>
-
-
-    </div>
-    
+<div class="description usertext">
+    <p>Sends a patch request to the API.</p>
 </div>
 
-                
-        </div>
-    </div>
 
-
-
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Returns:</label></div>
-        <div class="column is-10">
-            
-                    
-
-<div class="columns">
-    
-    
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-        
-<code class="param-type">Promise</code>
-
-
-    </div>
-    
-</div>
-
-                
-        </div>
-    </div>
-
-
-
-
-</div>
-            
-                <div class="member">
-
-
-    
-    <h4 class="name" id="patch">
-        <a class="href-link" href="#patch">#</a>
-        
-        <span class="code-name">
-            
-                patch<span class="signature">(config)</span><span class="type-signature"> &rarr; {Promise}</span>
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        <p>Sends a patch request to the API.</p>
-    </div>
-    
 
 
 
@@ -2771,263 +2802,344 @@ configuration.resourcePlaceholders property</p></div>
 
     <h5>Parameters:</h5>
     
-<div class="table-container">
-    <table class="params table">
-        <thead>
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
-            <th>Name</th>
+                <td class="name"><code>config</code></td>
             
 
-            <th>Type</th>
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
 
             
-            <th>Attributes</th>
+            </td>
+
             
 
             
-            <th>Default</th>
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>resource</code></td>
             
 
-            <th class="last">Description</th>
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>The resource path to send the request to.</p></td>
         </tr>
-        </thead>
 
-        <tbody>
-        
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
 
             
-<tr class="deep-level-0">
-  
-      <td class="name"><code>config</code></td>
-  
+            </td>
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
 
-  
-  </td>
+                
+                </td>
+            
 
-  
-      <td class="attributes">
-      
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
 
-      
+            <td class="description last"><p>The query paramerters to send with the request.</p></td>
+        </tr>
 
-      
-      </td>
-  
-
-  
-      <td class="default">
-      
-      </td>
-  
-
-  <td class="description last"></td>
-</tr>
-
-  
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>resource</code></td>
-  
 
-  <td class="type">
-  
-      
-<code class="param-type">String</code>
+        <tr>
+            
+                <td class="name"><code>body</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
 
 
-  
-  </td>
+            
+            </td>
 
-  
-      <td class="attributes">
-      
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
-      
+                
 
-      
-      </td>
-  
+                
+                </td>
+            
 
-  
-      <td class="default">
-      
-      </td>
-  
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
 
-  <td class="description last"><p>The resource path to send the request to.</p></td>
-</tr>
+            <td class="description last"><p>The body to send with the request.</p></td>
+        </tr>
 
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>query</code></td>
-  
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+        <tr>
+            
+                <td class="name"><code>extraHeaders</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
 
 
-  
-  </td>
+            
+            </td>
 
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
-      
+                
 
-      
-      </td>
-  
+                
+                </td>
+            
 
-  
-      <td class="default">
-      
-          {}
-      
-      </td>
-  
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
 
-  <td class="description last"><p>The query paramerters to send with the request.</p></td>
-</tr>
+            <td class="description last"><p>The extra headers to send with the request.</p></td>
+        </tr>
 
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>body</code></td>
-  
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+        <tr>
+            
+                <td class="name"><code>rest</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
 
 
-  
-  </td>
+            
+            </td>
 
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
-      
+                
 
-      
-      </td>
-  
+                
+                </td>
+            
 
-  
-      <td class="default">
-      
-          {}
-      
-      </td>
-  
+            
+                <td class="default">
+                
+                </td>
+            
 
-  <td class="description last"><p>The body to send with the request.</p></td>
-</tr>
+            <td class="description last"><p>Any other valid Axios arguments to pass to the request.</p></td>
+        </tr>
 
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>extraHeaders</code></td>
-  
+    </tbody>
+</table>
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+            </td>
+        </tr>
 
-
-  
-  </td>
-
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
-
-      
-
-      
-      </td>
-  
-
-  
-      <td class="default">
-      
-          {}
-      
-      </td>
-  
-
-  <td class="description last"><p>The extra headers to send with the request.</p></td>
-</tr>
-
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>rest</code></td>
-  
-
-  <td class="type">
-  
-      
-<code class="param-type">*</code>
+    </tbody>
+</table>
 
 
-  
-  </td>
 
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
 
-      
 
-      
-      </td>
-  
 
-  
-      <td class="default">
-      
-      </td>
-  
 
-  <td class="description last"><p>Any other valid Axios arguments to pass to the request.</p></td>
-</tr>
 
-  
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc usertext">
+        <p>method cannot be overridden</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl class="param-type">
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
+
 
 
         
-        </tbody>
-    </table>
-</div>
+            
 
+    
+
+    <h4 class="name" id="post"><span class="type-signature"></span>post<span class="signature">(config)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+
+    
 
 
 
@@ -3035,7 +3147,10 @@ configuration.resourcePlaceholders property</p></div>
 <dl class="details">
 
     
-
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line374">line 374</a>
+    </li></ul></dd>
     
 
     
@@ -3057,19 +3172,15 @@ configuration.resourcePlaceholders property</p></div>
     
 
     
-    
 
     
 
     
 
     
-        <p class="tag-source">
-            <a href="lib_percipio-axios-client.js.html" class="button">View Source</a>
-            <span>
-                <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line338">line 338</a>
-            </span>
-        </p>
+
+    
+
     
 </dl>
 
@@ -3077,89 +3188,11 @@ configuration.resourcePlaceholders property</p></div>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Throws:</label></div>
-        <div class="column is-10">
-            
-                    
-<div class="columns">
-    
-    <div class='param-desc column is-7'><p>method cannot be overridden</p></div>
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-<code class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></code>
-
-
-    </div>
-    
+<div class="description usertext">
+    <p>Sends a post request to the API.</p>
 </div>
 
-                
-        </div>
-    </div>
 
-
-
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Returns:</label></div>
-        <div class="column is-10">
-            
-                    
-
-<div class="columns">
-    
-    
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-        
-<code class="param-type">Promise</code>
-
-
-    </div>
-    
-</div>
-
-                
-        </div>
-    </div>
-
-
-
-
-</div>
-            
-                <div class="member">
-
-
-    
-    <h4 class="name" id="post">
-        <a class="href-link" href="#post">#</a>
-        
-        <span class="code-name">
-            
-                post<span class="signature">(config)</span><span class="type-signature"> &rarr; {Promise}</span>
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        <p>Sends a post request to the API.</p>
-    </div>
-    
 
 
 
@@ -3171,263 +3204,344 @@ configuration.resourcePlaceholders property</p></div>
 
     <h5>Parameters:</h5>
     
-<div class="table-container">
-    <table class="params table">
-        <thead>
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
-            <th>Name</th>
+                <td class="name"><code>config</code></td>
             
 
-            <th>Type</th>
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
 
             
-            <th>Attributes</th>
+            </td>
+
             
 
             
-            <th>Default</th>
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>resource</code></td>
             
 
-            <th class="last">Description</th>
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>The resource path to send the request to.</p></td>
         </tr>
-        </thead>
 
-        <tbody>
-        
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
 
             
-<tr class="deep-level-0">
-  
-      <td class="name"><code>config</code></td>
-  
+            </td>
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
 
-  
-  </td>
+                
+                </td>
+            
 
-  
-      <td class="attributes">
-      
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
 
-      
+            <td class="description last"><p>The query paramerters to send with the request.</p></td>
+        </tr>
 
-      
-      </td>
-  
-
-  
-      <td class="default">
-      
-      </td>
-  
-
-  <td class="description last"></td>
-</tr>
-
-  
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>resource</code></td>
-  
 
-  <td class="type">
-  
-      
-<code class="param-type">String</code>
+        <tr>
+            
+                <td class="name"><code>body</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
 
 
-  
-  </td>
+            
+            </td>
 
-  
-      <td class="attributes">
-      
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
-      
+                
 
-      
-      </td>
-  
+                
+                </td>
+            
 
-  
-      <td class="default">
-      
-      </td>
-  
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
 
-  <td class="description last"><p>The resource path to send the request to.</p></td>
-</tr>
+            <td class="description last"><p>The body to send with the request.</p></td>
+        </tr>
 
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>query</code></td>
-  
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+        <tr>
+            
+                <td class="name"><code>extraHeaders</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
 
 
-  
-  </td>
+            
+            </td>
 
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
-      
+                
 
-      
-      </td>
-  
+                
+                </td>
+            
 
-  
-      <td class="default">
-      
-          {}
-      
-      </td>
-  
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
 
-  <td class="description last"><p>The query paramerters to send with the request.</p></td>
-</tr>
+            <td class="description last"><p>The extra headers to send with the request.</p></td>
+        </tr>
 
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>body</code></td>
-  
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+        <tr>
+            
+                <td class="name"><code>rest</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
 
 
-  
-  </td>
+            
+            </td>
 
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
-      
+                
 
-      
-      </td>
-  
+                
+                </td>
+            
 
-  
-      <td class="default">
-      
-          {}
-      
-      </td>
-  
+            
+                <td class="default">
+                
+                </td>
+            
 
-  <td class="description last"><p>The body to send with the request.</p></td>
-</tr>
+            <td class="description last"><p>Any other valid Axios arguments to pass to the request.</p></td>
+        </tr>
 
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>extraHeaders</code></td>
-  
+    </tbody>
+</table>
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+            </td>
+        </tr>
 
-
-  
-  </td>
-
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
-
-      
-
-      
-      </td>
-  
-
-  
-      <td class="default">
-      
-          {}
-      
-      </td>
-  
-
-  <td class="description last"><p>The extra headers to send with the request.</p></td>
-</tr>
-
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>rest</code></td>
-  
-
-  <td class="type">
-  
-      
-<code class="param-type">*</code>
+    </tbody>
+</table>
 
 
-  
-  </td>
 
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
 
-      
 
-      
-      </td>
-  
 
-  
-      <td class="default">
-      
-      </td>
-  
 
-  <td class="description last"><p>Any other valid Axios arguments to pass to the request.</p></td>
-</tr>
 
-  
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc usertext">
+        <p>method cannot be overridden</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl class="param-type">
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
+
 
 
         
-        </tbody>
-    </table>
-</div>
+            
 
+    
+
+    <h4 class="name" id="put"><span class="type-signature"></span>put<span class="signature">(config)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+
+    
 
 
 
@@ -3435,7 +3549,10 @@ configuration.resourcePlaceholders property</p></div>
 <dl class="details">
 
     
-
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line404">line 404</a>
+    </li></ul></dd>
     
 
     
@@ -3457,19 +3574,15 @@ configuration.resourcePlaceholders property</p></div>
     
 
     
-    
 
     
 
     
 
     
-        <p class="tag-source">
-            <a href="lib_percipio-axios-client.js.html" class="button">View Source</a>
-            <span>
-                <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line368">line 368</a>
-            </span>
-        </p>
+
+    
+
     
 </dl>
 
@@ -3477,89 +3590,11 @@ configuration.resourcePlaceholders property</p></div>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Throws:</label></div>
-        <div class="column is-10">
-            
-                    
-<div class="columns">
-    
-    <div class='param-desc column is-7'><p>method cannot be overridden</p></div>
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-<code class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></code>
-
-
-    </div>
-    
+<div class="description usertext">
+    <p>Sends a put request to the API.</p>
 </div>
 
-                
-        </div>
-    </div>
 
-
-
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Returns:</label></div>
-        <div class="column is-10">
-            
-                    
-
-<div class="columns">
-    
-    
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-        
-<code class="param-type">Promise</code>
-
-
-    </div>
-    
-</div>
-
-                
-        </div>
-    </div>
-
-
-
-
-</div>
-            
-                <div class="member">
-
-
-    
-    <h4 class="name" id="put">
-        <a class="href-link" href="#put">#</a>
-        
-        <span class="code-name">
-            
-                put<span class="signature">(config)</span><span class="type-signature"> &rarr; {Promise}</span>
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        <p>Sends a put request to the API.</p>
-    </div>
-    
 
 
 
@@ -3571,263 +3606,344 @@ configuration.resourcePlaceholders property</p></div>
 
     <h5>Parameters:</h5>
     
-<div class="table-container">
-    <table class="params table">
-        <thead>
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
-            <th>Name</th>
+                <td class="name"><code>config</code></td>
             
 
-            <th>Type</th>
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
 
             
-            <th>Attributes</th>
+            </td>
+
             
 
             
-            <th>Default</th>
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>resource</code></td>
             
 
-            <th class="last">Description</th>
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>The resource path to send the request to.</p></td>
         </tr>
-        </thead>
 
-        <tbody>
-        
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
 
             
-<tr class="deep-level-0">
-  
-      <td class="name"><code>config</code></td>
-  
+            </td>
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
 
-  
-  </td>
+                
+                </td>
+            
 
-  
-      <td class="attributes">
-      
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
 
-      
+            <td class="description last"><p>The query paramerters to send with the request.</p></td>
+        </tr>
 
-      
-      </td>
-  
-
-  
-      <td class="default">
-      
-      </td>
-  
-
-  <td class="description last"></td>
-</tr>
-
-  
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>resource</code></td>
-  
 
-  <td class="type">
-  
-      
-<code class="param-type">String</code>
+        <tr>
+            
+                <td class="name"><code>body</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
 
 
-  
-  </td>
+            
+            </td>
 
-  
-      <td class="attributes">
-      
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
-      
+                
 
-      
-      </td>
-  
+                
+                </td>
+            
 
-  
-      <td class="default">
-      
-      </td>
-  
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
 
-  <td class="description last"><p>The resource path to send the request to.</p></td>
-</tr>
+            <td class="description last"><p>The body to send with the request.</p></td>
+        </tr>
 
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>query</code></td>
-  
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+        <tr>
+            
+                <td class="name"><code>extraHeaders</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
 
 
-  
-  </td>
+            
+            </td>
 
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
-      
+                
 
-      
-      </td>
-  
+                
+                </td>
+            
 
-  
-      <td class="default">
-      
-          {}
-      
-      </td>
-  
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
 
-  <td class="description last"><p>The query paramerters to send with the request.</p></td>
-</tr>
+            <td class="description last"><p>The extra headers to send with the request.</p></td>
+        </tr>
 
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>body</code></td>
-  
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+        <tr>
+            
+                <td class="name"><code>rest</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
 
 
-  
-  </td>
+            
+            </td>
 
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
-      
+                
 
-      
-      </td>
-  
+                
+                </td>
+            
 
-  
-      <td class="default">
-      
-          {}
-      
-      </td>
-  
+            
+                <td class="default">
+                
+                </td>
+            
 
-  <td class="description last"><p>The body to send with the request.</p></td>
-</tr>
+            <td class="description last"><p>Any other valid Axios arguments to pass to the request.</p></td>
+        </tr>
 
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>extraHeaders</code></td>
-  
+    </tbody>
+</table>
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+            </td>
+        </tr>
 
-
-  
-  </td>
-
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
-
-      
-
-      
-      </td>
-  
-
-  
-      <td class="default">
-      
-          {}
-      
-      </td>
-  
-
-  <td class="description last"><p>The extra headers to send with the request.</p></td>
-</tr>
-
-  
     
-<tr class="deep-level-1">
-  
-      <td class="name"><code>rest</code></td>
-  
-
-  <td class="type">
-  
-      
-<code class="param-type">*</code>
+    </tbody>
+</table>
 
 
-  
-  </td>
 
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
 
-      
 
-      
-      </td>
-  
 
-  
-      <td class="default">
-      
-      </td>
-  
 
-  <td class="description last"><p>Any other valid Axios arguments to pass to the request.</p></td>
-</tr>
 
-  
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc usertext">
+        <p>method cannot be overridden</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl class="param-type">
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
+
 
 
         
-        </tbody>
-    </table>
-</div>
+            
 
+    
+
+    <h4 class="name" id="sendRequest"><span class="type-signature"></span>sendRequest<span class="signature">(config)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+
+    
 
 
 
@@ -3835,7 +3951,10 @@ configuration.resourcePlaceholders property</p></div>
 <dl class="details">
 
     
-
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line157">line 157</a>
+    </li></ul></dd>
     
 
     
@@ -3857,19 +3976,15 @@ configuration.resourcePlaceholders property</p></div>
     
 
     
-    
 
     
 
     
 
     
-        <p class="tag-source">
-            <a href="lib_percipio-axios-client.js.html" class="button">View Source</a>
-            <span>
-                <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line398">line 398</a>
-            </span>
-        </p>
+
+    
+
     
 </dl>
 
@@ -3877,89 +3992,11 @@ configuration.resourcePlaceholders property</p></div>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Throws:</label></div>
-        <div class="column is-10">
-            
-                    
-<div class="columns">
-    
-    <div class='param-desc column is-7'><p>method cannot be overridden</p></div>
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-<code class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></code>
-
-
-    </div>
-    
+<div class="description usertext">
+    <p>Sends the request to the API.</p>
 </div>
 
-                
-        </div>
-    </div>
 
-
-
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Returns:</label></div>
-        <div class="column is-10">
-            
-                    
-
-<div class="columns">
-    
-    
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-        
-<code class="param-type">Promise</code>
-
-
-    </div>
-    
-</div>
-
-                
-        </div>
-    </div>
-
-
-
-
-</div>
-            
-                <div class="member">
-
-
-    
-    <h4 class="name" id="sendRequest">
-        <a class="href-link" href="#sendRequest">#</a>
-        
-        <span class="code-name">
-            
-                sendRequest<span class="signature">(config)</span><span class="type-signature"> &rarr; {Promise}</span>
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        <p>Sends the request to the API.</p>
-    </div>
-    
 
 
 
@@ -3971,425 +4008,399 @@ configuration.resourcePlaceholders property</p></div>
 
     <h5>Parameters:</h5>
     
-<div class="table-container">
-    <table class="params table">
-        <thead>
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
-            <th>Name</th>
+                <td class="name"><code>config</code></td>
             
 
-            <th>Type</th>
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
 
             
-            <th>Attributes</th>
+            </td>
+
             
 
             
-            <th>Default</th>
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>method</code></td>
             
 
-            <th class="last">Description</th>
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>The HTTP method.</p></td>
         </tr>
-        </thead>
 
-        <tbody>
-        
+    
+
+        <tr>
+            
+                <td class="name"><code>resource</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
 
             
-<tr class="deep-level-0">
-  
-      <td class="name"><code>config</code></td>
-  
+            </td>
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+            
+                <td class="attributes">
+                
 
+                
 
-  
-  </td>
+                
+                </td>
+            
 
-  
-      <td class="attributes">
-      
+            
+                <td class="default">
+                
+                </td>
+            
 
-      
-
-      
-      </td>
-  
-
-  
-      <td class="default">
-      
-      </td>
-  
-
-  <td class="description last"></td>
-</tr>
-
-  
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>method</code></td>
-  
-
-  <td class="type">
-  
-      
-<code class="param-type">String</code>
-
-
-  
-  </td>
-
-  
-      <td class="attributes">
-      
-
-      
-
-      
-      </td>
-  
-
-  
-      <td class="default">
-      
-      </td>
-  
-
-  <td class="description last"><p>The HTTP method.</p></td>
-</tr>
-
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>resource</code></td>
-  
-
-  <td class="type">
-  
-      
-<code class="param-type">String</code>
-
-
-  
-  </td>
-
-  
-      <td class="attributes">
-      
-
-      
-
-      
-      </td>
-  
-
-  
-      <td class="default">
-      
-      </td>
-  
-
-  <td class="description last"><p>The resource path to send the request to.</p></td>
-</tr>
-
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>query</code></td>
-  
-
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
-
-
-  
-  </td>
-
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
-
-      
-
-      
-      </td>
-  
-
-  
-      <td class="default">
-      
-          {}
-      
-      </td>
-  
-
-  <td class="description last"><p>The query paramerters to send with the request.</p></td>
-</tr>
-
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>body</code></td>
-  
-
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
-
-
-  
-  </td>
-
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
-
-      
-
-      
-      </td>
-  
-
-  
-      <td class="default">
-      
-          {}
-      
-      </td>
-  
-
-  <td class="description last"><p>The body to send with the request.</p></td>
-</tr>
-
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>extraHeaders</code></td>
-  
-
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
-
-
-  
-  </td>
-
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
-
-      
-
-      
-      </td>
-  
-
-  
-      <td class="default">
-      
-          {}
-      
-      </td>
-  
-
-  <td class="description last"><p>The extra headers to send with the request.</p></td>
-</tr>
-
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>rest</code></td>
-  
-
-  <td class="type">
-  
-      
-<code class="param-type">*</code>
-
-
-  
-  </td>
-
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
-
-      
-
-      
-      </td>
-  
-
-  
-      <td class="default">
-      
-      </td>
-  
-
-  <td class="description last"><p>Any other valid Axios arguments to pass to the request.</p></td>
-</tr>
-
-  
-
-
-        
-        </tbody>
-    </table>
-</div>
-
-
-
-
-
-<dl class="details">
+            <td class="description last"><p>The resource path to send the request to.</p></td>
+        </tr>
 
     
 
-    
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>The query paramerters to send with the request.</p></td>
+        </tr>
 
     
 
-    
+        <tr>
+            
+                <td class="name"><code>body</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>The body to send with the request.</p></td>
+        </tr>
 
     
 
-    
+        <tr>
+            
+                <td class="name"><code>extraHeaders</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>The extra headers to send with the request.</p></td>
+        </tr>
 
     
 
-    
+        <tr>
+            
+                <td class="name"><code>rest</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Any other valid Axios arguments to pass to the request.</p></td>
+        </tr>
 
     
+    </tbody>
+</table>
+
+            </td>
+        </tr>
 
     
+    </tbody>
+</table>
 
-    
 
-    
-    
 
-    
 
-    
 
-    
-        <p class="tag-source">
-            <a href="lib_percipio-axios-client.js.html" class="button">View Source</a>
-            <span>
-                <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line157">line 157</a>
-            </span>
-        </p>
-    
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+<ul>
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc usertext">
+        <p>method is a required configuration property</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl class="param-type">
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type"><a href="PropertyRequiredError.html">PropertyRequiredError</a></span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
 </dl>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Throws:</label></div>
-        <div class="column is-10">
-            
-                    
-<div class="columns">
+</li>
     
-    <div class='param-desc column is-7'><p>method is a required configuration property</p></div>
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-<code class="param-type"><a href="PropertyRequiredError.html">PropertyRequiredError</a></code>
+        <li>
 
-
-    </div>
-    
-</div>
-
-                
-                    
-<div class="columns">
-    
-    <div class='param-desc column is-7'><p>resource is a required configuration property</p></div>
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-<code class="param-type"><a href="PropertyRequiredError.html">PropertyRequiredError</a></code>
-
-
-    </div>
-    
-</div>
-
-                
+<dl>
+    <dt>
+        <div class="param-desc usertext">
+        <p>resource is a required configuration property</p>
         </div>
-    </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl class="param-type">
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type"><a href="PropertyRequiredError.html">PropertyRequiredError</a></span>
 
 
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
 
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Returns:</label></div>
-        <div class="column is-10">
-            
-                    
+</li>
+    </ul>
 
-<div class="columns">
-    
-    
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
+
+<h5>Returns:</h5>
+
         
-<code class="param-type">Promise</code>
 
 
-    </div>
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
     
-</div>
-
-                
-        </div>
-    </div>
 
 
 
-
-</div>
-            
-            </div>
-        </div>
+        
     
 
     
@@ -4402,15 +4413,24 @@ configuration.resourcePlaceholders property</p></div>
 
 
 
-            </div>
-            
-        </div>
-        <div id="side-nav" class="side-nav">
-        </div>
-    </div>
-<script src="scripts/app.min.js"></script>
-<script>PR.prettyPrint();</script>
-<script src="scripts/linenumber.js"> </script>
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+<script src="scripts/collapse.js" defer></script>
 
 
 </body>

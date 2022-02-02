@@ -1,91 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Percipio Axios Client PercipioAxiosClientError</title>
-
-  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script src="./build/entry.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
-  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
-  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
-  <link type="text/css" rel="stylesheet" href="">
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-
-  
+    
+    <meta charset="utf-8">
+    <title>PercipioAxiosClientError - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+<body>
 
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
 
+<label for="nav-trigger" class="overlay"></label>
 
-<body class="layout small-header">
-    <div id="stickyNavbarOverlay"></div>
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/martinholden-skillsoft/percipio-axios.git" target="_blank" class="menu-item" id="repository" >Github repo</a></h2><h3>Classes</h3><ul><li><a href="PercipioAxiosClient.html">PercipioAxiosClient</a><ul class='methods'><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#.isPercipioAxiosClientError">isPercipioAxiosClientError</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#buildHeaders">buildHeaders</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#buildPath">buildPath</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#delete">delete</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#get">get</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#head">head</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#options">options</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#patch">patch</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#post">post</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#put">put</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#sendRequest">sendRequest</a></li></ul></li><li><a href="PercipioAxiosClientError.html">PercipioAxiosClientError</a></li><li><a href="PropertyInvalidError.html">PropertyInvalidError</a></li><li><a href="PropertyRequiredError.html">PropertyRequiredError</a></li></ul><h3>Global</h3><ul><li><a href="global.html#timingAdapter">timingAdapter</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">PercipioAxiosClientError</h1>
     
 
-<div class="top-nav">
-    <div class="inner">
-        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </a>
-        <div class="logo">
-            
-            
-        </div>
-        <div class="menu">
-            
-            <div class="navigation">
-                <a
-                    href="index.html"
-                    class="link"
-                >
-                    API Documentation
-                </a>
-                
-                 
-                    
-                        <a
-                            class="link user-link "
-                            href="https://github.com//martinholden-skillsoft/percipio-axios"
-                        >
-                            Github
-                        </a>
-                    
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-    <div id="main">
-        <div
-            class="sidebar "
-            id="sidebarNav"
-        >
-            
-            <nav>
-                
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"></div><div class="category"><h2>Axios Extras</h2><h3>Global</h3><ul><li><a href="global.html#timingAdapter">timingAdapter</a></li></ul></div><div class="category"><h2>Errors</h2><h3>Classes</h3><ul><li><a href="PercipioAxiosClientError.html">PercipioAxiosClientError</a></li><li><a href="PropertyInvalidError.html">PropertyInvalidError</a></li><li><a href="PropertyRequiredError.html">PropertyRequiredError</a></li></ul></div><div class="category"><h2>Percipio Client</h2><h3>Classes</h3><ul><li><a href="PercipioAxiosClient.html">PercipioAxiosClient</a></li></ul></div>
-                
-            </nav>
-        </div>
-        <div class="core" id="main-content-wrapper">
-            <div class="content">
-                <header class="page-title">
-                    <p>Class</p>
-                    <h1>PercipioAxiosClientError</h1>
-                </header>
-                
+    
 
 
 
@@ -94,44 +46,81 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>PercipioAxiosClientError<span class="signature">(message, options<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h2>
+        <h2>
+        PercipioAxiosClientError
+        </h2>
         
-            <div class="class-description"><p>PercipioAxiosClient error object.</p></div>
+            <div class="class-description usertext"><p>PercipioAxiosClient error object.</p></div>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class='vertical-section'>
-                <div class="members">
-                    <div class="member">
-                        <div class=name>
-                            <span class="tag">Constructor</span>
-                        </div>
-                        
-
-
-    
-    <h4 class="name" id="PercipioAxiosClientError">
-        <a class="href-link" href="#PercipioAxiosClientError">#</a>
-        
-        <span class="code-name">
             
-                new PercipioAxiosClientError<span class="signature">(message, options<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span>
-            
-        </span>
-    </h4>
+
+    
+    <h2>Constructor</h2>
+    
+
+    <h4 class="name" id="PercipioAxiosClientError"><span class="type-signature"></span>new PercipioAxiosClientError<span class="signature">(message, options<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="errors_percipioaxiosclienterror.js.html">errors/percipioaxiosclienterror.js</a>, <a href="errors_percipioaxiosclienterror.js.html#line5">line 5</a>
+    </li></ul></dd>
     
 
     
+
     
-    <div class="description">
-        <p>Creates an instance of PercipioAxiosClientError.</p>
-    </div>
+
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Creates an instance of PercipioAxiosClientError.</p>
+</div>
+
+
 
 
 
@@ -143,185 +132,129 @@
 
     <h5>Parameters:</h5>
     
-<div class="table-container">
-    <table class="params table">
-        <thead>
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
-            <th>Name</th>
+                <td class="name"><code>message</code></td>
             
 
-            <th>Type</th>
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
 
             
-            <th>Attributes</th>
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
             
 
             
-            <th>Default</th>
+                <td class="default">
+                
+                </td>
             
 
-            <th class="last">Description</th>
+            <td class="description last"><p>descriptive error message.</p></td>
         </tr>
-        </thead>
 
-        <tbody>
-        
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
 
             
-<tr class="deep-level-0">
-  
-      <td class="name"><code>message</code></td>
-  
-
-  <td class="type">
-  
-      
-<code class="param-type">String</code>
-
-
-  
-  </td>
-
-  
-      <td class="attributes">
-      
-
-      
-
-      
-      </td>
-  
-
-  
-      <td class="default">
-      
-      </td>
-  
-
-  <td class="description last"><p>descriptive error message.</p></td>
-</tr>
-
-
-        
+            </td>
 
             
-<tr class="deep-level-0">
-  
-      <td class="name"><code>options</code></td>
-  
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
-  <td class="type">
-  
-      
-<code class="param-type">Object</code>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>additional data.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
-  
-  </td>
 
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
 
-      
 
-      
-      </td>
-  
 
-  
-      <td class="default">
-      
-          {}
-      
-      </td>
-  
 
-  <td class="description last"><p>additional data.</p></td>
-</tr>
+
+
+
+
+
+
+
+
+
+
 
 
         
-        </tbody>
-    </table>
-</div>
-
-
-
-
-
-<dl class="details">
-
+        </div>
     
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="errors_percipioaxiosclienterror.js.html" class="button">View Source</a>
-            <span>
-                <a href="errors_percipioaxiosclienterror.js.html">errors/percipioaxiosclienterror.js</a>, <a href="errors_percipioaxiosclienterror.js.html#line5">line 5</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
-        
-    
-    </div>
-    
     
 
     
@@ -334,10 +267,10 @@
             <dd></dd>
         </dl>
     
-
+    
     
 
-    
+     
 
     
 
@@ -355,15 +288,24 @@
 
 
 
-            </div>
-            
-        </div>
-        <div id="side-nav" class="side-nav">
-        </div>
-    </div>
-<script src="scripts/app.min.js"></script>
-<script>PR.prettyPrint();</script>
-<script src="scripts/linenumber.js"> </script>
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+<script src="scripts/collapse.js" defer></script>
 
 
 </body>

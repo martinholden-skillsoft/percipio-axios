@@ -1,127 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Percipio Axios Client Home</title>
-
-  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script src="./build/entry.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
-  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
-  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
-  <link type="text/css" rel="stylesheet" href="">
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-
-  
+    
+    <meta charset="utf-8">
+    <title>Home - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+<body>
 
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
 
+<label for="nav-trigger" class="overlay"></label>
 
-<body class="layout small-header">
-    <div id="stickyNavbarOverlay"></div>
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/martinholden-skillsoft/percipio-axios.git" target="_blank" class="menu-item" id="repository" >Github repo</a></h2><h3>Classes</h3><ul><li><a href="PercipioAxiosClient.html">PercipioAxiosClient</a><ul class='methods'><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#.isPercipioAxiosClientError">isPercipioAxiosClientError</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#buildHeaders">buildHeaders</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#buildPath">buildPath</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#delete">delete</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#get">get</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#head">head</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#options">options</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#patch">patch</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#post">post</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#put">put</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#sendRequest">sendRequest</a></li></ul></li><li><a href="PercipioAxiosClientError.html">PercipioAxiosClientError</a></li><li><a href="PropertyInvalidError.html">PropertyInvalidError</a></li><li><a href="PropertyRequiredError.html">PropertyRequiredError</a></li></ul><h3>Global</h3><ul><li><a href="global.html#timingAdapter">timingAdapter</a></li></ul>
+</nav>
+
+<div id="main">
     
 
-<div class="top-nav">
-    <div class="inner">
-        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </a>
-        <div class="logo">
-            
-            
-        </div>
-        <div class="menu">
-            
-            <div class="navigation">
-                <a
-                    href="index.html"
-                    class="link"
-                >
-                    API Documentation
-                </a>
-                
-                 
-                    
-                        <a
-                            class="link user-link "
-                            href="https://github.com//martinholden-skillsoft/percipio-axios"
-                        >
-                            Github
-                        </a>
-                    
-                
-                
-            </div>
-        </div>
-    </div>
+    
+
+
+
+    
+
+
+    <section class="package">
+        <h3> </h3>		
+    </section>
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    <section class="readme usertext">
+        <article><h1>percipio-axios</h1>
+<p>Axios-based client for the Percipio API</p>
+<h2>Quickstart</h2>
+<ul>
+<li>
+<p>You should familiarize yourself with the Percipio services. A good place to begin is <a href="https://documentation.skillsoft.com/en_us/pes/Integration/int_api_overview.htm">Skillsoft Rest APIs</a></p>
+</li>
+<li>
+<p>Next, add <code>percipio-axios</code> and <code>dotenv</code> to your project.</p>
+<pre class="prettyprint source"><code>npm install martinholden-skillsoft/percipio-axios dotenv --save
+</code></pre>
+</li>
+<li>
+<p>Create a .ENV file with the three pieces of information the client needs.</p>
+<pre class="prettyprint source"><code>BASE_URL=https://api.percipio.com
+ORG_ID=b001e4aa-7ac9-4d15-8ddc-b0c58f6982dd
+BEARER_TOKEN=eyJhbGciOi.....qWPBgDkPU
+</code></pre>
+</li>
+<li>
+<p>Create code to call your chosen API, here we will call the <a href="https://api.percipio.com/common/api-docs/#/%2Fv1/getCollections">Get Collections</a> and display the response in the console.</p>
+<pre class="prettyprint source lang-javascript"><code>const { PercipioAxiosClient } = require(&quot;percipio-axios&quot;);
+
+require(&quot;dotenv&quot;).config();
+
+if (!process.env.ORG_ID || !process.env.BEARER_TOKEN || !process.env.BASE_URL) {
+  console.error(
+    &quot;Missing critical env vars. Make sure all variables are defined in .env file. Aborting. &quot;
+  );
+  process.exit(1);
+}
+
+// Create the Percipio Client
+let client = null;
+try {
+  client = new PercipioAxiosClient({
+    baseUrl: process.env.BASE_URL,
+    orgId: process.env.ORG_ID,
+    bearer: process.env.BEARER_TOKEN,
+    resourcePlaceholders: { version: &quot;v1&quot; },
+  });
+} catch (error) {
+  console.error(err);
+}
+
+// {orgId} will be replaced by the orgId passed to the PercipioAxiosClient
+//
+// {version} will be replaced by the version passed to the PercipioAxiosClient in
+// the resourcePlaceholders configuration option
+const resource = &quot;/common/{version}/organizations/{orgId}/collections&quot;;
+
+client
+  .get({ resource })
+  .then((response) => {
+    console.log(JSON.stringify(response.data, null, 2));
+  })
+  .catch((err) => {
+    if (PercipioAxiosClient.isPercipioAxiosClientError(err)) {
+      console.error(&quot;PercipoAxiosClient Error. &quot;, err);
+    } else {
+      console.error(err);
+    }
+  });
+</code></pre>
+</li>
+</ul>
+<h2>Documentation</h2>
+<p>Please see <a href="https://martinholden-skillsoft.github.io/percipio-axios/PercipioAxiosClient.html">documentation</a></p>
+<h2>Changelog</h2>
+<p>Please see <a href="CHANGELOG.md">CHANGELOG</a> for more information what has changed recently.</p>
+<h2>License</h2>
+<p>MIT © <a href="12408585+martinholden-skillsoft@users.noreply.github.com">martinholden-skillsoft</a></p></article>
+    </section>
+
+
+
+
+
+
+    
+    
 </div>
-    <div id="main">
-        <div
-            class="sidebar "
-            id="sidebarNav"
-        >
-            
-            <nav>
-                
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"></div><div class="category"><h2>Axios Extras</h2><h3>Global</h3><ul><li><a href="global.html#timingAdapter">timingAdapter</a></li></ul></div><div class="category"><h2>Errors</h2><h3>Classes</h3><ul><li><a href="PercipioAxiosClientError.html">PercipioAxiosClientError</a></li><li><a href="PropertyInvalidError.html">PropertyInvalidError</a></li><li><a href="PropertyRequiredError.html">PropertyRequiredError</a></li></ul></div><div class="category"><h2>Percipio Client</h2><h3>Classes</h3><ul><li><a href="PercipioAxiosClient.html">PercipioAxiosClient</a></li></ul></div>
-                
-            </nav>
-        </div>
-        <div class="core" id="main-content-wrapper">
-            <div class="content">
-                <header class="page-title">
-                    <p></p>
-                    <h1>Home</h1>
-                </header>
-                
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
 
 
-
-    
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-            </div>
-            
-        </div>
-        <div id="side-nav" class="side-nav">
-        </div>
-    </div>
-<script src="scripts/app.min.js"></script>
-<script>PR.prettyPrint();</script>
-<script src="scripts/linenumber.js"> </script>
+<script src="scripts/collapse.js" defer></script>
 
 
 </body>
