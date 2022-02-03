@@ -201,7 +201,7 @@
 
         <tr>
             
-                <td class="name"><code>baseUrl</code></td>
+                <td class="name"><code>baseURL</code></td>
             
 
             <td class="type">
@@ -371,7 +371,7 @@ defaults to axios with timingAdapter</p></td>
             
                 <td class="default">
                 
-                    <code>{orgId: config.OrgId}</code>
+                    <code>{orgId: configuration.orgId}</code>
                 
                 </td>
             
@@ -412,7 +412,7 @@ defaults to axios with timingAdapter</p></td>
 <dl>
     <dt>
         <div class="param-desc usertext">
-        <p>baseUrl is a required configuration property</p>
+        <p>baseURL is a required configuration property</p>
         </div>
     </dt>
     <dd></dd>
@@ -439,7 +439,7 @@ defaults to axios with timingAdapter</p></td>
 <dl>
     <dt>
         <div class="param-desc usertext">
-        <p>baseUrl is invalid, it must be a valid https URL</p>
+        <p>baseURL is invalid, it must be a valid https URL</p>
         </div>
     </dt>
     <dd></dd>
@@ -646,7 +646,7 @@ defaults to axios with timingAdapter</p></td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line105">line 105</a>
+        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line104">line 104</a>
     </li></ul></dd>
     
 
@@ -788,7 +788,7 @@ defaults to axios with timingAdapter</p></td>
 
     
 
-    <h4 class="name" id="buildHeaders"><span class="type-signature"></span>buildHeaders<span class="signature">(extraHeaders)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="buildHeaders"><span class="type-signature"></span>buildHeaders<span class="signature">(headers)</span><span class="type-signature"> &rarr; {Object}</span></h4>
 
     
 
@@ -800,7 +800,7 @@ defaults to axios with timingAdapter</p></td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line138">line 138</a>
+        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line140">line 140</a>
     </li></ul></dd>
     
 
@@ -840,7 +840,8 @@ defaults to axios with timingAdapter</p></td>
 
 
 <div class="description usertext">
-    <p>Builds the headers for the request, combining the default headers with the extra headers.</p>
+    <p>Builds the headers for the request, combining the default headers with the extra headers.
+All keys are normalized to lowercase.</p>
 </div>
 
 
@@ -878,7 +879,7 @@ defaults to axios with timingAdapter</p></td>
 
         <tr>
             
-                <td class="name"><code>extraHeaders</code></td>
+                <td class="name"><code>headers</code></td>
             
 
             <td class="type">
@@ -914,6 +915,36 @@ defaults to axios with timingAdapter</p></td>
 
 
 
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc usertext">
+        <p>The authorization header is not valid. Value: {authorization}
+if the authorization header does not start with 'Bearer'</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl class="param-type">
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
 
 
 <h5>Returns:</h5>
@@ -954,7 +985,7 @@ defaults to axios with timingAdapter</p></td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line119">line 119</a>
+        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line118">line 118</a>
     </li></ul></dd>
     
 
@@ -1139,7 +1170,7 @@ configuration.resourcePlaceholders property</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line224">line 224</a>
+        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line236">line 236</a>
     </li></ul></dd>
     
 
@@ -1298,7 +1329,7 @@ configuration.resourcePlaceholders property</p>
 
         <tr>
             
-                <td class="name"><code>query</code></td>
+                <td class="name"><code>params</code></td>
             
 
             <td class="type">
@@ -1330,14 +1361,14 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>The query paramerters to send with the request.</p></td>
+            <td class="description last"><p>The params to send with the request.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>body</code></td>
+                <td class="name"><code>data</code></td>
             
 
             <td class="type">
@@ -1369,14 +1400,14 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>The body to send with the request.</p></td>
+            <td class="description last"><p>The data to send with the request.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>extraHeaders</code></td>
+                <td class="name"><code>headers</code></td>
             
 
             <td class="type">
@@ -1408,14 +1439,16 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>The extra headers to send with the request.</p></td>
+            <td class="description last"><p>The headers to send with the request,
+these will be merged with the default
+headers (authorization and content-type)</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>rest</code></td>
+                <td class="name"><code>other</code></td>
             
 
             <td class="type">
@@ -1445,7 +1478,8 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>Any other valid Axios arguments to pass to the request.</p></td>
+            <td class="description last"><p>Any other Axios Request Config properties to pass to the request.
+See <a href="https://github.com/axios/axios#request-config">Axios Request Config</a></p></td>
         </tr>
 
     
@@ -1541,7 +1575,7 @@ configuration.resourcePlaceholders property</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line254">line 254</a>
+        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line269">line 269</a>
     </li></ul></dd>
     
 
@@ -1700,7 +1734,7 @@ configuration.resourcePlaceholders property</p>
 
         <tr>
             
-                <td class="name"><code>query</code></td>
+                <td class="name"><code>params</code></td>
             
 
             <td class="type">
@@ -1732,14 +1766,14 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>The query paramerters to send with the request.</p></td>
+            <td class="description last"><p>The params to send with the request.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>body</code></td>
+                <td class="name"><code>data</code></td>
             
 
             <td class="type">
@@ -1771,14 +1805,14 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>The body to send with the request.</p></td>
+            <td class="description last"><p>The data to send with the request.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>extraHeaders</code></td>
+                <td class="name"><code>headers</code></td>
             
 
             <td class="type">
@@ -1810,14 +1844,16 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>The extra headers to send with the request.</p></td>
+            <td class="description last"><p>The headers to send with the request,
+these will be merged with the default
+headers (authorization and content-type)</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>rest</code></td>
+                <td class="name"><code>other</code></td>
             
 
             <td class="type">
@@ -1847,7 +1883,8 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>Any other valid Axios arguments to pass to the request.</p></td>
+            <td class="description last"><p>Any other Axios Request Config properties to pass to the request.
+See <a href="https://github.com/axios/axios#request-config">Axios Request Config</a></p></td>
         </tr>
 
     
@@ -1943,7 +1980,7 @@ configuration.resourcePlaceholders property</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line284">line 284</a>
+        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line301">line 301</a>
     </li></ul></dd>
     
 
@@ -2102,7 +2139,7 @@ configuration.resourcePlaceholders property</p>
 
         <tr>
             
-                <td class="name"><code>query</code></td>
+                <td class="name"><code>params</code></td>
             
 
             <td class="type">
@@ -2134,14 +2171,14 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>The query paramerters to send with the request.</p></td>
+            <td class="description last"><p>The params to send with the request.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>body</code></td>
+                <td class="name"><code>data</code></td>
             
 
             <td class="type">
@@ -2173,14 +2210,14 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>The body to send with the request.</p></td>
+            <td class="description last"><p>The data to send with the request.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>extraHeaders</code></td>
+                <td class="name"><code>headers</code></td>
             
 
             <td class="type">
@@ -2212,14 +2249,16 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>The extra headers to send with the request.</p></td>
+            <td class="description last"><p>The headers to send with the request,
+these will be merged with the default
+headers (authorization and content-type)</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>rest</code></td>
+                <td class="name"><code>other</code></td>
             
 
             <td class="type">
@@ -2249,7 +2288,8 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>Any other valid Axios arguments to pass to the request.</p></td>
+            <td class="description last"><p>Any other Axios Request Config properties to pass to the request.
+See <a href="https://github.com/axios/axios#request-config">Axios Request Config</a>  * @throws {PropertyInvalidError} method cannot be overridden</p></td>
         </tr>
 
     
@@ -2276,35 +2316,6 @@ configuration.resourcePlaceholders property</p>
 
 
 
-<h5>Throws:</h5>
-
-        
-
-<dl>
-    <dt>
-        <div class="param-desc usertext">
-        <p>method cannot be overridden</p>
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl class="param-type">
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></span>
-
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-
-    
 
 
 <h5>Returns:</h5>
@@ -2345,7 +2356,7 @@ configuration.resourcePlaceholders property</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line314">line 314</a>
+        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line333">line 333</a>
     </li></ul></dd>
     
 
@@ -2504,7 +2515,7 @@ configuration.resourcePlaceholders property</p>
 
         <tr>
             
-                <td class="name"><code>query</code></td>
+                <td class="name"><code>params</code></td>
             
 
             <td class="type">
@@ -2536,14 +2547,14 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>The query paramerters to send with the request.</p></td>
+            <td class="description last"><p>The params to send with the request.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>body</code></td>
+                <td class="name"><code>data</code></td>
             
 
             <td class="type">
@@ -2575,14 +2586,14 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>The body to send with the request.</p></td>
+            <td class="description last"><p>The data to send with the request.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>extraHeaders</code></td>
+                <td class="name"><code>headers</code></td>
             
 
             <td class="type">
@@ -2614,14 +2625,16 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>The extra headers to send with the request.</p></td>
+            <td class="description last"><p>The headers to send with the request,
+these will be merged with the default
+headers (authorization and content-type)</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>rest</code></td>
+                <td class="name"><code>other</code></td>
             
 
             <td class="type">
@@ -2651,7 +2664,8 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>Any other valid Axios arguments to pass to the request.</p></td>
+            <td class="description last"><p>Any other Axios Request Config properties to pass to the request.
+See <a href="https://github.com/axios/axios#request-config">Axios Request Config</a>   * @throws {PropertyInvalidError} method cannot be overridden</p></td>
         </tr>
 
     
@@ -2678,35 +2692,6 @@ configuration.resourcePlaceholders property</p>
 
 
 
-<h5>Throws:</h5>
-
-        
-
-<dl>
-    <dt>
-        <div class="param-desc usertext">
-        <p>method cannot be overridden</p>
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl class="param-type">
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></span>
-
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-
-    
 
 
 <h5>Returns:</h5>
@@ -2747,7 +2732,7 @@ configuration.resourcePlaceholders property</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line344">line 344</a>
+        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line365">line 365</a>
     </li></ul></dd>
     
 
@@ -2906,7 +2891,7 @@ configuration.resourcePlaceholders property</p>
 
         <tr>
             
-                <td class="name"><code>query</code></td>
+                <td class="name"><code>params</code></td>
             
 
             <td class="type">
@@ -2938,14 +2923,14 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>The query paramerters to send with the request.</p></td>
+            <td class="description last"><p>The params to send with the request.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>body</code></td>
+                <td class="name"><code>data</code></td>
             
 
             <td class="type">
@@ -2977,14 +2962,14 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>The body to send with the request.</p></td>
+            <td class="description last"><p>The data to send with the request.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>extraHeaders</code></td>
+                <td class="name"><code>headers</code></td>
             
 
             <td class="type">
@@ -3016,14 +3001,16 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>The extra headers to send with the request.</p></td>
+            <td class="description last"><p>The headers to send with the request,
+these will be merged with the default
+headers (authorization and content-type)</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>rest</code></td>
+                <td class="name"><code>other</code></td>
             
 
             <td class="type">
@@ -3053,7 +3040,8 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>Any other valid Axios arguments to pass to the request.</p></td>
+            <td class="description last"><p>Any other Axios Request Config properties to pass to the request.
+See <a href="https://github.com/axios/axios#request-config">Axios Request Config</a>  * @throws {PropertyInvalidError} method cannot be overridden</p></td>
         </tr>
 
     
@@ -3080,35 +3068,6 @@ configuration.resourcePlaceholders property</p>
 
 
 
-<h5>Throws:</h5>
-
-        
-
-<dl>
-    <dt>
-        <div class="param-desc usertext">
-        <p>method cannot be overridden</p>
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl class="param-type">
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></span>
-
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-
-    
 
 
 <h5>Returns:</h5>
@@ -3149,7 +3108,7 @@ configuration.resourcePlaceholders property</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line374">line 374</a>
+        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line397">line 397</a>
     </li></ul></dd>
     
 
@@ -3308,7 +3267,7 @@ configuration.resourcePlaceholders property</p>
 
         <tr>
             
-                <td class="name"><code>query</code></td>
+                <td class="name"><code>params</code></td>
             
 
             <td class="type">
@@ -3340,14 +3299,14 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>The query paramerters to send with the request.</p></td>
+            <td class="description last"><p>The params to send with the request.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>body</code></td>
+                <td class="name"><code>data</code></td>
             
 
             <td class="type">
@@ -3379,14 +3338,14 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>The body to send with the request.</p></td>
+            <td class="description last"><p>The data to send with the request.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>extraHeaders</code></td>
+                <td class="name"><code>headers</code></td>
             
 
             <td class="type">
@@ -3418,14 +3377,16 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>The extra headers to send with the request.</p></td>
+            <td class="description last"><p>The headers to send with the request,
+these will be merged with the default
+headers (authorization and content-type)</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>rest</code></td>
+                <td class="name"><code>other</code></td>
             
 
             <td class="type">
@@ -3455,7 +3416,8 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>Any other valid Axios arguments to pass to the request.</p></td>
+            <td class="description last"><p>Any other Axios Request Config properties to pass to the request.
+See <a href="https://github.com/axios/axios#request-config">Axios Request Config</a>   * @throws {PropertyInvalidError} method cannot be overridden</p></td>
         </tr>
 
     
@@ -3482,35 +3444,6 @@ configuration.resourcePlaceholders property</p>
 
 
 
-<h5>Throws:</h5>
-
-        
-
-<dl>
-    <dt>
-        <div class="param-desc usertext">
-        <p>method cannot be overridden</p>
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl class="param-type">
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></span>
-
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-
-    
 
 
 <h5>Returns:</h5>
@@ -3551,7 +3484,7 @@ configuration.resourcePlaceholders property</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line404">line 404</a>
+        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line429">line 429</a>
     </li></ul></dd>
     
 
@@ -3710,7 +3643,7 @@ configuration.resourcePlaceholders property</p>
 
         <tr>
             
-                <td class="name"><code>query</code></td>
+                <td class="name"><code>params</code></td>
             
 
             <td class="type">
@@ -3742,14 +3675,14 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>The query paramerters to send with the request.</p></td>
+            <td class="description last"><p>The params to send with the request.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>body</code></td>
+                <td class="name"><code>data</code></td>
             
 
             <td class="type">
@@ -3781,14 +3714,14 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>The body to send with the request.</p></td>
+            <td class="description last"><p>The data to send with the request.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>extraHeaders</code></td>
+                <td class="name"><code>headers</code></td>
             
 
             <td class="type">
@@ -3820,14 +3753,16 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>The extra headers to send with the request.</p></td>
+            <td class="description last"><p>The headers to send with the request,
+these will be merged with the default
+headers (authorization and content-type)</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>rest</code></td>
+                <td class="name"><code>other</code></td>
             
 
             <td class="type">
@@ -3857,7 +3792,8 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>Any other valid Axios arguments to pass to the request.</p></td>
+            <td class="description last"><p>Any other Axios Request Config properties to pass to the request.
+See <a href="https://github.com/axios/axios#request-config">Axios Request Config</a>   * @throws {PropertyInvalidError} method cannot be overridden</p></td>
         </tr>
 
     
@@ -3884,35 +3820,6 @@ configuration.resourcePlaceholders property</p>
 
 
 
-<h5>Throws:</h5>
-
-        
-
-<dl>
-    <dt>
-        <div class="param-desc usertext">
-        <p>method cannot be overridden</p>
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl class="param-type">
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></span>
-
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-
-    
 
 
 <h5>Returns:</h5>
@@ -3953,7 +3860,7 @@ configuration.resourcePlaceholders property</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line157">line 157</a>
+        <a href="lib_percipio-axios-client.js.html">lib/percipio-axios-client.js</a>, <a href="lib_percipio-axios-client.js.html#line176">line 176</a>
     </li></ul></dd>
     
 
@@ -4147,7 +4054,7 @@ configuration.resourcePlaceholders property</p>
 
         <tr>
             
-                <td class="name"><code>query</code></td>
+                <td class="name"><code>params</code></td>
             
 
             <td class="type">
@@ -4179,14 +4086,14 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>The query paramerters to send with the request.</p></td>
+            <td class="description last"><p>The params to send with the request.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>body</code></td>
+                <td class="name"><code>data</code></td>
             
 
             <td class="type">
@@ -4218,14 +4125,14 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>The body to send with the request.</p></td>
+            <td class="description last"><p>The data to send with the request.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>extraHeaders</code></td>
+                <td class="name"><code>headers</code></td>
             
 
             <td class="type">
@@ -4257,14 +4164,16 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>The extra headers to send with the request.</p></td>
+            <td class="description last"><p>The headers to send with the request,
+these will be merged with the default
+headers (authorization and content-type)</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>rest</code></td>
+                <td class="name"><code>other</code></td>
             
 
             <td class="type">
@@ -4294,7 +4203,8 @@ configuration.resourcePlaceholders property</p>
                 </td>
             
 
-            <td class="description last"><p>Any other valid Axios arguments to pass to the request.</p></td>
+            <td class="description last"><p>Any other Axios Request Config properties to pass to the request.
+See <a href="https://github.com/axios/axios#request-config">Axios Request Config</a></p></td>
         </tr>
 
     

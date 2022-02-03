@@ -66,15 +66,15 @@ class PercipioAxiosClient {
   /**
    * Creates an instance of PercipioAxiosClient.
    * @param {Object} configuration - The configuration
-   * @param {String} configuration.baseUrl - The base URL for the API
+   * @param {String} configuration.baseURL - The base URL for the API
    * @param {String} configuration.orgId - The organization ID
    * @param {String} configuration.bearer - The bearer token
    * @param {Object} [configuration.instance] - The Axios instance to use,
    *                                     defaults to axios with timingAdapter
-   * @param {Object} [configuration.resourcePlaceholders={orgId: config.OrgId}]
+   * @param {Object} [configuration.resourcePlaceholders={orgId: configuration.orgId}]
    *                  - Used to replace placeholders in the resource path.
-   * @throws {PropertyRequiredError} baseUrl is a required configuration property
-   * @throws {PropertyInvalidError} baseUrl is invalid, it must be a valid https URL
+   * @throws {PropertyRequiredError} baseURL is a required configuration property
+   * @throws {PropertyInvalidError} baseURL is invalid, it must be a valid https URL
    * @throws {PropertyRequiredError} orgId is a required configuration property
    * @throws {PropertyInvalidError} orgId is invalid, it must be a uuid
    * @throws {PropertyRequiredError} bearer is a required configuration property
@@ -85,12 +85,12 @@ class PercipioAxiosClient {
   constructor(configuration = {}) {
     this.configuration = _.merge({ resourcePlaceholders: {} }, _.cloneDeep(configuration));
 
-    if (!('baseUrl' in this.configuration)) {
-      throw new errors.PropertyRequiredError('baseUrl is a required configuration property');
+    if (!('baseURL' in this.configuration)) {
+      throw new errors.PropertyRequiredError('baseURL is a required configuration property');
     }
 
-    if (!validUrl.isHttpsUri(this.configuration.baseUrl)) {
-      throw new errors.PropertyInvalidError('baseUrl is invalid, it must be a valid https URL');
+    if (!validUrl.isHttpsUri(this.configuration.baseURL)) {
+      throw new errors.PropertyInvalidError('baseURL is invalid, it must be a valid https URL');
     }
 
     if (!('orgId' in this.configuration)) {
@@ -127,7 +127,6 @@ class PercipioAxiosClient {
       httpsAgent,
       adapter: axiosExtras.timingAdapter,
     };
-
     this.instance = this.configuration.instance || axios.create(axiosInstanceConfig);
 
     const check =
@@ -176,13 +175,30 @@ class PercipioAxiosClient {
 
   /**
    * Builds the headers for the request, combining the default headers with the extra headers.
+   * All keys are normalized to lowercase.
    *
-   * @param {Object} extraHeaders - The extra headers to send with the request, as key/value pairs.
+   * @param {Object} headers - The extra headers to send with the request, as key/value pairs.
    * @return {Object}
+   * @throws {PropertyInvalidError} The authorization header is not valid. Value: {authorization}
+   *                                if the authorization header does not start with 'Bearer'
    * @memberof PercipioAxiosClient
    */
-  buildHeaders(extraHeaders) {
-    return _.merge({}, this.defaultHeaders, extraHeaders);
+  buildHeaders(headers) {
+    const lowercaseKeys = (obj) =>
+      Object.keys(obj).reduce((acc, key) => {
+        acc[key.toLowerCase()] = obj[key];
+        return acc;
+      }, {});
+
+    const result = _.merge({}, this.defaultHeaders, headers ? lowercaseKeys(headers) : {});
+
+    if ('authorization' in result &amp;&amp; !result.authorization.startsWith('Bearer ')) {
+      throw new errors.PropertyInvalidError(
+        `The authorization header is not valid. Value: ${result.authorization}`
+      );
+    }
+
+    return result;
   }
 
   /**
@@ -191,17 +207,20 @@ class PercipioAxiosClient {
    * @param {Object} config
    * @param {String} config.method - The HTTP method.
    * @param {String} config.resource - The resource path to send the request to.
-   * @param {Object} [config.query={}] - The query paramerters to send with the request.
-   * @param {Object} [config.body={}] - The body to send with the request.
-   * @param {Object} [config.extraHeaders={}] - The extra headers to send with the request.
-   * @param {*} [config.rest] - Any other valid Axios arguments to pass to the request.
+   * @param {Object} [config.params={}] - The params to send with the request.
+   * @param {Object} [config.data={}] - The data to send with the request.
+   * @param {Object} [config.headers={}] - The headers to send with the request,
+   *                                       these will be merged with the default
+   *                                       headers (authorization and content-type)
+   * @param {*} [config.other] - Any other Axios Request Config properties to pass to the request.
+   *                      See {@link https://github.com/axios/axios#request-config|Axios Request Config}
    * @return {Promise}
    * @throws {PropertyRequiredError} method is a required configuration property
    * @throws {PropertyRequiredError} resource is a required configuration property
    * @memberof PercipioAxiosClient
    */
   sendRequest(config) {
-    const { method, resource, query, body, extraHeaders, ...rest } = config;
+    const { method, resource, params = {}, data = {}, headers, ...other } = config;
 
     return new Promise((resolve, reject) => {
       if (!method) {
@@ -212,35 +231,25 @@ class PercipioAxiosClient {
         reject(new errors.PropertyRequiredError('resource is a required configuration property'));
       }
 
-      let url = null;
-      let headers = null;
+      const requestConfig = {
+        baseURL: this.configuration.baseURL,
+        method,
+        ...other,
+      };
+
       try {
-        url = this.buildPath(resource);
-        headers = this.buildHeaders(extraHeaders);
+        requestConfig.url = this.buildPath(resource);
+        requestConfig.headers = this.buildHeaders(headers);
       } catch (error) {
         reject(error);
       }
 
-      let params = query || {};
-      params = _.omitBy(params, _.isNil);
-
-      let data = body || {};
-      data = _.omitBy(data, _.isNil);
-
-      const requestConfig = {
-        baseURL: this.configuration.baseUrl,
-        url,
-        headers,
-        method,
-        ...rest,
-      };
-
       if (!_.isEmpty(data)) {
-        requestConfig.data = data;
+        requestConfig.data = _.omitBy(data, _.isNil);
       }
 
       if (!_.isEmpty(params)) {
-        requestConfig.params = params;
+        requestConfig.params = _.omitBy(params, _.isNil);
       }
 
       this.instance
@@ -259,22 +268,25 @@ class PercipioAxiosClient {
    *
    * @param {Object} config
    * @param {String} config.resource - The resource path to send the request to.
-   * @param {Object} [config.query={}] - The query paramerters to send with the request.
-   * @param {Object} [config.body={}] - The body to send with the request.
-   * @param {Object} [config.extraHeaders={}] - The extra headers to send with the request.
-   * @param {*} [config.rest] - Any other valid Axios arguments to pass to the request.
+   * @param {Object} [config.params={}] - The params to send with the request.
+   * @param {Object} [config.data={}] - The data to send with the request.
+   * @param {Object} [config.headers={}] - The headers to send with the request,
+   *                                       these will be merged with the default
+   *                                       headers (authorization and content-type)
+   * @param {*} [config.other] - Any other Axios Request Config properties to pass to the request.
+   *                      See {@link https://github.com/axios/axios#request-config|Axios Request Config}
    * @return {Promise}
    * @throws {PropertyInvalidError} method cannot be overridden
    * @memberof PercipioAxiosClient
    */
-  delete({ resource, query, body, extraHeaders, ...rest }) {
+  delete({ resource, params, data, headers, ...other }) {
     return new Promise((resolve, reject) => {
       const method = 'delete';
-      if (rest.method &amp;&amp; rest.method !== method) {
+      if (other.method &amp;&amp; other.method !== method) {
         reject(new errors.PropertyInvalidError('method cannot be overridden'));
       }
 
-      this.sendRequest({ method, resource, query, body, extraHeaders, ...rest })
+      this.sendRequest({ method, resource, params, data, headers, ...other })
         .then((response) => {
           resolve(response);
         })
@@ -289,22 +301,25 @@ class PercipioAxiosClient {
    *
    * @param {Object} config
    * @param {String} config.resource - The resource path to send the request to.
-   * @param {Object} [config.query={}] - The query paramerters to send with the request.
-   * @param {Object} [config.body={}] - The body to send with the request.
-   * @param {Object} [config.extraHeaders={}] - The extra headers to send with the request.
-   * @param {*} [config.rest] - Any other valid Axios arguments to pass to the request.
+   * @param {Object} [config.params={}] - The params to send with the request.
+   * @param {Object} [config.data={}] - The data to send with the request.
+   * @param {Object} [config.headers={}] - The headers to send with the request,
+   *                                       these will be merged with the default
+   *                                       headers (authorization and content-type)
+   * @param {*} [config.other] - Any other Axios Request Config properties to pass to the request.
+   *                      See {@link https://github.com/axios/axios#request-config|Axios Request Config}
    * @throws {PropertyInvalidError} method cannot be overridden
    * @return {Promise}
    * @memberof PercipioAxiosClient
    */
-  get({ resource, query, body, extraHeaders, ...rest }) {
+  get({ resource, params, data, headers, ...other }) {
     return new Promise((resolve, reject) => {
       const method = 'get';
-      if (rest.method &amp;&amp; rest.method !== method) {
+      if (other.method &amp;&amp; other.method !== method) {
         reject(new errors.PropertyInvalidError('method cannot be overridden'));
       }
 
-      this.sendRequest({ method, resource, query, body, extraHeaders, ...rest })
+      this.sendRequest({ method, resource, params, data, headers, ...other })
         .then((response) => {
           resolve(response);
         })
@@ -319,22 +334,24 @@ class PercipioAxiosClient {
    *
    * @param {Object} config
    * @param {String} config.resource - The resource path to send the request to.
-   * @param {Object} [config.query={}] - The query paramerters to send with the request.
-   * @param {Object} [config.body={}] - The body to send with the request.
-   * @param {Object} [config.extraHeaders={}] - The extra headers to send with the request.
-   * @param {*} [config.rest] - Any other valid Axios arguments to pass to the request.
-   * @throws {PropertyInvalidError} method cannot be overridden
+   * @param {Object} [config.params={}] - The params to send with the request.
+   * @param {Object} [config.data={}] - The data to send with the request.
+   * @param {Object} [config.headers={}] - The headers to send with the request,
+   *                                       these will be merged with the default
+   *                                       headers (authorization and content-type)
+   * @param {*} [config.other] - Any other Axios Request Config properties to pass to the request.
+   *                      See {@link https://github.com/axios/axios#request-config|Axios Request Config}  * @throws {PropertyInvalidError} method cannot be overridden
    * @return {Promise}
    * @memberof PercipioAxiosClient
    */
-  head({ resource, query, body, extraHeaders, ...rest }) {
+  head({ resource, params, data, headers, ...other }) {
     return new Promise((resolve, reject) => {
       const method = 'head';
-      if (rest.method &amp;&amp; rest.method !== method) {
+      if (other.method &amp;&amp; other.method !== method) {
         reject(new errors.PropertyInvalidError('method cannot be overridden'));
       }
 
-      this.sendRequest({ method, resource, query, body, extraHeaders, ...rest })
+      this.sendRequest({ method, resource, params, data, headers, ...other })
         .then((response) => {
           resolve(response);
         })
@@ -349,22 +366,24 @@ class PercipioAxiosClient {
    *
    * @param {Object} config
    * @param {String} config.resource - The resource path to send the request to.
-   * @param {Object} [config.query={}] - The query paramerters to send with the request.
-   * @param {Object} [config.body={}] - The body to send with the request.
-   * @param {Object} [config.extraHeaders={}] - The extra headers to send with the request.
-   * @param {*} [config.rest] - Any other valid Axios arguments to pass to the request.
-   * @throws {PropertyInvalidError} method cannot be overridden
+   * @param {Object} [config.params={}] - The params to send with the request.
+   * @param {Object} [config.data={}] - The data to send with the request.
+   * @param {Object} [config.headers={}] - The headers to send with the request,
+   *                                       these will be merged with the default
+   *                                       headers (authorization and content-type)
+   * @param {*} [config.other] - Any other Axios Request Config properties to pass to the request.
+   *                      See {@link https://github.com/axios/axios#request-config|Axios Request Config}   * @throws {PropertyInvalidError} method cannot be overridden
    * @return {Promise}
    * @memberof PercipioAxiosClient
    */
-  options({ resource, query, body, extraHeaders, ...rest }) {
+  options({ resource, params, data, headers, ...other }) {
     return new Promise((resolve, reject) => {
       const method = 'options';
-      if (rest.method &amp;&amp; rest.method !== method) {
+      if (other.method &amp;&amp; other.method !== method) {
         reject(new errors.PropertyInvalidError('method cannot be overridden'));
       }
 
-      this.sendRequest({ method, resource, query, body, extraHeaders, ...rest })
+      this.sendRequest({ method, resource, params, data, headers, ...other })
         .then((response) => {
           resolve(response);
         })
@@ -379,22 +398,24 @@ class PercipioAxiosClient {
    *
    * @param {Object} config
    * @param {String} config.resource - The resource path to send the request to.
-   * @param {Object} [config.query={}] - The query paramerters to send with the request.
-   * @param {Object} [config.body={}] - The body to send with the request.
-   * @param {Object} [config.extraHeaders={}] - The extra headers to send with the request.
-   * @param {*} [config.rest] - Any other valid Axios arguments to pass to the request.
-   * @throws {PropertyInvalidError} method cannot be overridden
+   * @param {Object} [config.params={}] - The params to send with the request.
+   * @param {Object} [config.data={}] - The data to send with the request.
+   * @param {Object} [config.headers={}] - The headers to send with the request,
+   *                                       these will be merged with the default
+   *                                       headers (authorization and content-type)
+   * @param {*} [config.other] - Any other Axios Request Config properties to pass to the request.
+   *                      See {@link https://github.com/axios/axios#request-config|Axios Request Config}  * @throws {PropertyInvalidError} method cannot be overridden
    * @return {Promise}
    * @memberof PercipioAxiosClient
    */
-  patch({ resource, query, body, extraHeaders, ...rest }) {
+  patch({ resource, params, data, headers, ...other }) {
     return new Promise((resolve, reject) => {
       const method = 'patch';
-      if (rest.method &amp;&amp; rest.method !== method) {
+      if (other.method &amp;&amp; other.method !== method) {
         reject(new errors.PropertyInvalidError('method cannot be overridden'));
       }
 
-      this.sendRequest({ method, resource, query, body, extraHeaders, ...rest })
+      this.sendRequest({ method, resource, params, data, headers, ...other })
         .then((response) => {
           resolve(response);
         })
@@ -409,22 +430,24 @@ class PercipioAxiosClient {
    *
    * @param {Object} config
    * @param {String} config.resource - The resource path to send the request to.
-   * @param {Object} [config.query={}] - The query paramerters to send with the request.
-   * @param {Object} [config.body={}] - The body to send with the request.
-   * @param {Object} [config.extraHeaders={}] - The extra headers to send with the request.
-   * @param {*} [config.rest] - Any other valid Axios arguments to pass to the request.
-   * @throws {PropertyInvalidError} method cannot be overridden
+   * @param {Object} [config.params={}] - The params to send with the request.
+   * @param {Object} [config.data={}] - The data to send with the request.
+   * @param {Object} [config.headers={}] - The headers to send with the request,
+   *                                       these will be merged with the default
+   *                                       headers (authorization and content-type)
+   * @param {*} [config.other] - Any other Axios Request Config properties to pass to the request.
+   *                      See {@link https://github.com/axios/axios#request-config|Axios Request Config}   * @throws {PropertyInvalidError} method cannot be overridden
    * @return {Promise}
    * @memberof PercipioAxiosClient
    */
-  post({ resource, query, body, extraHeaders, ...rest }) {
+  post({ resource, params, data, headers, ...other }) {
     return new Promise((resolve, reject) => {
       const method = 'post';
-      if (rest.method &amp;&amp; rest.method !== method) {
+      if (other.method &amp;&amp; other.method !== method) {
         reject(new errors.PropertyInvalidError('method cannot be overridden'));
       }
 
-      this.sendRequest({ method, resource, query, body, extraHeaders, ...rest })
+      this.sendRequest({ method, resource, params, data, headers, ...other })
         .then((response) => {
           resolve(response);
         })
@@ -439,22 +462,24 @@ class PercipioAxiosClient {
    *
    * @param {Object} config
    * @param {String} config.resource - The resource path to send the request to.
-   * @param {Object} [config.query={}] - The query paramerters to send with the request.
-   * @param {Object} [config.body={}] - The body to send with the request.
-   * @param {Object} [config.extraHeaders={}] - The extra headers to send with the request.
-   * @param {*} [config.rest] - Any other valid Axios arguments to pass to the request.
-   * @throws {PropertyInvalidError} method cannot be overridden
+   * @param {Object} [config.params={}] - The params to send with the request.
+   * @param {Object} [config.data={}] - The data to send with the request.
+   * @param {Object} [config.headers={}] - The headers to send with the request,
+   *                                       these will be merged with the default
+   *                                       headers (authorization and content-type)
+   * @param {*} [config.other] - Any other Axios Request Config properties to pass to the request.
+   *                      See {@link https://github.com/axios/axios#request-config|Axios Request Config}   * @throws {PropertyInvalidError} method cannot be overridden
    * @return {Promise}
    * @memberof PercipioAxiosClient
    */
-  put({ resource, query, body, extraHeaders, ...rest }) {
+  put({ resource, params, data, headers, ...other }) {
     return new Promise((resolve, reject) => {
       const method = 'put';
-      if (rest.method &amp;&amp; rest.method !== method) {
+      if (other.method &amp;&amp; other.method !== method) {
         reject(new errors.PropertyInvalidError('method cannot be overridden'));
       }
 
-      this.sendRequest({ method, resource, query, body, extraHeaders, ...rest })
+      this.sendRequest({ method, resource, params, data, headers, ...other })
         .then((response) => {
           resolve(response);
         })
