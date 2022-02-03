@@ -12,7 +12,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "coverage": "c8 npm run test",
+    "test-with-coverage": "c8 npm run test",
     "lint": "eslint .",
     "preversion": "npm run lint && npm run test && npm run generate-docs",
     "postversion": "git push && git push --tags && npm run changelog && git push ",
