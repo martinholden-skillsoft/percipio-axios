@@ -38,13 +38,13 @@ Axios-based client for the Percipio API
   let client = null;
   try {
     client = new PercipioAxiosClient({
-      baseUrl: process.env.BASE_URL,
+      baseURL: process.env.BASE_URL,
       orgId: process.env.ORG_ID,
       bearer: process.env.BEARER_TOKEN,
       resourcePlaceholders: { version: "v1" },
     });
   } catch (error) {
-    console.error(err);
+    console.error(error);
   }
 
   // {orgId} will be replaced by the orgId passed to the PercipioAxiosClient
@@ -54,7 +54,13 @@ Axios-based client for the Percipio API
   const resource = "/common/{version}/organizations/{orgId}/collections";
 
   client
-    .get({ resource })
+    .get({
+      resource,
+      params: {},
+      data: {},
+      headers: { 'User-Agent': 'Percipio-Node-TestClient' },
+      timeout: 2000, //This is a standard Axios Request Config value
+    })
     .then((response) => {
       console.log(JSON.stringify(response.data, null, 2));
     })
