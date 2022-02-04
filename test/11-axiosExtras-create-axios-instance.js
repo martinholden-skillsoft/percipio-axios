@@ -20,6 +20,7 @@ const {
 } = require('../index');
 
 const testutils = require('./helpers/utils');
+const { default: axios } = require('axios');
 
 /**
  * ### .param
@@ -74,7 +75,7 @@ Assertion.addMethod('data', function (name, value) {
 });
 
 describe('axiosExtras', function () {
-  describe('timingAdapter', function () {
+  describe('createAxiosInstance', function () {
     let mainconfig;
     let requestConfig;
     let requestNock;
@@ -141,10 +142,37 @@ describe('axiosExtras', function () {
       });
     });
 
+    it('throw an error if timings key exists in request config', function () {
+      const client = new PercipioAxiosClient(mainconfig);
+
+      // Make request interceptor throw because timings key is not allowed
+      requestConfig.timings = {};
+
+      return client.sendRequest(requestConfig).catch((err) => {
+        expect(err).to.be.instanceOf(Error);
+      });
+    });
+
+    it('confirm response contains requestCorrelationId data', async function () {
+      const client = new PercipioAxiosClient(mainconfig);
+
+      return client.sendRequest(requestConfig).then((response) => {
+        expect(response).to.have.property('requestCorrelationId').that.is.a('string');
+      });
+    });
+
+    it('confirm response contains specified requestCorrelationId data', async function () {
+      const client = new PercipioAxiosClient(mainconfig);
+      requestConfig.requestCorrelationId = '12345';
+      return client.sendRequest(requestConfig).then((response) => {
+        expect(response).to.have.property('requestCorrelationId', '12345');
+      });
+    });
+
     it('throw an error', function () {
       const client = new PercipioAxiosClient(mainconfig);
 
-      // Make adapter throw because maxBodyLength is to large.
+      // Make request interceptor throw because maxBodyLength is to large.
       requestConfig.maxBodyLength = 1;
       requestConfig.data = { maximimlength: 1 };
 
@@ -156,7 +184,7 @@ describe('axiosExtras', function () {
     it('throw error due to timeout', function () {
       const client = new PercipioAxiosClient(mainconfig);
 
-      // Make adapter throw because request timesout.
+      // Make request interceptor throw because request timesout.
       requestConfig.timeout = 250;
       return client.sendRequest(requestConfig).catch((err) => {
         expect(err).to.be.instanceOf(Error);
