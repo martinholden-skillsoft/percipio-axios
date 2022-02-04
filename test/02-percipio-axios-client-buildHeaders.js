@@ -6,7 +6,7 @@ chai.use(chaiMatch);
 const { expect } = require('chai');
 
 const { PercipioAxiosClient } = require('../index');
-const errors = require('../errors');
+const errors = require('../lib/errors');
 
 describe('PercipioAxiosClient', function () {
   describe('buildHeaders function', function () {

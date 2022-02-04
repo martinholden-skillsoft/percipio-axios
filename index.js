@@ -3,7 +3,7 @@ const {
   PropertyRequiredError,
   PropertyInvalidError,
   PercipioAxiosClientError,
-} = require('./errors');
+} = require('./lib/errors');
 
 module.exports = {
   PercipioAxiosClient,
