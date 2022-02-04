@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>lib/percipio-axios-client.js - Documentation</title>
+    <title>percipio-axios-client.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -29,12 +29,12 @@
     
     <input type="text" id="nav-search" placeholder="Search" />
     
-    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/martinholden-skillsoft/percipio-axios.git" target="_blank" class="menu-item" id="repository" >Github repo</a></h2><h3>Classes</h3><ul><li><a href="PercipioAxiosClient.html">PercipioAxiosClient</a><ul class='methods'><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#.isPercipioAxiosClientError">isPercipioAxiosClientError</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#buildHeaders">buildHeaders</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#buildPath">buildPath</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#delete">delete</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#get">get</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#head">head</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#options">options</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#patch">patch</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#post">post</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#put">put</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#sendRequest">sendRequest</a></li></ul></li><li><a href="PercipioAxiosClientError.html">PercipioAxiosClientError</a></li><li><a href="PropertyInvalidError.html">PropertyInvalidError</a></li><li><a href="PropertyRequiredError.html">PropertyRequiredError</a></li></ul><h3>Global</h3><ul><li><a href="global.html#timingAdapter">timingAdapter</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/martinholden-skillsoft/percipio-axios.git" target="_blank" class="menu-item" id="repository" >Github repo</a></h2><h3>Classes</h3><ul><li><a href="PercipioAxiosClient.html">PercipioAxiosClient</a><ul class='methods'><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#.isPercipioAxiosClientError">isPercipioAxiosClientError</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#buildHeaders">buildHeaders</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#buildPath">buildPath</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#delete">delete</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#get">get</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#head">head</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#options">options</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#patch">patch</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#post">post</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#put">put</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#sendRequest">sendRequest</a></li></ul></li><li><a href="PercipioAxiosClientError.html">PercipioAxiosClientError</a></li><li><a href="PropertyInvalidError.html">PropertyInvalidError</a></li><li><a href="PropertyRequiredError.html">PropertyRequiredError</a></li></ul>
 </nav>
 
 <div id="main">
     
-    <h1 class="page-title">lib/percipio-axios-client.js</h1>
+    <h1 class="page-title">percipio-axios-client.js</h1>
     
 
     
@@ -44,18 +44,12 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const { Agent: HttpAgent } = require('http');
-const { Agent: HttpsAgent } = require('https');
-const axios = require('axios');
-const { v4: uuidv4, validate: uuidValidate } = require('uuid');
+            <pre class="prettyprint source linenums"><code>const { v4: uuidv4, validate: uuidValidate } = require('uuid');
 const jwtdecode = require('jwt-decode');
 const validUrl = require('valid-url');
 const _ = require('lodash');
 
-const httpAgent = new HttpAgent({ keepAlive: true });
-const httpsAgent = new HttpsAgent({ keepAlive: true });
-
-const errors = require('../errors');
+const errors = require('./errors');
 const axiosExtras = require('./axiosextras');
 
 /**
@@ -122,12 +116,7 @@ class PercipioAxiosClient {
       authorization: `Bearer ${this.configuration.bearer}`,
     };
 
-    const axiosInstanceConfig = {
-      httpAgent,
-      httpsAgent,
-      adapter: axiosExtras.timingAdapter,
-    };
-    this.instance = this.configuration.instance || axios.create(axiosInstanceConfig);
+    this.instance = this.configuration.instance || axiosExtras.createAxiosInstance();
 
     const check =
       typeof this.instance.create === 'function' &amp;&amp;
