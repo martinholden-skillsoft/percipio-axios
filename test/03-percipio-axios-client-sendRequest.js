@@ -74,24 +74,25 @@ describe('PercipioAxiosClient', function () {
       });
     });
 
-    it('confirm response contains timing data', async function () {
-      const client = new PercipioAxiosClient(mainconfig);
+    it('confirm axios instance can be overridden', async function () {
+      // Override Axios instance
+      const message = 'Hello World';
+      const axiosInstance = axios.create();
 
-      return client.sendRequest(getRequestConfig).then((response) => {
-        expect(response).to.have.property('timings');
-        expect(response.timings).to.have.property('sent').that.is.a('date');
-        expect(response.timings).to.have.property('received').that.is.a('date');
-        expect(response.timings).to.have.property('durationms').that.is.a('number');
+      // Add a response interceptor to add timings to the response
+      // and a correlation id.
+      axiosInstance.interceptors.response.use((response) => {
+        response.testMessage = message;
+        // Any status code that lie within the range of 2xx cause this function to trigger
+        // Do something with response data
+        return response;
       });
-    });
 
-    it('confirm response does not contain timing data, when instance overridden', async function () {
-      // Override Axios instance for one without timingAdapter
-      mainconfig.instance = axios.create();
+      mainconfig.instance = axiosInstance;
       const client = new PercipioAxiosClient(mainconfig);
 
       return client.sendRequest(getRequestConfig).then((response) => {
-        expect(response).to.not.have.property('timings');
+        expect(response).to.have.property('testMessage', message);
       });
     });
 

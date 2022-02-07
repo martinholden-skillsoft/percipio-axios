@@ -85,33 +85,34 @@ describe('PercipioAxiosClient', function () {
         });
       });
 
+      it('confirm axios instance can be overridden', async function () {
+        // Override Axios instance
+        const message = 'Hello World';
+        const axiosInstance = axios.create();
+
+        // Add a response interceptor to add timings to the response
+        // and a correlation id.
+        axiosInstance.interceptors.response.use((response) => {
+          response.testMessage = message;
+          // Any status code that lie within the range of 2xx cause this function to trigger
+          // Do something with response data
+          return response;
+        });
+
+        mainconfig.instance = axiosInstance;
+        const client = new PercipioAxiosClient(mainconfig);
+
+        return client[functionName](getRequestConfig).then((response) => {
+          expect(response).to.have.property('testMessage', message);
+        });
+      });
+
       it('attempt to overide method should throw PropertyInvalidError', async function () {
         const client = new PercipioAxiosClient(mainconfig);
 
         getRequestConfig.method = alternateMethodMap[functionName];
         return client[functionName](getRequestConfig).catch((err) => {
           expect(err).to.be.instanceOf(PropertyInvalidError);
-        });
-      });
-
-      it('confirm response contains timing data', async function () {
-        const client = new PercipioAxiosClient(mainconfig);
-
-        return client[functionName](getRequestConfig).then((response) => {
-          expect(response).to.have.property('timings');
-          expect(response.timings).to.have.property('sent').that.is.a('date');
-          expect(response.timings).to.have.property('received').that.is.a('date');
-          expect(response.timings).to.have.property('durationms').that.is.a('number');
-        });
-      });
-
-      it('confirm response does not contain timing data, when instance overridden', async function () {
-        // Override Axios instance for one without timingAdapter
-        mainconfig.instance = axios.create();
-        const client = new PercipioAxiosClient(mainconfig);
-
-        return client[functionName](getRequestConfig).then((response) => {
-          expect(response).to.not.have.property('timings');
         });
       });
 

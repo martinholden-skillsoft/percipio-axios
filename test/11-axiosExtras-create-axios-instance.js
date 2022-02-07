@@ -131,44 +131,6 @@ describe('axiosExtras', function () {
       });
     });
 
-    it('confirm response contains timing data', async function () {
-      const client = new PercipioAxiosClient(mainconfig);
-
-      return client.sendRequest(requestConfig).then((response) => {
-        expect(response).to.have.property('timings');
-        expect(response.timings).to.have.property('sent').that.is.a('date');
-        expect(response.timings).to.have.property('received').that.is.a('date');
-        expect(response.timings).to.have.property('durationms').that.is.a('number');
-      });
-    });
-
-    it('throw an error if timings key exists in request config', function () {
-      const client = new PercipioAxiosClient(mainconfig);
-
-      // Make request interceptor throw because timings key is not allowed
-      requestConfig.timings = {};
-
-      return client.sendRequest(requestConfig).catch((err) => {
-        expect(err).to.be.instanceOf(Error);
-      });
-    });
-
-    it('confirm response contains requestCorrelationId data', async function () {
-      const client = new PercipioAxiosClient(mainconfig);
-
-      return client.sendRequest(requestConfig).then((response) => {
-        expect(response).to.have.property('requestCorrelationId').that.is.a('string');
-      });
-    });
-
-    it('confirm response contains specified requestCorrelationId data', async function () {
-      const client = new PercipioAxiosClient(mainconfig);
-      requestConfig.requestCorrelationId = '12345';
-      return client.sendRequest(requestConfig).then((response) => {
-        expect(response).to.have.property('requestCorrelationId', '12345');
-      });
-    });
-
     it('throw an error', function () {
       const client = new PercipioAxiosClient(mainconfig);
 
