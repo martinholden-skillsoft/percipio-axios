@@ -1,3 +1,5 @@
+[![Percipio Axios CI](https://github.com/martinholden-skillsoft/percipio-axios/actions/workflows/main.yml/badge.svg)](https://github.com/martinholden-skillsoft/percipio-axios/actions/workflows/main.yml)
+
 # percipio-axios
 
 Axios-based client for the Percipio API
