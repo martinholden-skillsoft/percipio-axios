@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>errors/percipioaxiosclienterror.js - Documentation</title>
+    <title>axiosextras/create-axios-instance.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -34,7 +34,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">errors/percipioaxiosclienterror.js</h1>
+    <h1 class="page-title">axiosextras/create-axios-instance.js</h1>
     
 
     
@@ -44,27 +44,25 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * PercipioAxiosClient error object.
- * @category Errors
- */
-class PercipioAxiosClientError extends Error {
-  /**
-   * Creates an instance of PercipioAxiosClientError.
-   * @param {String} message - descriptive error message.
-   * @param {Object} [options={}] - additional data.
-   * @memberof PercipioAxiosClientError
-   */
-  constructor(message, options = {}) {
-    super(message, options);
-    this.name = this.constructor.name;
-    this.isPercipioAxiosClientError = true;
-  }
-}
+            <pre class="prettyprint source linenums"><code>const { Agent: HttpAgent } = require('http');
+const { Agent: HttpsAgent } = require('https');
+const axios = require('axios');
 
-module.exports = {
-  PercipioAxiosClientError,
+const httpAgent = new HttpAgent({ keepAlive: true });
+const httpsAgent = new HttpsAgent({ keepAlive: true });
+
+/**
+ * Create an axios instance with the http and https agents set for keepAlive
+ *
+ * @return {Axios} A new instance of Axios
+ * See {@link https://github.com/axios/axios#creating-an-instance|Axios Creating an Instance}
+ */
+const createAxiosInstance = () => {
+  const axiosInstance = axios.create({ httpAgent, httpsAgent });
+  return axiosInstance;
 };
+
+module.exports = createAxiosInstance;
 </code></pre>
         </article>
     </section>
