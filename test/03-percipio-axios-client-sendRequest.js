@@ -22,6 +22,7 @@ describe('PercipioAxiosClient', function () {
     let mainconfig;
     let getRequestConfig;
     let requestNock;
+    let badAuthHeaders;
 
     this.timeout(5000);
     this.slow(500);
@@ -39,6 +40,10 @@ describe('PercipioAxiosClient', function () {
         resource: 'test/{orgId}/path',
         params: null,
         headers: null,
+      };
+
+      badAuthHeaders = {
+        Authorization: 'This should start with Bearer ',
       };
     }
 
@@ -145,6 +150,26 @@ describe('PercipioAxiosClient', function () {
       getRequestConfig.resource = null;
       return client.sendRequest(getRequestConfig).catch((err) => {
         expect(err).to.be.instanceOf(PropertyRequiredError);
+      });
+    });
+
+    it('throws error if resource is invalid', function () {
+      const client = new PercipioAxiosClient(mainconfig);
+
+      // Set resource without orgId1 resourcePlaceholder defined in client
+      getRequestConfig.resource = `/test/{orgId1}/path`;
+      return client.sendRequest(getRequestConfig).catch((err) => {
+        expect(err).to.be.instanceOf(Error);
+      });
+    });
+
+    it('throws error if headers invalid', function () {
+      const client = new PercipioAxiosClient(mainconfig);
+
+      // Set an invalid authorization header
+      getRequestConfig.headers = badAuthHeaders;
+      return client.sendRequest(getRequestConfig).catch((err) => {
+        expect(err).to.be.instanceOf(Error);
       });
     });
   });
