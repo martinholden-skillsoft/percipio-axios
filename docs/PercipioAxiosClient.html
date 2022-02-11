@@ -798,7 +798,7 @@ defaults to using <a href="global.html#createAxiosInstance">createAxiosInstance<
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="percipio-axios-client.js.html">percipio-axios-client.js</a>, <a href="percipio-axios-client.js.html#line129">line 129</a>
+        <a href="percipio-axios-client.js.html">percipio-axios-client.js</a>, <a href="percipio-axios-client.js.html#line134">line 134</a>
     </li></ul></dd>
     
 
@@ -971,7 +971,7 @@ if the authorization header does not start with 'Bearer'</p>
 
     
 
-    <h4 class="name" id="buildPath"><span class="type-signature"></span>buildPath<span class="signature">(resource)</span><span class="type-signature"> &rarr; {String}</span></h4>
+    <h4 class="name" id="buildPath"><span class="type-signature"></span>buildPath<span class="signature">(resource, extraPlaceholders<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {String}</span></h4>
 
     
 
@@ -983,7 +983,7 @@ if the authorization header does not start with 'Bearer'</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="percipio-axios-client.js.html">percipio-axios-client.js</a>, <a href="percipio-axios-client.js.html#line107">line 107</a>
+        <a href="percipio-axios-client.js.html">percipio-axios-client.js</a>, <a href="percipio-axios-client.js.html#line110">line 110</a>
     </li></ul></dd>
     
 
@@ -1024,7 +1024,9 @@ if the authorization header does not start with 'Bearer'</p>
 
 <div class="description usertext">
     <p>Builds the path for the resource, replacing any placeholders
-with the values from configuration.resourcePlaceholders.</p>
+with the values from configuration.resourcePlaceholders and the
+extraPlaceholders. Values in configuration.resourcePlaceholders
+take precedence.</p>
 </div>
 
 
@@ -1050,7 +1052,11 @@ with the values from configuration.resourcePlaceholders.</p>
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -1075,10 +1081,61 @@ with the values from configuration.resourcePlaceholders.</p>
             </td>
 
             
+                <td class="attributes">
+                
 
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
             
 
             <td class="description last"><p>The resource path template</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>extraPlaceholders</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Additional placeholders to replace.</p></td>
         </tr>
 
     
@@ -1168,7 +1225,7 @@ configuration.resourcePlaceholders property</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="percipio-axios-client.js.html">percipio-axios-client.js</a>, <a href="percipio-axios-client.js.html#line225">line 225</a>
+        <a href="percipio-axios-client.js.html">percipio-axios-client.js</a>, <a href="percipio-axios-client.js.html#line240">line 240</a>
     </li></ul></dd>
     
 
@@ -1321,6 +1378,45 @@ configuration.resourcePlaceholders property</p>
             
 
             <td class="description last"><p>The resource path to send the request to.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>extraPlaceholders</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Additional placeholders to replace.</p></td>
         </tr>
 
     
@@ -1573,7 +1669,7 @@ See <a href="https://github.com/axios/axios#request-config">Axios Request Config
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="percipio-axios-client.js.html">percipio-axios-client.js</a>, <a href="percipio-axios-client.js.html#line250">line 250</a>
+        <a href="percipio-axios-client.js.html">percipio-axios-client.js</a>, <a href="percipio-axios-client.js.html#line274">line 274</a>
     </li></ul></dd>
     
 
@@ -1726,6 +1822,45 @@ See <a href="https://github.com/axios/axios#request-config">Axios Request Config
             
 
             <td class="description last"><p>The resource path to send the request to.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>extraPlaceholders</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Additional placeholders to replace.</p></td>
         </tr>
 
     
@@ -1978,7 +2113,7 @@ See <a href="https://github.com/axios/axios#request-config">Axios Request Config
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="percipio-axios-client.js.html">percipio-axios-client.js</a>, <a href="percipio-axios-client.js.html#line274">line 274</a>
+        <a href="percipio-axios-client.js.html">percipio-axios-client.js</a>, <a href="percipio-axios-client.js.html#line308">line 308</a>
     </li></ul></dd>
     
 
@@ -2137,6 +2272,45 @@ See <a href="https://github.com/axios/axios#request-config">Axios Request Config
 
         <tr>
             
+                <td class="name"><code>extraPlaceholders</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Additional placeholders to replace.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
                 <td class="name"><code>params</code></td>
             
 
@@ -2287,7 +2461,7 @@ headers (authorization and content-type)</p></td>
             
 
             <td class="description last"><p>Any other Axios Request Config properties to pass to the request.
-See <a href="https://github.com/axios/axios#request-config">Axios Request Config</a>  * @throws {PropertyInvalidError} method cannot be overridden</p></td>
+See <a href="https://github.com/axios/axios#request-config">Axios Request Config</a></p></td>
         </tr>
 
     
@@ -2314,6 +2488,35 @@ See <a href="https://github.com/axios/axios#request-config">Axios Request Config
 
 
 
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc usertext">
+        <p>method cannot be overridden</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl class="param-type">
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
 
 
 <h5>Returns:</h5>
@@ -2354,7 +2557,7 @@ See <a href="https://github.com/axios/axios#request-config">Axios Request Config
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="percipio-axios-client.js.html">percipio-axios-client.js</a>, <a href="percipio-axios-client.js.html#line298">line 298</a>
+        <a href="percipio-axios-client.js.html">percipio-axios-client.js</a>, <a href="percipio-axios-client.js.html#line342">line 342</a>
     </li></ul></dd>
     
 
@@ -2552,6 +2755,45 @@ See <a href="https://github.com/axios/axios#request-config">Axios Request Config
 
         <tr>
             
+                <td class="name"><code>extraPlaceholders</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Additional placeholders to replace.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
                 <td class="name"><code>data</code></td>
             
 
@@ -2663,7 +2905,7 @@ headers (authorization and content-type)</p></td>
             
 
             <td class="description last"><p>Any other Axios Request Config properties to pass to the request.
-See <a href="https://github.com/axios/axios#request-config">Axios Request Config</a>   * @throws {PropertyInvalidError} method cannot be overridden</p></td>
+See <a href="https://github.com/axios/axios#request-config">Axios Request Config</a></p></td>
         </tr>
 
     
@@ -2690,6 +2932,35 @@ See <a href="https://github.com/axios/axios#request-config">Axios Request Config
 
 
 
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc usertext">
+        <p>method cannot be overridden</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl class="param-type">
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
 
 
 <h5>Returns:</h5>
@@ -2730,7 +3001,7 @@ See <a href="https://github.com/axios/axios#request-config">Axios Request Config
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="percipio-axios-client.js.html">percipio-axios-client.js</a>, <a href="percipio-axios-client.js.html#line322">line 322</a>
+        <a href="percipio-axios-client.js.html">percipio-axios-client.js</a>, <a href="percipio-axios-client.js.html#line376">line 376</a>
     </li></ul></dd>
     
 
@@ -2928,6 +3199,45 @@ See <a href="https://github.com/axios/axios#request-config">Axios Request Config
 
         <tr>
             
+                <td class="name"><code>extraPlaceholders</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Additional placeholders to replace.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
                 <td class="name"><code>data</code></td>
             
 
@@ -3039,7 +3349,7 @@ headers (authorization and content-type)</p></td>
             
 
             <td class="description last"><p>Any other Axios Request Config properties to pass to the request.
-See <a href="https://github.com/axios/axios#request-config">Axios Request Config</a>  * @throws {PropertyInvalidError} method cannot be overridden</p></td>
+See <a href="https://github.com/axios/axios#request-config">Axios Request Config</a></p></td>
         </tr>
 
     
@@ -3066,6 +3376,35 @@ See <a href="https://github.com/axios/axios#request-config">Axios Request Config
 
 
 
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc usertext">
+        <p>method cannot be overridden</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl class="param-type">
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
 
 
 <h5>Returns:</h5>
@@ -3106,7 +3445,7 @@ See <a href="https://github.com/axios/axios#request-config">Axios Request Config
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="percipio-axios-client.js.html">percipio-axios-client.js</a>, <a href="percipio-axios-client.js.html#line346">line 346</a>
+        <a href="percipio-axios-client.js.html">percipio-axios-client.js</a>, <a href="percipio-axios-client.js.html#line410">line 410</a>
     </li></ul></dd>
     
 
@@ -3265,6 +3604,45 @@ See <a href="https://github.com/axios/axios#request-config">Axios Request Config
 
         <tr>
             
+                <td class="name"><code>extraPlaceholders</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Additional placeholders to replace.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
                 <td class="name"><code>params</code></td>
             
 
@@ -3415,7 +3793,7 @@ headers (authorization and content-type)</p></td>
             
 
             <td class="description last"><p>Any other Axios Request Config properties to pass to the request.
-See <a href="https://github.com/axios/axios#request-config">Axios Request Config</a>   * @throws {PropertyInvalidError} method cannot be overridden</p></td>
+See <a href="https://github.com/axios/axios#request-config">Axios Request Config</a></p></td>
         </tr>
 
     
@@ -3442,6 +3820,35 @@ See <a href="https://github.com/axios/axios#request-config">Axios Request Config
 
 
 
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc usertext">
+        <p>method cannot be overridden</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl class="param-type">
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
 
 
 <h5>Returns:</h5>
@@ -3482,7 +3889,7 @@ See <a href="https://github.com/axios/axios#request-config">Axios Request Config
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="percipio-axios-client.js.html">percipio-axios-client.js</a>, <a href="percipio-axios-client.js.html#line370">line 370</a>
+        <a href="percipio-axios-client.js.html">percipio-axios-client.js</a>, <a href="percipio-axios-client.js.html#line444">line 444</a>
     </li></ul></dd>
     
 
@@ -3641,6 +4048,45 @@ See <a href="https://github.com/axios/axios#request-config">Axios Request Config
 
         <tr>
             
+                <td class="name"><code>extraPlaceholders</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Additional placeholders to replace.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
                 <td class="name"><code>params</code></td>
             
 
@@ -3791,7 +4237,7 @@ headers (authorization and content-type)</p></td>
             
 
             <td class="description last"><p>Any other Axios Request Config properties to pass to the request.
-See <a href="https://github.com/axios/axios#request-config">Axios Request Config</a>   * @throws {PropertyInvalidError} method cannot be overridden</p></td>
+See <a href="https://github.com/axios/axios#request-config">Axios Request Config</a></p></td>
         </tr>
 
     
@@ -3818,6 +4264,35 @@ See <a href="https://github.com/axios/axios#request-config">Axios Request Config
 
 
 
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc usertext">
+        <p>method cannot be overridden</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl class="param-type">
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type"><a href="PropertyInvalidError.html">PropertyInvalidError</a></span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
 
 
 <h5>Returns:</h5>
@@ -3858,7 +4333,7 @@ See <a href="https://github.com/axios/axios#request-config">Axios Request Config
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="percipio-axios-client.js.html">percipio-axios-client.js</a>, <a href="percipio-axios-client.js.html#line165">line 165</a>
+        <a href="percipio-axios-client.js.html">percipio-axios-client.js</a>, <a href="percipio-axios-client.js.html#line171">line 171</a>
     </li></ul></dd>
     
 
@@ -4046,6 +4521,45 @@ See <a href="https://github.com/axios/axios#request-config">Axios Request Config
             
 
             <td class="description last"><p>The resource path to send the request to.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>extraPlaceholders</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Additional placeholders to replace.</p></td>
         </tr>
 
     

@@ -142,18 +142,23 @@ class PercipioAxiosClient {
 
   /**
    * Builds the path for the resource, replacing any placeholders
-   * with the values from configuration.resourcePlaceholders.
+   * with the values from configuration.resourcePlaceholders and the
+   * extraPlaceholders. Values in configuration.resourcePlaceholders
+   * take precedence.
    *
    * @param {String} resource - The resource path template
+   * @param {Object} [extraPlaceholders = {}] - Additional placeholders to replace.
    * @return {String}
    * @throws {PropertyRequiredError} {placeHolder} is a required
    *                                 configuration.resourcePlaceholders property
    * @memberof PercipioAxiosClient
    */
-  buildPath(resource) {
+  buildPath(resource, extraPlaceholders = {}) {
+    const placeholders = _.merge({}, extraPlaceholders, this.configuration.resourcePlaceholders);
+
     return resource.replace(/{([-_a-zA-Z0-9[\]]+)}/g, (original, placeHolder) => {
-      if (placeHolder in this.configuration.resourcePlaceholders) {
-        return this.configuration.resourcePlaceholders[placeHolder];
+      if (placeHolder in placeholders) {
+        return placeholders[placeHolder];
       }
 
       throw new errors.PropertyRequiredError(
@@ -196,6 +201,7 @@ class PercipioAxiosClient {
    * @param {Object} config
    * @param {String} config.method - The HTTP method.
    * @param {String} config.resource - The resource path to send the request to.
+   * @param {Object} [config.extraPlaceholders = {}] - Additional placeholders to replace.
    * @param {Object} [config.params={}] - The params to send with the request.
    * @param {Object} [config.data={}] - The data to send with the request.
    * @param {Object} [config.headers={}] - The headers to send with the request,
@@ -209,7 +215,15 @@ class PercipioAxiosClient {
    * @memberof PercipioAxiosClient
    */
   sendRequest(config) {
-    const { method, resource, params = {}, data = {}, headers, ...other } = config;
+    const {
+      method,
+      resource,
+      extraPlaceholders = {},
+      params = {},
+      data = {},
+      headers,
+      ...other
+    } = config;
 
     if (!method) {
       return Promise.reject(
@@ -230,7 +244,7 @@ class PercipioAxiosClient {
     };
 
     try {
-      requestConfig.url = this.buildPath(resource);
+      requestConfig.url = this.buildPath(resource, extraPlaceholders);
     } catch (error) {
       return Promise.reject(error);
     }
@@ -257,6 +271,7 @@ class PercipioAxiosClient {
    *
    * @param {Object} config
    * @param {String} config.resource - The resource path to send the request to.
+   * @param {Object} [config.extraPlaceholders = {}] - Additional placeholders to replace.
    * @param {Object} [config.params={}] - The params to send with the request.
    * @param {Object} [config.data={}] - The data to send with the request.
    * @param {Object} [config.headers={}] - The headers to send with the request,
@@ -268,13 +283,21 @@ class PercipioAxiosClient {
    * @throws {PropertyInvalidError} method cannot be overridden
    * @memberof PercipioAxiosClient
    */
-  delete({ resource, params, data, headers, ...other }) {
+  delete({ resource, extraPlaceholders, params, data, headers, ...other }) {
     const method = 'delete';
     if (other.method &amp;&amp; other.method !== method) {
       return Promise.reject(new errors.PropertyInvalidError('method cannot be overridden'));
     }
 
-    return this.sendRequest({ method, resource, params, data, headers, ...other });
+    return this.sendRequest({
+      method,
+      resource,
+      extraPlaceholders,
+      params,
+      data,
+      headers,
+      ...other,
+    });
   }
 
   /**
@@ -282,6 +305,7 @@ class PercipioAxiosClient {
    *
    * @param {Object} config
    * @param {String} config.resource - The resource path to send the request to.
+   * @param {Object} [config.extraPlaceholders = {}] - Additional placeholders to replace.
    * @param {Object} [config.params={}] - The params to send with the request.
    * @param {Object} [config.data={}] - The data to send with the request.
    * @param {Object} [config.headers={}] - The headers to send with the request,
@@ -293,13 +317,21 @@ class PercipioAxiosClient {
    * @return {Promise}
    * @memberof PercipioAxiosClient
    */
-  get({ resource, params, data, headers, ...other }) {
+  get({ resource, extraPlaceholders, params, data, headers, ...other }) {
     const method = 'get';
     if (other.method &amp;&amp; other.method !== method) {
       return Promise.reject(new errors.PropertyInvalidError('method cannot be overridden'));
     }
 
-    return this.sendRequest({ method, resource, params, data, headers, ...other });
+    return this.sendRequest({
+      method,
+      resource,
+      extraPlaceholders,
+      params,
+      data,
+      headers,
+      ...other,
+    });
   }
 
   /**
@@ -307,23 +339,33 @@ class PercipioAxiosClient {
    *
    * @param {Object} config
    * @param {String} config.resource - The resource path to send the request to.
+   * @param {Object} [config.extraPlaceholders = {}] - Additional placeholders to replace.
    * @param {Object} [config.params={}] - The params to send with the request.
    * @param {Object} [config.data={}] - The data to send with the request.
    * @param {Object} [config.headers={}] - The headers to send with the request,
    *                                       these will be merged with the default
    *                                       headers (authorization and content-type)
    * @param {*} [config.other] - Any other Axios Request Config properties to pass to the request.
-   *                      See {@link https://github.com/axios/axios#request-config|Axios Request Config}  * @throws {PropertyInvalidError} method cannot be overridden
+   *                      See {@link https://github.com/axios/axios#request-config|Axios Request Config}
+   * @throws {PropertyInvalidError} method cannot be overridden
    * @return {Promise}
    * @memberof PercipioAxiosClient
    */
-  head({ resource, params, data, headers, ...other }) {
+  head({ resource, extraPlaceholders, params, data, headers, ...other }) {
     const method = 'head';
     if (other.method &amp;&amp; other.method !== method) {
       return Promise.reject(new errors.PropertyInvalidError('method cannot be overridden'));
     }
 
-    return this.sendRequest({ method, resource, params, data, headers, ...other });
+    return this.sendRequest({
+      method,
+      resource,
+      extraPlaceholders,
+      params,
+      data,
+      headers,
+      ...other,
+    });
   }
 
   /**
@@ -332,22 +374,32 @@ class PercipioAxiosClient {
    * @param {Object} config
    * @param {String} config.resource - The resource path to send the request to.
    * @param {Object} [config.params={}] - The params to send with the request.
+   * @param {Object} [config.extraPlaceholders = {}] - Additional placeholders to replace.
    * @param {Object} [config.data={}] - The data to send with the request.
    * @param {Object} [config.headers={}] - The headers to send with the request,
    *                                       these will be merged with the default
    *                                       headers (authorization and content-type)
    * @param {*} [config.other] - Any other Axios Request Config properties to pass to the request.
-   *                      See {@link https://github.com/axios/axios#request-config|Axios Request Config}   * @throws {PropertyInvalidError} method cannot be overridden
+   *                      See {@link https://github.com/axios/axios#request-config|Axios Request Config}
+   * @throws {PropertyInvalidError} method cannot be overridden
    * @return {Promise}
    * @memberof PercipioAxiosClient
    */
-  options({ resource, params, data, headers, ...other }) {
+  options({ resource, extraPlaceholders, params, data, headers, ...other }) {
     const method = 'options';
     if (other.method &amp;&amp; other.method !== method) {
       return Promise.reject(new errors.PropertyInvalidError('method cannot be overridden'));
     }
 
-    return this.sendRequest({ method, resource, params, data, headers, ...other });
+    return this.sendRequest({
+      method,
+      resource,
+      extraPlaceholders,
+      params,
+      data,
+      headers,
+      ...other,
+    });
   }
 
   /**
@@ -356,22 +408,32 @@ class PercipioAxiosClient {
    * @param {Object} config
    * @param {String} config.resource - The resource path to send the request to.
    * @param {Object} [config.params={}] - The params to send with the request.
+   * @param {Object} [config.extraPlaceholders = {}] - Additional placeholders to replace.
    * @param {Object} [config.data={}] - The data to send with the request.
    * @param {Object} [config.headers={}] - The headers to send with the request,
    *                                       these will be merged with the default
    *                                       headers (authorization and content-type)
    * @param {*} [config.other] - Any other Axios Request Config properties to pass to the request.
-   *                      See {@link https://github.com/axios/axios#request-config|Axios Request Config}  * @throws {PropertyInvalidError} method cannot be overridden
+   *                      See {@link https://github.com/axios/axios#request-config|Axios Request Config}
+   * @throws {PropertyInvalidError} method cannot be overridden
    * @return {Promise}
    * @memberof PercipioAxiosClient
    */
-  patch({ resource, params, data, headers, ...other }) {
+  patch({ resource, extraPlaceholders, params, data, headers, ...other }) {
     const method = 'patch';
     if (other.method &amp;&amp; other.method !== method) {
       return Promise.reject(new errors.PropertyInvalidError('method cannot be overridden'));
     }
 
-    return this.sendRequest({ method, resource, params, data, headers, ...other });
+    return this.sendRequest({
+      method,
+      resource,
+      extraPlaceholders,
+      params,
+      data,
+      headers,
+      ...other,
+    });
   }
 
   /**
@@ -379,23 +441,33 @@ class PercipioAxiosClient {
    *
    * @param {Object} config
    * @param {String} config.resource - The resource path to send the request to.
+   * @param {Object} [config.extraPlaceholders = {}] - Additional placeholders to replace.
    * @param {Object} [config.params={}] - The params to send with the request.
    * @param {Object} [config.data={}] - The data to send with the request.
    * @param {Object} [config.headers={}] - The headers to send with the request,
    *                                       these will be merged with the default
    *                                       headers (authorization and content-type)
    * @param {*} [config.other] - Any other Axios Request Config properties to pass to the request.
-   *                      See {@link https://github.com/axios/axios#request-config|Axios Request Config}   * @throws {PropertyInvalidError} method cannot be overridden
+   *                      See {@link https://github.com/axios/axios#request-config|Axios Request Config}
+   * @throws {PropertyInvalidError} method cannot be overridden
    * @return {Promise}
    * @memberof PercipioAxiosClient
    */
-  post({ resource, params, data, headers, ...other }) {
+  post({ resource, extraPlaceholders, params, data, headers, ...other }) {
     const method = 'post';
     if (other.method &amp;&amp; other.method !== method) {
       return Promise.reject(new errors.PropertyInvalidError('method cannot be overridden'));
     }
 
-    return this.sendRequest({ method, resource, params, data, headers, ...other });
+    return this.sendRequest({
+      method,
+      resource,
+      extraPlaceholders,
+      params,
+      data,
+      headers,
+      ...other,
+    });
   }
 
   /**
@@ -403,23 +475,33 @@ class PercipioAxiosClient {
    *
    * @param {Object} config
    * @param {String} config.resource - The resource path to send the request to.
+   * @param {Object} [config.extraPlaceholders = {}] - Additional placeholders to replace.
    * @param {Object} [config.params={}] - The params to send with the request.
    * @param {Object} [config.data={}] - The data to send with the request.
    * @param {Object} [config.headers={}] - The headers to send with the request,
    *                                       these will be merged with the default
    *                                       headers (authorization and content-type)
    * @param {*} [config.other] - Any other Axios Request Config properties to pass to the request.
-   *                      See {@link https://github.com/axios/axios#request-config|Axios Request Config}   * @throws {PropertyInvalidError} method cannot be overridden
+   *                      See {@link https://github.com/axios/axios#request-config|Axios Request Config}
+   * @throws {PropertyInvalidError} method cannot be overridden
    * @return {Promise}
    * @memberof PercipioAxiosClient
    */
-  put({ resource, params, data, headers, ...other }) {
+  put({ resource, extraPlaceholders, params, data, headers, ...other }) {
     const method = 'put';
     if (other.method &amp;&amp; other.method !== method) {
       return Promise.reject(new errors.PropertyInvalidError('method cannot be overridden'));
     }
 
-    return this.sendRequest({ method, resource, params, data, headers, ...other });
+    return this.sendRequest({
+      method,
+      resource,
+      extraPlaceholders,
+      params,
+      data,
+      headers,
+      ...other,
+    });
   }
 }
 
