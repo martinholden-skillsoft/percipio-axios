@@ -36,6 +36,31 @@ describe('PercipioAxiosClient', function () {
       expect(client.buildPath('/test/{orgId}')).to.equal(`/test/${mainconfig.orgId}`);
     });
 
+    it('handles path with additional placeHolder(s)', function () {
+      const client = new PercipioAxiosClient(mainconfig);
+
+      const additionalPlaceholders = {
+        testPlaceholder: 'testresult',
+      };
+      const testResource = '/test/{orgId}/{testPlaceholder}';
+      const expectedResult = `/test/${mainconfig.orgId}/${additionalPlaceholders.testPlaceholder}`;
+
+      expect(client.buildPath(testResource, additionalPlaceholders)).to.equal(expectedResult);
+    });
+
+    it('ensures additional placeHolder(s) do not take precedence', function () {
+      const client = new PercipioAxiosClient(mainconfig);
+
+      const additionalPlaceholders = {
+        testPlaceholder: 'testresult',
+        orgId: 'thisShouldNotBeUsed',
+      };
+      const testResource = '/test/{orgId}/{testPlaceholder}';
+      const expectedResult = `/test/${mainconfig.orgId}/${additionalPlaceholders.testPlaceholder}`;
+
+      expect(client.buildPath(testResource, additionalPlaceholders)).to.equal(expectedResult);
+    });
+
     it('throws PropertyRequiredError if placeHolder not present', function () {
       const key = 'orgId1';
 
