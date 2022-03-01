@@ -1,0 +1,130 @@
+const { PercipioAxiosClient } = require('./percipio-axios-client');
+
+/**
+ * An Axios Client that provides a consistent approach
+ * for making Percipio {{api}} requests.
+ * @category Percipio Client
+ */
+class {{className}} extends PercipioAxiosClient {
+  constructor(options) {
+    super(options);
+
+    this.description = '{{description}}';
+  }
+  {{#hasTypes}}
+  /**
+    * Type Definitions
+  */
+
+  {{#types}}
+  /**
+    {{#jsdoc}}
+  * {{.}}
+    {{/jsdoc}}
+  *
+  */
+
+  {{/types}}
+
+  {{/hasTypes}}
+
+  {{#operations}}
+
+  /**
+   {{#summary}}
+   * {{.}}
+    {{/summary}}
+   *
+   * @param {Object} config  - Configuration object for request
+{{#hasPathPlaceHolders}}
+{{#jsdocs.pathPlaceHolders}}
+   * {{.}}
+{{/jsdocs.pathPlaceHolders}}
+{{/hasPathPlaceHolders}}
+{{#hasParams}}
+{{#jsdocs.params}}
+   * {{.}}
+{{/jsdocs.params}}
+{{/hasParams}}
+{{#hasData}}
+{{#jsdocs.data}}
+   * {{.}}
+{{/jsdocs.data}}
+{{/hasData}}
+   * @property {...*} [config.*] - Any other Axios Request Config properties to pass to the request.
+   * See {@link https://github.com/axios/axios#request-config|Axios Request Config}
+   * @return {Promise}
+   * @memberof {{className}}
+   */
+  {{#isGet}}
+  {{operationId}}({ {{#hasParams}}params = {}, {{/hasParams}}{{#hasPathPlaceHolders}}extraPlaceholders = {}, {{/hasPathPlaceHolders}}...other }) {
+    const resourceToUse = '{{path}}';
+    // Remove unsupported arguments before calling percipio-axios-client
+    {{#hasParams}}
+    const { method, resource, data, {{^hasPathPlaceHolders}}extraPlaceholders, {{/hasPathPlaceHolders}}...rest } = other;
+    // Remove unsupported params, and ensure default params are set.
+    const paramsToUse = (({ {{#params}}{{paramToUseString}}, {{/params}} }) => ({ {{#params}}{{name}}, {{/params}}  }))(params);
+
+    return this.get({ resource: resourceToUse, params: paramsToUse, {{#hasPathPlaceHolders}}extraPlaceholders, {{/hasPathPlaceHolders}}...rest });
+    {{/hasParams}}
+    {{^hasParams}}
+    const { method, resource, data, params, {{^hasPathPlaceHolders}}extraPlaceholders, {{/hasPathPlaceHolders}}...rest } = other;
+    return this.get({ resource: resourceToUse, {{#hasPathPlaceHolders}}extraPlaceholders, {{/hasPathPlaceHolders}}...rest });
+    {{/hasParams}}
+  }
+  {{/isGet}}
+  {{#isPost}}
+  {{operationId}}({ {{#hasParams}}params = {}, {{/hasParams}}{{#hasPathPlaceHolders}}extraPlaceholders = {}, {{/hasPathPlaceHolders}}data={{#isArrayData}}[]{{/isArrayData}}{{^isArrayData}}{}{{/isArrayData}}, ...other }) {
+    const resourceToUse = '{{path}}';
+    // Remove unsupported arguments before calling percipio-axios-client
+    {{#hasParams}}
+    const { method, resource, {{^hasPathPlaceHolders}}extraPlaceholders, {{/hasPathPlaceHolders}}...rest } = other;
+    // Remove unsupported params, and ensure default params are set.
+    const paramsToUse = (({ {{#params}}{{paramToUseString}}, {{/params}} }) => ({ {{#params}}{{name}}, {{/params}}  }))(params);
+
+    return this.post({ resource: resourceToUse, params: paramsToUse, {{#hasPathPlaceHolders}}extraPlaceholders, {{/hasPathPlaceHolders}}data,...rest });
+    {{/hasParams}}
+    {{^hasParams}}
+    const { method, resource, params, {{^hasPathPlaceHolders}}extraPlaceholders, {{/hasPathPlaceHolders}}...rest } = other;
+    return this.post({ resource: resourceToUse, {{#hasPathPlaceHolders}}extraPlaceholders, {{/hasPathPlaceHolders}}data, ...rest });
+    {{/hasParams}}
+  }
+  {{/isPost}}
+  {{#isPatch}}
+  {{operationId}}({ {{#hasParams}}params = {}, {{/hasParams}}{{#hasPathPlaceHolders}}extraPlaceholders = {}, {{/hasPathPlaceHolders}}data={{#isArrayData}}[]{{/isArrayData}}{{^isArrayData}}{}{{/isArrayData}}, ...other }) {
+    const resourceToUse = '{{path}}';
+    // Remove unsupported arguments before calling percipio-axios-client
+    {{#hasParams}}
+    const { method, resource, {{^hasPathPlaceHolders}}extraPlaceholders, {{/hasPathPlaceHolders}}...rest } = other;
+    // Remove unsupported params, and ensure default params are set.
+    const paramsToUse = (({ {{#params}}{{paramToUseString}}, {{/params}} }) => ({ {{#params}}{{name}}, {{/params}}  }))(params);
+
+    return this.patch({ resource: resourceToUse, params: paramsToUse, {{#hasPathPlaceHolders}}extraPlaceholders, {{/hasPathPlaceHolders}}data,...rest });
+    {{/hasParams}}
+    {{^hasParams}}
+    const { method, resource, params, {{^hasPathPlaceHolders}}extraPlaceholders, {{/hasPathPlaceHolders}}...rest } = other;
+    return this.patch({ resource: resourceToUse, {{#hasPathPlaceHolders}}extraPlaceholders, {{/hasPathPlaceHolders}}data, ...rest });
+    {{/hasParams}}
+  }
+  {{/isPatch}}
+    {{#isPut}}
+  {{operationId}}({ {{#hasParams}}params = {}, {{/hasParams}}{{#hasPathPlaceHolders}}extraPlaceholders = {}, {{/hasPathPlaceHolders}}data={{#isArrayData}}[]{{/isArrayData}}{{^isArrayData}}{}{{/isArrayData}}, ...other }) {
+    const resourceToUse = '{{path}}';
+    // Remove unsupported arguments before calling percipio-axios-client
+    {{#hasParams}}
+    const { method, resource, {{^hasPathPlaceHolders}}extraPlaceholders, {{/hasPathPlaceHolders}}...rest } = other;
+    // Remove unsupported params, and ensure default params are set.
+    const paramsToUse = (({ {{#params}}{{paramToUseString}}, {{/params}} }) => ({ {{#params}}{{name}}, {{/params}}  }))(params);
+
+    return this.put({ resource: resourceToUse, params: paramsToUse, {{#hasPathPlaceHolders}}extraPlaceholders, {{/hasPathPlaceHolders}}data,...rest });
+    {{/hasParams}}
+    {{^hasParams}}
+    const { method, resource, params, {{^hasPathPlaceHolders}}extraPlaceholders, {{/hasPathPlaceHolders}}...rest } = other;
+    return this.put({ resource: resourceToUse, {{#hasPathPlaceHolders}}extraPlaceholders, {{/hasPathPlaceHolders}}data, ...rest });
+    {{/hasParams}}
+  }
+  {{/isPut}}
+  {{/operations}}
+}
+
+module.exports = { {{className}} };
