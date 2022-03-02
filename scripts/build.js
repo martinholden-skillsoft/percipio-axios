@@ -25,86 +25,121 @@ const getSwaggerDefinition = (swaggerurl) => {
  * @param {*} options
  * @returns
  */
-const main = async () => {
-  const swaggerurls = [
-    'https://api.percipio.com/common/swagger.json',
-    'https://api.percipio.com/reporting/swagger.json',
-    'https://api.percipio.com/user-management/swagger.json',
-    'https://api.percipio.com/content-discovery/swagger.json',
-  ];
+const processSwagger = () => {
+  return new Promise((resolve, reject) => {
+    const swaggerurls = [
+      'https://api.percipio.com/common/swagger.json',
+      'https://api.percipio.com/reporting/swagger.json',
+      'https://api.percipio.com/user-management/swagger.json',
+      'https://api.percipio.com/content-discovery/swagger.json',
+    ];
 
-  swaggerurls.map(async (swaggerurl, index) => {
-    await getSwaggerDefinition(swaggerurl)
-      .then((response) => {
-        consola.log(`Generating for ${swaggerurl}`);
-        const { spec } = response;
+    const promises = [];
 
-        const mustacheViewData = new OpenAPIProcessor(spec).getViewData();
-        mustacheViewData.getuuid = () => {
-          return uuidv4();
-        };
-        mustacheViewData.index = (index + 1) * 100;
+    const clients = [];
 
-        fs.readFile('scripts/template/api.mustache', (err, data) => {
-          if (err) throw err;
-          Mustache.escape = (text) => {
-            return text;
-          };
-          const output = Mustache.render(data.toString(), mustacheViewData);
-          let formatted = output;
-          prettier.resolveConfig('.').then((prettieroptions) => {
-            formatted = prettier.format(output, prettieroptions);
-            fs.writeFileSync(`./lib/${mustacheViewData.fileName}.js`, formatted);
-            consola.log(`Generated API client for ${swaggerurl}`);
-          });
-        });
+    swaggerurls.map((swaggerurl, index) => {
+      promises.push(
+        getSwaggerDefinition(swaggerurl)
+          .then((response) => {
+            consola.log(`Generating for ${swaggerurl}`);
+            const { spec } = response;
 
-        fs.readFile('scripts/template/clienttest.mustache', (err, data) => {
-          if (err) throw err;
-          Mustache.escape = (text) => {
-            return text;
-          };
-          const output = Mustache.render(data.toString(), mustacheViewData);
-          let formatted = output;
-          prettier.resolveConfig('.').then((prettieroptions) => {
-            formatted = prettier.format(output, prettieroptions);
-            fs.writeFileSync(
-              `./test/${mustacheViewData.index}-${mustacheViewData.fileName}.test.js`,
-              formatted
-            );
-            consola.log(`Generated API client test for ${swaggerurl}`);
-          });
-        });
-
-        fs.readFile('scripts/template/clientoperationtest.mustache', (err, data) => {
-          mustacheViewData.operations.map((operation, opindex) => {
-            const newViewdata = _.cloneDeep(mustacheViewData);
-            newViewdata.operation = operation;
-            newViewdata.opindex = newViewdata.index + 1 + opindex;
-
-            if (err) throw err;
-            Mustache.escape = (text) => {
-              return text;
+            const mustacheViewData = new OpenAPIProcessor(spec).getViewData();
+            mustacheViewData.getuuid = () => {
+              return uuidv4();
             };
-            const output = Mustache.render(data.toString(), newViewdata);
-            let formatted = output;
-            prettier.resolveConfig('.').then((prettieroptions) => {
-              formatted = prettier.format(output, prettieroptions);
-              fs.writeFileSync(
-                `./test/${newViewdata.opindex}-${mustacheViewData.fileName}-${operation.operationId}.test.js`,
-                formatted
-              );
-              consola.log(`Generated API client test for ${swaggerurl} - ${operation.operationId}`);
+            mustacheViewData.index = (index + 1) * 100;
+
+            clients.push({
+              fileName: `./lib/${mustacheViewData.fileName}`,
+              className: mustacheViewData.className,
             });
-            return operation.operationId;
-          });
+
+            fs.readFile('scripts/template/api.mustache', (err, data) => {
+              if (err) throw err;
+              Mustache.escape = (text) => {
+                return text;
+              };
+              const output = Mustache.render(data.toString(), mustacheViewData);
+              let formatted = output;
+              prettier.resolveConfig('.').then((prettieroptions) => {
+                formatted = prettier.format(output, prettieroptions);
+                fs.writeFileSync(`./lib/${mustacheViewData.fileName}.js`, formatted);
+                consola.log(`Generated API client for ${swaggerurl}`);
+              });
+            });
+
+            fs.readFile('scripts/template/clienttest.mustache', (err, data) => {
+              if (err) throw err;
+              Mustache.escape = (text) => {
+                return text;
+              };
+              const output = Mustache.render(data.toString(), mustacheViewData);
+              let formatted = output;
+              prettier.resolveConfig('.').then((prettieroptions) => {
+                formatted = prettier.format(output, prettieroptions);
+                fs.writeFileSync(
+                  `./test/${mustacheViewData.index}-${mustacheViewData.fileName}.test.js`,
+                  formatted
+                );
+                consola.log(`Generated API client test for ${swaggerurl}`);
+              });
+            });
+
+            fs.readFile('scripts/template/clientoperationtest.mustache', (err, data) => {
+              mustacheViewData.operations.map((operation, opindex) => {
+                const newViewdata = _.cloneDeep(mustacheViewData);
+                newViewdata.operation = operation;
+                newViewdata.opindex = newViewdata.index + 1 + opindex;
+
+                if (err) throw err;
+                Mustache.escape = (text) => {
+                  return text;
+                };
+                const output = Mustache.render(data.toString(), newViewdata);
+                let formatted = output;
+                prettier.resolveConfig('.').then((prettieroptions) => {
+                  formatted = prettier.format(output, prettieroptions);
+                  fs.writeFileSync(
+                    `./test/${newViewdata.opindex}-${mustacheViewData.fileName}-${operation.operationId}.test.js`,
+                    formatted
+                  );
+                  consola.log(
+                    `Generated API client test for ${swaggerurl} - ${operation.operationId}`
+                  );
+                });
+                return operation.operationId;
+              });
+            });
+          })
+          .catch((err) => {
+            consola.error(err);
+            reject(err);
+          })
+      );
+    });
+
+    Promise.allSettled(promises).then((results) => {
+      fs.readFile('scripts/template/index.mustache', (err, data) => {
+        if (err) throw err;
+        Mustache.escape = (text) => {
+          return text;
+        };
+        const output = Mustache.render(data.toString(), { clients: clients });
+        let formatted = output;
+        prettier.resolveConfig('.').then((prettieroptions) => {
+          formatted = prettier.format(output, prettieroptions);
+          fs.writeFileSync(`./index.js`, formatted);
         });
-      })
-      .catch((err) => {
-        consola.error(err);
       });
+      resolve(true);
+    });
   });
-  return true;
+};
+
+const main = async () => {
+  await processSwagger();
 };
 
 try {

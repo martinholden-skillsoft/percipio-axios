@@ -70,7 +70,7 @@ class OpenAPIProcessor {
     return Object.keys(this.openAPISpec).length === 0;
   }
 
-  processOperationParameters(parameters) {
+  processOperationParameters(parameters = []) {
     const pathParameters = parameters.filter((pathPlaceHolder) => {
       return pathPlaceHolder.in === 'path' && pathPlaceHolder.name !== 'orgId';
     });
@@ -139,7 +139,7 @@ class OpenAPIProcessor {
 
   getOperationsAndTypes() {
     const { paths, servers } = this.openAPISpec;
-    const serverUrl = accessSafe(() => servers[0].url, '');
+    const serverUrl = accessSafe(() => servers[0].url !== '/' ? servers[0].url : '', '');
 
     let customTypes = {};
 
