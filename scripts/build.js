@@ -123,6 +123,12 @@ const processSwagger = () => {
         Mustache.escape = (text) => {
           return text;
         };
+
+        // Sort clients by className to minimise unnecessary changes in the index file
+        clients.sort((a, b) => {
+          return a.className.localeCompare(b.className);
+        });
+
         const output = Mustache.render(data.toString(), { clients: clients });
         let formatted = output;
         prettier.resolveConfig('.').then((prettieroptions) => {
