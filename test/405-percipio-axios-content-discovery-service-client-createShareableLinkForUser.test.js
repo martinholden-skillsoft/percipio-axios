@@ -38,8 +38,8 @@ describe(' PercipioAxiosContentDiscoveryServiceClient', function () {
 
       requestConfig = {};
       pathPlaceHoldersConfig = {};
-      pathPlaceHoldersConfig.userId = '89089018-79c3-4d7d-9a6a-4145535a2826';
-      pathPlaceHoldersConfig.contentId = '38f0a6e0-b054-4b99-94bb-d730557209eb';
+      pathPlaceHoldersConfig.userId = '';
+      pathPlaceHoldersConfig.contentId = '';
       requestConfig.extraPlaceholders = pathPlaceHoldersConfig;
     }
 

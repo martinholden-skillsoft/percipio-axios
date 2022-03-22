@@ -38,7 +38,7 @@ describe(' PercipioAxiosUserManagementServiceClient', function () {
 
       requestConfig = {};
       pathPlaceHoldersConfig = {};
-      pathPlaceHoldersConfig.id = 'b4660af3-2585-4b4c-8970-72402dd91e58';
+      pathPlaceHoldersConfig.id = '';
       requestConfig.extraPlaceholders = pathPlaceHoldersConfig;
     }
 

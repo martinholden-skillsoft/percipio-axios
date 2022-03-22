@@ -38,7 +38,7 @@ describe(' PercipioAxiosReportingServicesClient', function () {
 
       requestConfig = {};
       pathPlaceHoldersConfig = {};
-      pathPlaceHoldersConfig.reportRequestId = '7497ec9f-36b0-4d44-9250-2f47e795364e';
+      pathPlaceHoldersConfig.reportRequestId = '';
       requestConfig.extraPlaceholders = pathPlaceHoldersConfig;
     }
 

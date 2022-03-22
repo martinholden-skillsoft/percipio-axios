@@ -38,7 +38,7 @@ describe(' PercipioAxiosUserManagementServiceClient', function () {
 
       requestConfig = {};
       pathPlaceHoldersConfig = {};
-      pathPlaceHoldersConfig.loginName = '73d6d1e3-38c2-44a2-88f2-a17d7c43d9e1';
+      pathPlaceHoldersConfig.loginName = '';
       requestConfig.extraPlaceholders = pathPlaceHoldersConfig;
     }
 
