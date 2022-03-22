@@ -7,28 +7,28 @@ const {
 } = require('./lib/errors');
 
 const {
-  PercipioAxiosUserManagementServiceClient,
-} = require('./lib/percipio-axios-user-management-service-client');
-
-const {
-  PercipioAxiosReportingServicesClient,
-} = require('./lib/percipio-axios-reporting-services-client');
+  PercipioAxiosCommonServicesClient,
+} = require('./lib/percipio-axios-common-services-client');
 
 const {
   PercipioAxiosContentDiscoveryServiceClient,
 } = require('./lib/percipio-axios-content-discovery-service-client');
 
 const {
-  PercipioAxiosCommonServicesClient,
-} = require('./lib/percipio-axios-common-services-client');
+  PercipioAxiosReportingServicesClient,
+} = require('./lib/percipio-axios-reporting-services-client');
+
+const {
+  PercipioAxiosUserManagementServiceClient,
+} = require('./lib/percipio-axios-user-management-service-client');
 
 module.exports = {
   PercipioAxiosClient,
   PropertyRequiredError,
   PropertyInvalidError,
   PercipioAxiosClientError,
-  PercipioAxiosUserManagementServiceClient,
-  PercipioAxiosReportingServicesClient,
-  PercipioAxiosContentDiscoveryServiceClient,
   PercipioAxiosCommonServicesClient,
+  PercipioAxiosContentDiscoveryServiceClient,
+  PercipioAxiosReportingServicesClient,
+  PercipioAxiosUserManagementServiceClient,
 };
