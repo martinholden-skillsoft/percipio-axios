@@ -2,6 +2,7 @@ const nock = require('nock');
 const qs = require('qs');
 const { parseObject } = require('query-types');
 const { accessSafe } = require('access-safe');
+const { v4: uuidv4 } = require('uuid');
 
 const getNock = (baseUrl, path) => {
   return nock(baseUrl)
@@ -93,6 +94,10 @@ const isAxiosRequestBodyEmpty = (axiosResponse) => {
   return request.requestBodyBuffers.length === 0;
 };
 
+const getUuid = () => {
+  return uuidv4();
+};
+
 module.exports = {
   getNock,
   getCommonNock,
@@ -101,4 +106,5 @@ module.exports = {
   isAxiosRequestQuerystringEmpty,
   getAxiosRequestBody,
   isAxiosRequestBodyEmpty,
+  getUuid,
 };

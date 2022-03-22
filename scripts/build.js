@@ -46,9 +46,6 @@ const processSwagger = () => {
             const { spec } = response;
 
             const mustacheViewData = new OpenAPIProcessor(spec).getViewData();
-            mustacheViewData.getuuid = () => {
-              return uuidv4();
-            };
             mustacheViewData.index = (index + 1) * 100;
 
             clients.push({
