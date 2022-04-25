@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>percipio-axios-user-management-service-client.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/martinholden-skillsoft/percipio-axios.git" target="_blank" class="menu-item" id="repository" >Github repo</a></h2><h3>Classes</h3><ul><li><a href="PercipioAxiosClient.html">PercipioAxiosClient</a><ul class='methods'><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#.isPercipioAxiosClientError">isPercipioAxiosClientError</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#buildHeaders">buildHeaders</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#buildPath">buildPath</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#delete">delete</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#get">get</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#head">head</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#options">options</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#patch">patch</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#post">post</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#put">put</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosClient.html#sendRequest">sendRequest</a></li></ul></li><li><a href="PercipioAxiosClientError.html">PercipioAxiosClientError</a></li><li><a href="PercipioAxiosCommonServicesClient.html">PercipioAxiosCommonServicesClient</a><ul class='methods'><li data-type='method' style='display: none;'><a href="PercipioAxiosCommonServicesClient.html#fetchAudiences">fetchAudiences</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosCommonServicesClient.html#getCollections">getCollections</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosCommonServicesClient.html#getCustomAttributes">getCustomAttributes</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosCommonServicesClient.html#getLicensePoolsV1">getLicensePoolsV1</a></li></ul></li><li><a href="PercipioAxiosContentDiscoveryServiceClient.html">PercipioAxiosContentDiscoveryServiceClient</a><ul class='methods'><li data-type='method' style='display: none;'><a href="PercipioAxiosContentDiscoveryServiceClient.html#createShareableLinkForOrg">createShareableLinkForOrg</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosContentDiscoveryServiceClient.html#createShareableLinkForUrlWithOrg">createShareableLinkForUrlWithOrg</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosContentDiscoveryServiceClient.html#createShareableLinkForUrlWithUser">createShareableLinkForUrlWithUser</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosContentDiscoveryServiceClient.html#createShareableLinkForUser">createShareableLinkForUser</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosContentDiscoveryServiceClient.html#getCatalogContentV2">getCatalogContentV2</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosContentDiscoveryServiceClient.html#getCatalogStructure">getCatalogStructure</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosContentDiscoveryServiceClient.html#getComplianceContent">getComplianceContent</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosContentDiscoveryServiceClient.html#getSearchContent">getSearchContent</a></li></ul></li><li><a href="PercipioAxiosReportingServicesClient.html">PercipioAxiosReportingServicesClient</a><ul class='methods'><li data-type='method' style='display: none;'><a href="PercipioAxiosReportingServicesClient.html#getReportRequest">getReportRequest</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosReportingServicesClient.html#requestCollectionsContentReport">requestCollectionsContentReport</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosReportingServicesClient.html#requestContentActivityReport">requestContentActivityReport</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosReportingServicesClient.html#requestEntitlementReport">requestEntitlementReport</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosReportingServicesClient.html#requestLearningActivityReport">requestLearningActivityReport</a></li></ul></li><li><a href="PercipioAxiosUserManagementServiceClient.html">PercipioAxiosUserManagementServiceClient</a><ul class='methods'><li data-type='method' style='display: none;'><a href="PercipioAxiosUserManagementServiceClient.html#createBatchUsersRequest">createBatchUsersRequest</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosUserManagementServiceClient.html#createUser">createUser</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosUserManagementServiceClient.html#getBatchUsersRequest">getBatchUsersRequest</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosUserManagementServiceClient.html#getUserByEmailId">getUserByEmailId</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosUserManagementServiceClient.html#getUserByExternalUserId">getUserByExternalUserId</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosUserManagementServiceClient.html#getUserByLoginName">getUserByLoginName</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosUserManagementServiceClient.html#getUserByUuid">getUserByUuid</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosUserManagementServiceClient.html#getUsers">getUsers</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosUserManagementServiceClient.html#updateUserByUuid">updateUserByUuid</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosUserManagementServiceClient.html#upsertUserByExternalUserId">upsertUserByExternalUserId</a></li><li data-type='method' style='display: none;'><a href="PercipioAxiosUserManagementServiceClient.html#upsertUserByLoginName">upsertUserByLoginName</a></li></ul></li><li><a href="PropertyInvalidError.html">PropertyInvalidError</a></li><li><a href="PropertyRequiredError.html">PropertyRequiredError</a></li></ul><h3>Global</h3><ul><li><a href="global.html#BatchUser">BatchUser</a></li><li><a href="global.html#BatchUsercustomAttributes">BatchUsercustomAttributes</a></li><li><a href="global.html#CollectionContentReportConfig">CollectionContentReportConfig</a></li><li><a href="global.html#ContentAccessReportConfig">ContentAccessReportConfig</a></li><li><a href="global.html#createAxiosInstance">createAxiosInstance</a></li><li><a href="global.html#CreateShareLinkBody">CreateShareLinkBody</a></li><li><a href="global.html#CreateUser">CreateUser</a></li><li><a href="global.html#CreateUserCustomAttribute">CreateUserCustomAttribute</a></li><li><a href="global.html#EntitlementsReportConfig">EntitlementsReportConfig</a></li><li><a href="global.html#LearnerActivityReportConfig">LearnerActivityReportConfig</a></li><li><a href="global.html#UpdateUser">UpdateUser</a></li><li><a href="global.html#UpdateUserCustomAttribute">UpdateUserCustomAttribute</a></li><li><a href="global.html#Url">Url</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">percipio-axios-user-management-service-client.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const { PercipioAxiosClient } = require('./percipio-axios-client');
+
+/**
+ * An Axios Client that provides a consistent approach
+ * for making Percipio User Management Service requests.
+ * @category Percipio Client
+ */
+class PercipioAxiosUserManagementServiceClient extends PercipioAxiosClient {
+  constructor(options) {
+    super(options);
+
+    this.description = 'Calls the User Management Service API.';
+  }
+  /**
+   * Type Definitions
+   */
+
+  /**
+   * Represents a CreateUserCustomAttribute object
+   * @typedef {object} CreateUserCustomAttribute
+   * @property {string} [id] - Percipio UUID for this custom attribute.  The id and/or name can
+   *  be provided to specify which custom attribute value to set for the user.  If both id and
+   * name are provided then only the id will be used when finding the custom attribute to updat
+   * e the value for.
+   * @property {string} [name] - The label used within Percipio to identify this custom attribu
+   * te.  If the custom attribute id is not included, this label will be used to find the custo
+   * m attribute to updated the value for.
+   * @property {string} value - Represents a value
+   *
+   */
+
+  /**
+   * Represents a CreateUser object
+   * @typedef {object} CreateUser
+   * @property {string} [password] - Organizations that exclusively use SSO, or notify users to
+   *  set their own password, do not need to set this value.  When providing a password, the va
+   * lue must have at least 8 characters and contain at least 3 of the following 4 types of cha
+   * racters... Lower case letters (a-z), Upper case letters (A-Z), Numbers (0-9), Special char
+   * acters (e.g. !@#%^&amp;*)
+   * @property {boolean} [sendWelcomeEmail=false] - True for sending Welcome Email, false for s
+   * uppressing welcome email.
+   * @property {string} externalUserId - Client system user identifier that is external to Perc
+   * ipio.  This is typically the primary key for the user in your system.
+   * @property {string} [email] - Represents an email
+   * @property {boolean} [isActive] - Status of the user, only active users can access site.
+   * @property {string} [loginName] - Value that a user can use to log directly into Percipio
+   * @property {string} [firstName] - Represents a firstName
+   * @property {string} [lastName] - Represents a lastName
+   * @property {"LEARNER"|"ADMIN"|"CONTENT_CURATOR"|"CONTENT_COORDINATOR"|"LEARNING_ADMIN"|"MAN
+   * AGER"} [role] - Used to determine what functionality the user can access.
+   * @property {CreateUserCustomAttribute[]} [customAttributes] - Organization defined custom a
+   * ttributes
+   * @property {boolean} [isInstructor=false] - Instructor, user will act as a Instructor.
+   *
+   */
+
+  /**
+   * Represents a UpdateUserCustomAttribute object
+   * @typedef {object} UpdateUserCustomAttribute
+   * @property {string} [id] - Percipio UUID for this custom attribute.  The id and/or name can
+   *  be provided to specify which custom attribute value to set for the user.  If both id and
+   * name are provided then only the id will be used when finding the custom attribute to updat
+   * e the value for.
+   * @property {string} [name] - The label used within Percipio to identify this custom attribu
+   * te.  If the custom attribute id is not included, this label will be used to find the custo
+   * m attribute to updated the value for.
+   * @property {string} value - Represents a value
+   *
+   */
+
+  /**
+   * Represents a UpdateUser object
+   * @typedef {object} UpdateUser
+   * @property {string} [password] - Organizations that exclusively use SSO, or notify users to
+   *  set their own password, do not need to set this value.  When providing a password, the va
+   * lue must have at least 8 characters and contain at least 3 of the following 4 types of cha
+   * racters... Lower case letters (a-z), Upper case letters (A-Z), Numbers (0-9), Special char
+   * acters (e.g. !@#%^&amp;*)
+   * @property {boolean} [sendWelcomeEmail=false] - True for sending Welcome Email, false for s
+   * uppressing welcome email; ignored on update.
+   * @property {string} [externalUserId] - Client system user identifier that is external to Pe
+   * rcipio.  This is typically the primary key for the user in your system.
+   * @property {string} [email] - Represents an email
+   * @property {boolean} [isActive] - Status of the user, only active users can access site.
+   * @property {string} [loginName] - Value that a user can use to log directly into Percipio
+   * @property {string} [firstName] - Represents a firstName
+   * @property {string} [lastName] - Represents a lastName
+   * @property {"LEARNER"|"ADMIN"|"CONTENT_CURATOR"|"CONTENT_COORDINATOR"|"LEARNING_ADMIN"|"MAN
+   * AGER"} [role] - Used to determine what functionality the user can access.
+   * @property {UpdateUserCustomAttribute[]} [customAttributes] - Organization defined custom a
+   * ttributes
+   * @property {boolean} [isInstructor=false] - Instructor, user will act as a Instructor.
+   *
+   */
+
+  /**
+   * Represents a BatchUsercustomAttributes object
+   * @typedef {object} BatchUsercustomAttributes
+   * @property {string} [name] - The label used within Percipio to identify this custom attribu
+   * te.  If the custom attribute id is not included, this label will be used to find the custo
+   * m attribute to updated the value for.
+   * @property {string} [value] - Represents a value
+   *
+   */
+
+  /**
+   * Represents a BatchUser object
+   * @typedef {object} BatchUser
+   * @property {string} [newPassword] - Organizations that exclusively use SSO, or notify users
+   *  to set their own password, do not need to set this value.  When providing a password, the
+   *  value must have at least 8 characters and contain at least 3 of the following 4 types of
+   * characters... Lower case letters (a-z), Upper case letters (A-Z), Numbers (0-9), Special c
+   * haracters (e.g. !@#%^&amp;*)
+   * @property {boolean} [sendWelcomeEmail=false] - True for sending Welcome Email, false for s
+   * uppressing welcome email.
+   * @property {string} [externalUserId] - Client system user identifier that is external to Pe
+   * rcipio.  This is typically the primary key for the user in your system.
+   * @property {string} [email] - Represents an email
+   * @property {boolean} [isActive] - Status of the user, only active users can access site.
+   * @property {string} [loginName] - Value that a user can use to log directly into Percipio
+   * @property {string} [firstName] - Represents a firstName
+   * @property {string} [lastName] - Represents a lastName
+   * @property {"en"|"es"|"de"|"fr"|"pt"|"ja"|"zh"} [welcomeEmailLanguage] - Represents a welco
+   * meEmailLanguage
+   * @property {"LEARNER"|"ADMIN"|"CONTENT_CURATOR"|"CONTENT_COORDINATOR"|"LEARNING_ADMIN"|"MAN
+   * AGER"} [role] - Used to determine what functionality the user can access.
+   * @property {BatchUsercustomAttributes[]} [customAttributes] - Organization defined custom a
+   * ttributes
+   * @property {boolean} [isInstructor=false] - Instructor, user will act as a Instructor.
+   * @property {boolean} [mustResetPassword=false] - Whether or not the user must reset their p
+   * assword on initial login.
+   *
+   */
+
+  /**
+   * Retrieve a list of users based on the filter criteria
+   *
+   * @param {Object} config  - Configuration object for request
+   * @property {Object} [config.params={}] - The params to send with the request, any unsupport
+   * ed params will be silently ignored.
+   * @property {integer} [config.params.offset=0] - Used in conjunction with 'max' to specify w
+   * hich set of 'max' users should be returned.  The default is 0 which returns 1 through max
+   * users.  If offset is sent as 1, then users 2 through max+1 are returned.
+   * @property {integer} [config.params.max=1000] - The maximum number of users to return in a
+   * response.  The default is 1000.  Valid values are between 1 and 1000.
+   * @property {string} [config.params.updatedSince] - Filter criteria that only returns users
+   * updated since the date specified in GMT.
+   * @property {...*} [config.*] - Any other Axios Request Config properties to pass to the request.
+   * See {@link https://github.com/axios/axios#request-config|Axios Request Config}
+   * @return {Promise}
+   * @memberof PercipioAxiosUserManagementServiceClient
+   */
+  getUsers({ params = {}, ...other }) {
+    const resourceToUse = '/user-management/v1/organizations/{orgId}/users';
+    // Remove unsupported arguments before calling percipio-axios-client
+    const { method, resource, data, extraPlaceholders, ...rest } = other;
+    // Remove unsupported params, and ensure default params are set.
+    const paramsToUse = (({ offset = 0, max = 1000, updatedSince }) => ({
+      offset,
+      max,
+      updatedSince,
+    }))(params);
+
+    return this.get({ resource: resourceToUse, params: paramsToUse, ...rest });
+  }
+
+  /**
+   * Create a new user
+   *
+   * @param {Object} config  - Configuration object for request
+   * @property {CreateUser} [config.data={}] - The request body to be sent to the API
+   * @property {...*} [config.*] - Any other Axios Request Config properties to pass to the request.
+   * See {@link https://github.com/axios/axios#request-config|Axios Request Config}
+   * @return {Promise}
+   * @memberof PercipioAxiosUserManagementServiceClient
+   */
+  createUser({ data = {}, ...other }) {
+    const resourceToUse = '/user-management/v1/organizations/{orgId}/users';
+    // Remove unsupported arguments before calling percipio-axios-client
+    const { method, resource, params, extraPlaceholders, ...rest } = other;
+    return this.post({ resource: resourceToUse, data, ...rest });
+  }
+
+  /**
+   * Retrieve a user by UUID
+   *
+   * @param {Object} config  - Configuration object for request
+   * @property {Object} [config.extraPlaceholders={}] - Additional placeholders to replace in r
+   * esource path
+   * @property {string} config.extraPlaceholders.id - User UUID
+   * @property {...*} [config.*] - Any other Axios Request Config properties to pass to the request.
+   * See {@link https://github.com/axios/axios#request-config|Axios Request Config}
+   * @return {Promise}
+   * @memberof PercipioAxiosUserManagementServiceClient
+   */
+  getUserByUuid({ extraPlaceholders = {}, ...other }) {
+    const resourceToUse = '/user-management/v1/organizations/{orgId}/users/{id}';
+    // Remove unsupported arguments before calling percipio-axios-client
+    const { method, resource, data, params, ...rest } = other;
+    return this.get({ resource: resourceToUse, extraPlaceholders, ...rest });
+  }
+
+  /**
+   * Update user by UUID
+   *
+   * @param {Object} config  - Configuration object for request
+   * @property {Object} [config.extraPlaceholders={}] - Additional placeholders to replace in r
+   * esource path
+   * @property {string} config.extraPlaceholders.id - User UUID
+   * @property {UpdateUser} [config.data={}] - The request body to be sent to the API
+   * @property {...*} [config.*] - Any other Axios Request Config properties to pass to the request.
+   * See {@link https://github.com/axios/axios#request-config|Axios Request Config}
+   * @return {Promise}
+   * @memberof PercipioAxiosUserManagementServiceClient
+   */
+  updateUserByUuid({ extraPlaceholders = {}, data = {}, ...other }) {
+    const resourceToUse = '/user-management/v1/organizations/{orgId}/users/{id}';
+    // Remove unsupported arguments before calling percipio-axios-client
+    const { method, resource, params, ...rest } = other;
+    return this.patch({ resource: resourceToUse, extraPlaceholders, data, ...rest });
+  }
+
+  /**
+   * Retrieve a user by external user id
+   *
+   * @param {Object} config  - Configuration object for request
+   * @property {Object} [config.extraPlaceholders={}] - Additional placeholders to replace in r
+   * esource path
+   * @property {string} config.extraPlaceholders.externalUserId - external user identifier
+   * @property {...*} [config.*] - Any other Axios Request Config properties to pass to the request.
+   * See {@link https://github.com/axios/axios#request-config|Axios Request Config}
+   * @return {Promise}
+   * @memberof PercipioAxiosUserManagementServiceClient
+   */
+  getUserByExternalUserId({ extraPlaceholders = {}, ...other }) {
+    const resourceToUse =
+      '/user-management/v1/organizations/{orgId}/users/external-user-id/{externalUserId}';
+    // Remove unsupported arguments before calling percipio-axios-client
+    const { method, resource, data, params, ...rest } = other;
+    return this.get({ resource: resourceToUse, extraPlaceholders, ...rest });
+  }
+
+  /**
+   * Upsert user by external user id
+   *
+   * @param {Object} config  - Configuration object for request
+   * @property {Object} [config.extraPlaceholders={}] - Additional placeholders to replace in r
+   * esource path
+   * @property {string} config.extraPlaceholders.externalUserId - Client system user identifier
+   *  that is external to Percipio.  This is typically the primary key for the user in your sys
+   * tem.
+   * @property {UpdateUser} [config.data={}] - The request body to be sent to the API
+   * @property {...*} [config.*] - Any other Axios Request Config properties to pass to the request.
+   * See {@link https://github.com/axios/axios#request-config|Axios Request Config}
+   * @return {Promise}
+   * @memberof PercipioAxiosUserManagementServiceClient
+   */
+  upsertUserByExternalUserId({ extraPlaceholders = {}, data = {}, ...other }) {
+    const resourceToUse =
+      '/user-management/v1/organizations/{orgId}/users/external-user-id/{externalUserId}';
+    // Remove unsupported arguments before calling percipio-axios-client
+    const { method, resource, params, ...rest } = other;
+    return this.patch({ resource: resourceToUse, extraPlaceholders, data, ...rest });
+  }
+
+  /**
+   * Retrieve a user by login name
+   *
+   * @param {Object} config  - Configuration object for request
+   * @property {Object} [config.extraPlaceholders={}] - Additional placeholders to replace in r
+   * esource path
+   * @property {string} config.extraPlaceholders.loginName - login name of the user
+   * @property {...*} [config.*] - Any other Axios Request Config properties to pass to the request.
+   * See {@link https://github.com/axios/axios#request-config|Axios Request Config}
+   * @return {Promise}
+   * @memberof PercipioAxiosUserManagementServiceClient
+   */
+  getUserByLoginName({ extraPlaceholders = {}, ...other }) {
+    const resourceToUse = '/user-management/v1/organizations/{orgId}/users/login-name/{loginName}';
+    // Remove unsupported arguments before calling percipio-axios-client
+    const { method, resource, data, params, ...rest } = other;
+    return this.get({ resource: resourceToUse, extraPlaceholders, ...rest });
+  }
+
+  /**
+   * Upsert user by login name
+   *
+   * @param {Object} config  - Configuration object for request
+   * @property {Object} [config.extraPlaceholders={}] - Additional placeholders to replace in r
+   * esource path
+   * @property {string} config.extraPlaceholders.loginName - login name of the user
+   * @property {UpdateUser} [config.data={}] - The request body to be sent to the API
+   * @property {...*} [config.*] - Any other Axios Request Config properties to pass to the request.
+   * See {@link https://github.com/axios/axios#request-config|Axios Request Config}
+   * @return {Promise}
+   * @memberof PercipioAxiosUserManagementServiceClient
+   */
+  upsertUserByLoginName({ extraPlaceholders = {}, data = {}, ...other }) {
+    const resourceToUse = '/user-management/v1/organizations/{orgId}/users/login-name/{loginName}';
+    // Remove unsupported arguments before calling percipio-axios-client
+    const { method, resource, params, ...rest } = other;
+    return this.patch({ resource: resourceToUse, extraPlaceholders, data, ...rest });
+  }
+
+  /**
+   * Retrieve a user by Email-Id
+   *
+   * @param {Object} config  - Configuration object for request
+   * @property {Object} [config.extraPlaceholders={}] - Additional placeholders to replace in r
+   * esource path
+   * @property {string} config.extraPlaceholders.loginNameOrEmail - Login name or Email Id of t
+   * he user
+   * @property {...*} [config.*] - Any other Axios Request Config properties to pass to the request.
+   * See {@link https://github.com/axios/axios#request-config|Axios Request Config}
+   * @return {Promise}
+   * @memberof PercipioAxiosUserManagementServiceClient
+   */
+  getUserByEmailId({ extraPlaceholders = {}, ...other }) {
+    const resourceToUse =
+      '/user-management/v1/organizations/{orgId}/users/login-name-or-email/{loginNameOrEmail}';
+    // Remove unsupported arguments before calling percipio-axios-client
+    const { method, resource, data, params, ...rest } = other;
+    return this.get({ resource: resourceToUse, extraPlaceholders, ...rest });
+  }
+
+  /**
+   * Accepts the batch users request and return a handler.
+   *
+   * @param {Object} config  - Configuration object for request
+   * @property {BatchUser[]} [config.data=[]] - The request body to be sent to the API
+   * @property {...*} [config.*] - Any other Axios Request Config properties to pass to the request.
+   * See {@link https://github.com/axios/axios#request-config|Axios Request Config}
+   * @return {Promise}
+   * @memberof PercipioAxiosUserManagementServiceClient
+   */
+  createBatchUsersRequest({ data = [], ...other }) {
+    const resourceToUse = '/user-management/v1/organizations/{orgId}/batch-users-request';
+    // Remove unsupported arguments before calling percipio-axios-client
+    const { method, resource, params, extraPlaceholders, ...rest } = other;
+    return this.post({ resource: resourceToUse, data, ...rest });
+  }
+
+  /**
+   * Accepts the batch request handler and returns the processing response.
+   *
+   * @param {Object} config  - Configuration object for request
+   * @property {Object} [config.extraPlaceholders={}] - Additional placeholders to replace in r
+   * esource path
+   * @property {string} config.extraPlaceholders.batchUsersRequestId - Handle to access the bat
+   * ch processing response.
+   * @property {...*} [config.*] - Any other Axios Request Config properties to pass to the request.
+   * See {@link https://github.com/axios/axios#request-config|Axios Request Config}
+   * @return {Promise}
+   * @memberof PercipioAxiosUserManagementServiceClient
+   */
+  getBatchUsersRequest({ extraPlaceholders = {}, ...other }) {
+    const resourceToUse =
+      '/user-management/v1/organizations/{orgId}/batch-users-request/{batchUsersRequestId}';
+    // Remove unsupported arguments before calling percipio-axios-client
+    const { method, resource, data, params, ...rest } = other;
+    return this.get({ resource: resourceToUse, extraPlaceholders, ...rest });
+  }
+}
+
+module.exports = { PercipioAxiosUserManagementServiceClient };
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+<script src="scripts/collapse.js" defer></script>
+
+
+</body>
+</html>
