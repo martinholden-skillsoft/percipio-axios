@@ -2,7 +2,7 @@
 
 # percipio-axios
 
-Axios-based client for the Percipio API
+Axios-based client for the Percipio API, and generated SDK Clients for eachAPI
 
 ## Quickstart
 
@@ -22,7 +22,8 @@ Axios-based client for the Percipio API
   BEARER_TOKEN=eyJhbGciOi.....qWPBgDkPU
   ```
 
-- Create code to call your chosen API, here we will call the [Get Collections](https://api.percipio.com/common/api-docs/#/%2Fv1/getCollections) and display the response in the console.
+### Use percipio-axios client
+- Create code to call your chosen API using the base code, here we will call the [Get Collections](https://api.percipio.com/common/api-docs/#/%2Fv1/getCollections) and display the response in the console.
 
   ```javascript
   const { PercipioAxiosClient } = require("percipio-axios");
@@ -64,15 +65,80 @@ Axios-based client for the Percipio API
       timeout: 2000, //This is a standard Axios Request Config value
     })
     .then((response) => {
-      console.log(JSON.stringify(response.data, null, 2));
+      consola.log('********** Results **********\n');
+      consola.log(asciitable(Array.isArray(response.data) ? response.data : [response.data]));
     })
     .catch((err) => {
       if (PercipioAxiosClient.isPercipioAxiosClientError(err)) {
-        console.error("PercipoAxiosClient Error. ", err);
+        consola.error("PercipoAxiosClient Error. ", err);
       } else {
-        console.error(err);
+        consola.error(err);
       }
     });
+  ```
+
+### Use PercipioAxiosCommonServicesClient client
+- Create code to call your chosen API using the base code, here we will call the [Get Collections](https://api.percipio.com/common/api-docs/#/%2Fv1/getCollections) and display the response in the console.
+
+  ```javascript
+  const asciitable = require('asciitable');
+  const consola = require('consola');
+  const { PercipioAxiosCommonServicesClient } = require("percipio-axios");
+
+  require("dotenv").config();
+
+  if (!process.env.ORG_ID || !process.env.BEARER_TOKEN || !process.env.BASE_URL) {
+    console.error(
+      "Missing critical env vars. Make sure all variables are defined in .env file. Aborting. "
+    );
+    process.exit(1);
+  }
+
+  /**
+  * Create a new PercipioAxiosClient
+  *
+  * @param {Object} config
+  * @return {PercipioAxiosClient} The PercipioAxiosClient Instance
+  */
+  const getPercipioClient = (config) => {
+    return new Promise((resolve, reject) => {
+      try {
+        const client = new PercipioAxiosCommonServiceClient(config);
+        resolve(client);
+      } catch (error) {
+        reject(error);
+      }
+    });
+  };
+
+  getPercipioClient({
+    baseURL: process.env.BASE_URL,
+    orgId: process.env.ORG_ID,
+    bearer: process.env.BEARER_TOKEN,
+    resourcePlaceholders: { version: 'v1' },
+  })
+  .then((client) => {
+    // This uses the Percipio Common API getCollections method.
+    // https://api.percipio.com/common/api-docs/#/%2Fv1/getCollections
+
+    client
+      .getCollections({
+        headers: { 'User-Agent': 'Percipio-Node-SDK' }, // This is an additional custom header
+        timeout: 2000, // This is a standard Axios Request Config value
+      })
+      .then((response) => {
+        consola.log('******** Timing Data ********\n');
+        consola.log(asciitable([response.timings]));
+        consola.log('********** Results **********\n');
+        consola.log(asciitable(Array.isArray(response.data) ? response.data : [response.data]));
+      })
+      .catch((err) => {
+        consola.error(err);
+      });
+  })
+  .catch((err) => {
+    consola.error(err);
+  });
   ```
 
 ## Documentation
